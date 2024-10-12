@@ -43,26 +43,5 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void Look()
-    {
-
-        //
-        //{
-
-        //    
-        //    var matrix = Matrix4x4.Rotate(Quaternion.Euler(0, 45, 0));
-
-        //    var skewedInput = matrix.MultiplyPoint3x4(input);
-
-        //    var relative = (transform.position + skewedInput) - transform.position;
-        //    var rot = Quaternion.LookRotation(relative, Vector3.up);
-
-        //    transform.rotation, rot, turnSpeed * Time.deltaTime);
-
-        //} else
-        //{
-        //    animator.SetBool("isMoving", false);
-        //}
-    }
 
 }
