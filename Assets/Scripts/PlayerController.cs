@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -7,7 +8,10 @@ public class PlayerController : MonoBehaviour
     private Animator animator;
     public float speed = 10;
     public float rotationSpeed;
+    private int count;
+    public TMP_Text livesText;
     //[SerializeField] private float turnSpeed = 360;
+
 
     private CharacterController characterController;
 
@@ -16,7 +20,12 @@ public class PlayerController : MonoBehaviour
     {
         animator = GetComponent<Animator>();
 
+        count = 3;
+
         characterController = GetComponent<CharacterController>();
+
+        livesText.text = "Lives: " + count.ToString();
+   
     }
 
     void Update()
@@ -43,5 +52,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+  
 
 }
