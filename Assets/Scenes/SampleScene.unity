@@ -1034,6 +1034,7 @@ GameObject:
   - component: {fileID: 471120288}
   - component: {fileID: 471120287}
   - component: {fileID: 471120286}
+  - component: {fileID: 471120289}
   m_Layer: 5
   m_Name: CloseInventoryWindow
   m_TagString: Untagged
@@ -1105,10 +1106,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1358949452}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 471120289}
+        m_TargetAssemblyTypeName: CloseWindow, Assembly-CSharp
+        m_MethodName: CloseInventory
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1133,7 +1134,7 @@ MonoBehaviour:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
+  m_Maskable: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1155,6 +1156,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 471120284}
   m_CullTransparentMesh: 1
+--- !u!114 &471120289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 471120284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fec38d648d4dd9a4d80596ca3880ad01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryWindow: {fileID: 1358949452}
 --- !u!1 &475668516
 GameObject:
   m_ObjectHideFlags: 0
@@ -2323,6 +2337,7 @@ GameObject:
   - component: {fileID: 1358949453}
   - component: {fileID: 1358949455}
   - component: {fileID: 1358949454}
+  - component: {fileID: 1358949456}
   m_Layer: 5
   m_Name: InventoryWindow
   m_TagString: Untagged
@@ -2388,6 +2403,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1358949452}
   m_CullTransparentMesh: 1
+--- !u!114 &1358949456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1358949452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fec38d648d4dd9a4d80596ca3880ad01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryWindow: {fileID: 0}
 --- !u!1001 &1434138959
 PrefabInstance:
   m_ObjectHideFlags: 0
