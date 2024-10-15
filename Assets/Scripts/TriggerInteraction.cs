@@ -6,10 +6,10 @@ using UnityEngine;
 public class TriggerInteraction : MonoBehaviour
 {
     public GameObject player; // Player object
-    public GameObject interactiveObject; // Object you want to change the color of.
+    public GameObject interactiveObject; // Object to highlight.
     public Material highlightMaterial; // highlight material when player is near object
     public Material defaultMaterial;
-    public TMP_Text objectText;
+    public TMP_Text objectText; // text for interaction prompts
 
 
     private void Start()
@@ -30,7 +30,11 @@ public class TriggerInteraction : MonoBehaviour
             else if (objectText.name == "PaintingText")
             {
                 objectText.text = "Painting. Press 'E' to interact";
-             }
+            }
+            else if (objectText.name == "ChestText")
+            {
+                objectText.text = "Chest. Press 'E' to interact";
+            }
             
 
         }
