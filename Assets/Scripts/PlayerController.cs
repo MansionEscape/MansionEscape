@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public float rotationSpeed;
     private int count;
     public TMP_Text livesText;
+    public TMP_Text objectText;
     //[SerializeField] private float turnSpeed = 360;
 
 
@@ -50,6 +51,7 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetBool("isMoving", false);
         }
+
     }
 
   
