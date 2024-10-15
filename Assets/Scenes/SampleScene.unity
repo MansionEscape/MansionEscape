@@ -224,7 +224,6 @@ GameObject:
   - component: {fileID: 51216481}
   - component: {fileID: 51216480}
   - component: {fileID: 51216479}
-  - component: {fileID: 51216482}
   m_Layer: 0
   m_Name: Chest
   m_TagString: Untagged
@@ -320,21 +319,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 51216476}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &51216482
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 51216476}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba681c7e3c9d3ba4c857ed28670b9748, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1885136438}
-  highlightMaterial: {fileID: 2100000, guid: ae9eff548b8273b44bf80f1e8657dc58, type: 2}
-  defaultMaterial: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!1 &128490039
 GameObject:
   m_ObjectHideFlags: 0
@@ -1070,7 +1054,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1101, y: 700}
+  m_AnchoredPosition: {x: 1113, y: 24}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &444979688
@@ -2400,7 +2384,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 837860008}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2408,7 +2392,7 @@ Transform:
   - {fileID: 1750440152}
   - {fileID: 1157436792}
   - {fileID: 295793411}
-  m_Father: {fileID: 1982597686}
+  m_Father: {fileID: 1779634182}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &880002272
 GameObject:
@@ -3806,6 +3790,7 @@ Transform:
   m_Children:
   - {fileID: 51216477}
   - {fileID: 1852284633}
+  - {fileID: 837860009}
   m_Father: {fileID: 1982597686}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1801717291
@@ -4346,7 +4331,6 @@ Transform:
   - {fileID: 755309788}
   - {fileID: 238042374}
   - {fileID: 1779634182}
-  - {fileID: 837860009}
   m_Father: {fileID: 586120012}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2020520901 stripped
