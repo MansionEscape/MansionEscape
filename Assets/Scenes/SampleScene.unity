@@ -2290,7 +2290,7 @@ MonoBehaviour:
   interactiveObject: {fileID: 475668516}
   highlightMaterial: {fileID: 2100000, guid: ae9eff548b8273b44bf80f1e8657dc58, type: 2}
   defaultMaterial: {fileID: 2100000, guid: a2d641af4179722418e3a9cb210fdcf4, type: 2}
-  objectText: {fileID: 772356285}
+  objectText: {fileID: 0}
 --- !u!65 &799910847
 BoxCollider:
   m_ObjectHideFlags: 0
