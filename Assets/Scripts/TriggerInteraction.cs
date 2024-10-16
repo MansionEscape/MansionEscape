@@ -12,7 +12,6 @@ public class TriggerInteraction : MonoBehaviour
     public Material highlightMaterial; // highlight material when player is near object
     public Material defaultMaterial;
     public TMP_Text objectText;
-    public GameObject scene;
 
     private bool bookshelfCollision;
    
@@ -30,7 +29,7 @@ public class TriggerInteraction : MonoBehaviour
         if (bookshelfCollision && Input.GetKeyDown(KeyCode.E))
         {
             Debug.Log("Key Pressed and in space");
-            SceneManager.LoadScene((scene.ToString()));
+            SceneManager.LoadScene("BookshelfPuzzle");
         }
     }
 
