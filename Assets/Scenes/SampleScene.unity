@@ -2712,6 +2712,8 @@ MonoBehaviour:
   highlightMaterial: {fileID: 2100000, guid: ae9eff548b8273b44bf80f1e8657dc58, type: 2}
   defaultMaterial: {fileID: 2100000, guid: a2d641af4179722418e3a9cb210fdcf4, type: 2}
   objectText: {fileID: 444979688}
+  interactionMessage: Chest. Press 'E' to interact.
+  puzzlePanel: {fileID: 1682501510}
 --- !u!65 &1057622123
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2988,7 +2990,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_UiScaleMode: 0
   m_ReferencePixelsPerUnit: 100
-  m_ScaleFactor: 0.15
+  m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
@@ -3200,6 +3202,8 @@ MonoBehaviour:
   highlightMaterial: {fileID: 2100000, guid: ae9eff548b8273b44bf80f1e8657dc58, type: 2}
   defaultMaterial: {fileID: 2100000, guid: a2d641af4179722418e3a9cb210fdcf4, type: 2}
   objectText: {fileID: 1728394554}
+  interactionMessage: Painting. Press 'E' to interact.
+  puzzlePanel: {fileID: 0}
 --- !u!65 &1407658701
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4811,6 +4815,8 @@ MonoBehaviour:
   highlightMaterial: {fileID: 2100000, guid: ae9eff548b8273b44bf80f1e8657dc58, type: 2}
   defaultMaterial: {fileID: 2100000, guid: a2d641af4179722418e3a9cb210fdcf4, type: 2}
   objectText: {fileID: 544447400}
+  interactionMessage: Bookshelf. Press 'E' to interact.
+  puzzlePanel: {fileID: 0}
 --- !u!65 &2064597059
 BoxCollider:
   m_ObjectHideFlags: 0
