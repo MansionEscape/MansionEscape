@@ -23,6 +23,7 @@ public class InteractiveObjectController : MonoBehaviour
         if (other.gameObject == player)  // check if object entering is the player
         {
             objectRenderer.material = highlightMaterial;
+            
         }
     }
 
