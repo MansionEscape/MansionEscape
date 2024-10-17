@@ -3162,7 +3162,6 @@ GameObject:
   - component: {fileID: 1407658703}
   - component: {fileID: 1407658702}
   - component: {fileID: 1407658701}
-  - component: {fileID: 1407658700}
   m_Layer: 0
   m_Name: PaintingTrigger
   m_TagString: Untagged
@@ -3185,25 +3184,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1400324159}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1407658700
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1407658698}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8a053527a6e98948a83cb45ada6ba2e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1885136438}
-  interactiveObject: {fileID: 295793407}
-  highlightMaterial: {fileID: 2100000, guid: ae9eff548b8273b44bf80f1e8657dc58, type: 2}
-  defaultMaterial: {fileID: 2100000, guid: a2d641af4179722418e3a9cb210fdcf4, type: 2}
-  objectText: {fileID: 1728394554}
-  interactionMessage: Painting. Press 'E' to interact.
-  puzzlePanel: {fileID: 0}
 --- !u!65 &1407658701
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4428,7 +4408,6 @@ MonoBehaviour:
   speed: 15
   rotationSpeed: 720
   livesText: {fileID: 175241136}
-  objectText: {fileID: 0}
 --- !u!143 &1885136443
 CharacterController:
   m_ObjectHideFlags: 0
@@ -4816,7 +4795,7 @@ MonoBehaviour:
   defaultMaterial: {fileID: 2100000, guid: a2d641af4179722418e3a9cb210fdcf4, type: 2}
   objectText: {fileID: 544447400}
   interactionMessage: Bookshelf. Press 'E' to interact.
-  puzzlePanel: {fileID: 0}
+  puzzlePanel: {fileID: 1682501510}
 --- !u!65 &2064597059
 BoxCollider:
   m_ObjectHideFlags: 0
