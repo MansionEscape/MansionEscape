@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
+using UnityEditor.IMGUI.Controls;
 using UnityEngine;
 
 public class TriggerInteraction : MonoBehaviour
@@ -9,7 +11,9 @@ public class TriggerInteraction : MonoBehaviour
     public GameObject interactiveObject; // Object you want to change the color of.
     public Material highlightMaterial; // highlight material when player is near object
     public Material defaultMaterial;
-    public TMP_Text objectText;
+    public TMP_Text objectText; // text for interaction prompts
+    public string interactionMessage; // custom prompt message to display
+
 
 
     private void Start()
@@ -22,17 +26,7 @@ public class TriggerInteraction : MonoBehaviour
         if (other.gameObject == player)
         {
             interactiveObject.GetComponent<Renderer>().material = highlightMaterial;
-
-            if (objectText.name == "BookshelfText")
-            {
-                objectText.text = "Bookshelf. Press 'E' to interact";
-            }
-            else if (objectText.name == "PaintingText")
-            {
-                objectText.text = "Painting. Press 'E' to interact";
-             }
-            
-
+            objectText.text = interactionMessage;   // display the custom message prompt
         }
     }
 
