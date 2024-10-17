@@ -2713,7 +2713,6 @@ MonoBehaviour:
   defaultMaterial: {fileID: 2100000, guid: a2d641af4179722418e3a9cb210fdcf4, type: 2}
   objectText: {fileID: 444979688}
   interactionMessage: Chest. Press 'E' to interact.
-  puzzlePanel: {fileID: 1682501510}
 --- !u!65 &1057622123
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3203,7 +3202,6 @@ MonoBehaviour:
   defaultMaterial: {fileID: 2100000, guid: a2d641af4179722418e3a9cb210fdcf4, type: 2}
   objectText: {fileID: 1728394554}
   interactionMessage: Painting. Press 'E' to interact.
-  puzzlePanel: {fileID: 0}
 --- !u!65 &1407658701
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3554,7 +3552,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: (Chest Puzzle)
+  m_Text: Chest Puzzle
 --- !u!222 &1573886527
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3611,7 +3609,7 @@ GameObject:
   - component: {fileID: 1634086998}
   - component: {fileID: 1634086997}
   m_Layer: 5
-  m_Name: Button
+  m_Name: CloseButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3768,7 +3766,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 500, y: 500}
+  m_SizeDelta: {x: 400, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1682501512
 MonoBehaviour:
@@ -4816,7 +4814,6 @@ MonoBehaviour:
   defaultMaterial: {fileID: 2100000, guid: a2d641af4179722418e3a9cb210fdcf4, type: 2}
   objectText: {fileID: 544447400}
   interactionMessage: Bookshelf. Press 'E' to interact.
-  puzzlePanel: {fileID: 0}
 --- !u!65 &2064597059
 BoxCollider:
   m_ObjectHideFlags: 0
