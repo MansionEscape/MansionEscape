@@ -224,7 +224,6 @@ GameObject:
   - component: {fileID: 51216481}
   - component: {fileID: 51216480}
   - component: {fileID: 51216479}
-  - component: {fileID: 51216482}
   m_Layer: 0
   m_Name: Chest
   m_TagString: Untagged
@@ -320,21 +319,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 51216476}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &51216482
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 51216476}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba681c7e3c9d3ba4c857ed28670b9748, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1885136438}
-  highlightMaterial: {fileID: 2100000, guid: ae9eff548b8273b44bf80f1e8657dc58, type: 2}
-  defaultMaterial: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!1 &128490039
 GameObject:
   m_ObjectHideFlags: 0
@@ -700,7 +684,6 @@ GameObject:
   - component: {fileID: 295793410}
   - component: {fileID: 295793409}
   - component: {fileID: 295793408}
-  - component: {fileID: 295793412}
   m_Layer: 0
   m_Name: Painting
   m_TagString: Untagged
@@ -796,21 +779,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 837860009}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &295793412
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 295793407}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba681c7e3c9d3ba4c857ed28670b9748, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1885136438}
-  highlightMaterial: {fileID: 2100000, guid: ae9eff548b8273b44bf80f1e8657dc58, type: 2}
-  defaultMaterial: {fileID: 2100000, guid: a2d641af4179722418e3a9cb210fdcf4, type: 2}
 --- !u!1 &381375790
 GameObject:
   m_ObjectHideFlags: 0
@@ -2787,7 +2755,6 @@ GameObject:
   - component: {fileID: 1407658703}
   - component: {fileID: 1407658702}
   - component: {fileID: 1407658701}
-  - component: {fileID: 1407658700}
   m_Layer: 0
   m_Name: PaintingTrigger
   m_TagString: Untagged
@@ -2810,24 +2777,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1400324159}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1407658700
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1407658698}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8a053527a6e98948a83cb45ada6ba2e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1885136438}
-  interactiveObject: {fileID: 295793407}
-  highlightMaterial: {fileID: 2100000, guid: ae9eff548b8273b44bf80f1e8657dc58, type: 2}
-  defaultMaterial: {fileID: 2100000, guid: a2d641af4179722418e3a9cb210fdcf4, type: 2}
-  objectText: {fileID: 1728394554}
-  bookshelfCollision: 0
 --- !u!65 &1407658701
 BoxCollider:
   m_ObjectHideFlags: 0
