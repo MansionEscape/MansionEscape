@@ -2713,6 +2713,7 @@ MonoBehaviour:
   defaultMaterial: {fileID: 2100000, guid: a2d641af4179722418e3a9cb210fdcf4, type: 2}
   objectText: {fileID: 444979688}
   interactionMessage: Chest. Press 'E' to interact.
+  puzzlePanel: {fileID: 1682501510}
 --- !u!65 &1057622123
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3202,6 +3203,7 @@ MonoBehaviour:
   defaultMaterial: {fileID: 2100000, guid: a2d641af4179722418e3a9cb210fdcf4, type: 2}
   objectText: {fileID: 1728394554}
   interactionMessage: Painting. Press 'E' to interact.
+  puzzlePanel: {fileID: 0}
 --- !u!65 &1407658701
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4814,6 +4816,7 @@ MonoBehaviour:
   defaultMaterial: {fileID: 2100000, guid: a2d641af4179722418e3a9cb210fdcf4, type: 2}
   objectText: {fileID: 544447400}
   interactionMessage: Bookshelf. Press 'E' to interact.
+  puzzlePanel: {fileID: 0}
 --- !u!65 &2064597059
 BoxCollider:
   m_ObjectHideFlags: 0
