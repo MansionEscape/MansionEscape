@@ -4,8 +4,7 @@ using TMPro;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
-{
-    private Animator animator;
+{ 
     public float speed = 10;
     public float rotationSpeed;
     private int count;
@@ -18,7 +17,6 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        animator = GetComponent<Animator>();
 
         count = 3;
 
@@ -41,14 +39,10 @@ public class PlayerController : MonoBehaviour
 
         if ( movementDirection!= Vector3.zero)
         {
-            animator.SetBool("isMoving", true);
-
+           
             Quaternion toRotation = Quaternion.LookRotation(movementDirection, Vector3.up);
 
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
-        } else
-        {
-            animator.SetBool("isMoving", false);
         }
 
     }
