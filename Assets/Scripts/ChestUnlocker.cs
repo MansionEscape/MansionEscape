@@ -10,7 +10,13 @@ public class ChestUnlocker : MonoBehaviour
     public GameObject chestPanel; // panel to close after code is entered correctly
     public string correctCode; // correct code 
     public TMP_Text feedbackText; // to display when code is incorrect
-    
+    public GameObject chestContentsPanel; // // panel displaying chest contents (e.g. key, items)
+
+    public void Start()
+    {
+        chestContentsPanel.SetActive(false);
+    }
+
     public void OnEnterButtonClicked()
     {
         // get the value from the input field
@@ -20,13 +26,15 @@ public class ChestUnlocker : MonoBehaviour
         if (enteredCode == correctCode )
         {
             feedbackText.text = "Chest unlocked!";
-            feedbackText.color = Color.green;        // set feeback text color to green
             Debug.Log("chest unlocked successfully.");
+            chestPanel.SetActive(false);               // close chest panel
+            chestContentsPanel.SetActive(true);        // display chest contents panel
+            
         }
         else
         {
             feedbackText.text = "Incorrect code. Try again!";
-            feedbackText.color = Color.red;        // set feeback text color to red
+            feedbackText.color = Color.red;             // set feeback text color to red
             Debug.Log("Incorrect code entered.");
         }
     }
