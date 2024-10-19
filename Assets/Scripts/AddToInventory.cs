@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class Inventory : MonoBehaviour
+public class AddToInventory : MonoBehaviour
 {
     public List<string> items = new List<string>();
     public Transform inventoryGrid;
