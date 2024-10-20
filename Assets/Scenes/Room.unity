@@ -7747,6 +7747,7 @@ GameObject:
   - component: {fileID: 1869137734}
   - component: {fileID: 1869137733}
   - component: {fileID: 1869137732}
+  - component: {fileID: 1869137738}
   m_Layer: 0
   m_Name: DoorTrigger
   m_TagString: Untagged
@@ -7795,7 +7796,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1869137730}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c8a053527a6e98948a83cb45ada6ba2e, type: 3}
   m_Name: 
@@ -7902,6 +7903,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1869137730}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1869137738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1869137730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b987b2c04efefb946b548d1e0c869e8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 104926649}
+  door: {fileID: 475668516}
+  inventoryWindow: {fileID: 958272961}
+  inventoryGrid: {fileID: 667477776}
+  lockedMaterial: {fileID: 2100000, guid: 4e6ce5491e03ac147a298fef18049685, type: 2}
+  unlockedMaterial: {fileID: 2100000, guid: ae9eff548b8273b44bf80f1e8657dc58, type: 2}
+  defaultMaterial: {fileID: 2100000, guid: a2d641af4179722418e3a9cb210fdcf4, type: 2}
+  objectText: {fileID: 1182400164}
+  lockedMessage: Door Locked
+  unlockedMessage: Key Found. Door Unlocked!
 --- !u!1 &1957430264
 GameObject:
   m_ObjectHideFlags: 0
