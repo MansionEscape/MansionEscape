@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Schema;
 using TMPro;
 using UnityEngine;
 
@@ -14,20 +15,17 @@ public class PlayerController : MonoBehaviour
 
     private CharacterController characterController;
 
-
     void Start()
-    {
+    { 
 
         count = 3;
-
         characterController = GetComponent<CharacterController>();
 
-        livesText.text = "Lives: " + count.ToString();
-   
     }
 
     void Update()
     {
+        livesText.text = "Lives: " + count.ToString();
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
 
@@ -44,6 +42,7 @@ public class PlayerController : MonoBehaviour
 
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
         }
+
 
     }
 

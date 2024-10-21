@@ -11,5 +11,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BookshelfPuzzle.unity
     guid: 690a5b58191f8f2468bea3babc007326
+  - enabled: 1
+    path: Assets/Scenes/StartMenu.unity
+    guid: dd3224fe49da55646bc41068945319bc
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

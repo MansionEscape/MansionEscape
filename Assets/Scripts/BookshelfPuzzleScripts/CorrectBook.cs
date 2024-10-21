@@ -9,12 +9,14 @@ public class CorrectBook : MonoBehaviour
     public GameObject book;
     public Material defaultMaterial;
     public Material correctMaterial;
-    
+    public bool inCorrectSpot = false;
+
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject == book)
         {
             book.GetComponent<Renderer>().material = correctMaterial;
+            inCorrectSpot = true;
              
         }
     }
@@ -24,6 +26,7 @@ public class CorrectBook : MonoBehaviour
         if(other.gameObject == book)
         {
             book.GetComponent<Renderer>().material = defaultMaterial;
+            inCorrectSpot = false;
             
         }
     }
