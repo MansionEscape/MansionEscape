@@ -7788,7 +7788,7 @@ MonoBehaviour:
   HighlightedFalse: {fileID: 2100000, guid: 4e6ce5491e03ac147a298fef18049685, type: 2}
   doorOpen: DoorOpen
   doorClose: DoorClose
-  triggerInteraction: {fileID: 1869137733}
+  triggerInteraction: {fileID: 1869137738}
 --- !u!114 &1869137733
 MonoBehaviour:
   m_ObjectHideFlags: 0
