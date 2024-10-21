@@ -618,6 +618,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cb00bb5ddfb5964c962ce470536ea0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  correctMaterial: {fileID: 0}
 --- !u!1 &24548912
 GameObject:
   m_ObjectHideFlags: 0
@@ -1117,6 +1118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cb00bb5ddfb5964c962ce470536ea0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  correctMaterial: {fileID: 0}
 --- !u!1 &130195380
 GameObject:
   m_ObjectHideFlags: 0
@@ -1241,7 +1243,7 @@ GameObject:
   - component: {fileID: 172810422}
   - component: {fileID: 172810421}
   m_Layer: 0
-  m_Name: BookR2
+  m_Name: BookR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1375,6 +1377,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cb00bb5ddfb5964c962ce470536ea0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  correctMaterial: {fileID: 0}
 --- !u!1 &180323632
 GameObject:
   m_ObjectHideFlags: 0
@@ -1390,7 +1393,7 @@ GameObject:
   - component: {fileID: 180323638}
   - component: {fileID: 180323637}
   m_Layer: 0
-  m_Name: BookC2
+  m_Name: BookC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1524,6 +1527,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cb00bb5ddfb5964c962ce470536ea0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  correctMaterial: {fileID: 0}
 --- !u!1 &184491483
 GameObject:
   m_ObjectHideFlags: 0
@@ -2169,6 +2173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cb00bb5ddfb5964c962ce470536ea0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  correctMaterial: {fileID: 0}
 --- !u!1 &456469245
 GameObject:
   m_ObjectHideFlags: 0
@@ -2339,6 +2344,7 @@ MonoBehaviour:
   book: {fileID: 1186314240}
   defaultMaterial: {fileID: 2100000, guid: 57f6ac97b45b68840b2d54677613c61a, type: 2}
   correctMaterial: {fileID: 2100000, guid: a740586e01a049a498201cc6bb86c477, type: 2}
+  inCorrectSpot: 0
 --- !u!1 &566842353
 GameObject:
   m_ObjectHideFlags: 0
@@ -2462,6 +2468,7 @@ MonoBehaviour:
   book: {fileID: 1031842123}
   defaultMaterial: {fileID: 2100000, guid: 57f6ac97b45b68840b2d54677613c61a, type: 2}
   correctMaterial: {fileID: 2100000, guid: a740586e01a049a498201cc6bb86c477, type: 2}
+  inCorrectSpot: 0
 --- !u!1 &567963119
 GameObject:
   m_ObjectHideFlags: 0
@@ -3134,6 +3141,7 @@ MonoBehaviour:
   book: {fileID: 2019974328}
   defaultMaterial: {fileID: 2100000, guid: 57f6ac97b45b68840b2d54677613c61a, type: 2}
   correctMaterial: {fileID: 2100000, guid: a740586e01a049a498201cc6bb86c477, type: 2}
+  inCorrectSpot: 0
 --- !u!1 &698036298
 GameObject:
   m_ObjectHideFlags: 0
@@ -3257,6 +3265,7 @@ MonoBehaviour:
   book: {fileID: 180323632}
   defaultMaterial: {fileID: 2100000, guid: 57f6ac97b45b68840b2d54677613c61a, type: 2}
   correctMaterial: {fileID: 2100000, guid: a740586e01a049a498201cc6bb86c477, type: 2}
+  inCorrectSpot: 0
 --- !u!1 &713270110
 GameObject:
   m_ObjectHideFlags: 0
@@ -3473,6 +3482,7 @@ MonoBehaviour:
   book: {fileID: 760397408}
   defaultMaterial: {fileID: 2100000, guid: 57f6ac97b45b68840b2d54677613c61a, type: 2}
   correctMaterial: {fileID: 2100000, guid: a740586e01a049a498201cc6bb86c477, type: 2}
+  inCorrectSpot: 0
 --- !u!1 &760397408
 GameObject:
   m_ObjectHideFlags: 0
@@ -3622,6 +3632,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cb00bb5ddfb5964c962ce470536ea0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  correctMaterial: {fileID: 0}
 --- !u!1 &763557267
 GameObject:
   m_ObjectHideFlags: 0
@@ -3811,7 +3822,7 @@ GameObject:
   - component: {fileID: 784522576}
   - component: {fileID: 784522575}
   m_Layer: 5
-  m_Name: Button
+  m_Name: ExitButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3893,8 +3904,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 784522575}
-        m_TargetAssemblyTypeName: ExitController, Assembly-CSharp
+      - m_Target: {fileID: 1214270476}
+        m_TargetAssemblyTypeName: PuzzleCompleteController, Assembly-CSharp
         m_MethodName: ExitPuzzle
         m_Mode: 1
         m_Arguments:
@@ -4241,6 +4252,7 @@ MonoBehaviour:
   book: {fileID: 1738259895}
   defaultMaterial: {fileID: 2100000, guid: 57f6ac97b45b68840b2d54677613c61a, type: 2}
   correctMaterial: {fileID: 2100000, guid: a740586e01a049a498201cc6bb86c477, type: 2}
+  inCorrectSpot: 0
 --- !u!1 &813711652
 GameObject:
   m_ObjectHideFlags: 0
@@ -4364,6 +4376,7 @@ MonoBehaviour:
   book: {fileID: 1322988288}
   defaultMaterial: {fileID: 2100000, guid: 57f6ac97b45b68840b2d54677613c61a, type: 2}
   correctMaterial: {fileID: 2100000, guid: a740586e01a049a498201cc6bb86c477, type: 2}
+  inCorrectSpot: 0
 --- !u!1 &842746213
 GameObject:
   m_ObjectHideFlags: 0
@@ -4795,6 +4808,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cb00bb5ddfb5964c962ce470536ea0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  correctMaterial: {fileID: 0}
 --- !u!1 &958179315
 GameObject:
   m_ObjectHideFlags: 0
@@ -5294,6 +5308,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cb00bb5ddfb5964c962ce470536ea0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  correctMaterial: {fileID: 0}
 --- !u!1 &1041370941
 GameObject:
   m_ObjectHideFlags: 0
@@ -5903,6 +5918,7 @@ MonoBehaviour:
   book: {fileID: 1955725369}
   defaultMaterial: {fileID: 2100000, guid: 57f6ac97b45b68840b2d54677613c61a, type: 2}
   correctMaterial: {fileID: 2100000, guid: a740586e01a049a498201cc6bb86c477, type: 2}
+  inCorrectSpot: 0
 --- !u!1 &1109829715
 GameObject:
   m_ObjectHideFlags: 0
@@ -6026,6 +6042,7 @@ MonoBehaviour:
   book: {fileID: 451926613}
   defaultMaterial: {fileID: 2100000, guid: 57f6ac97b45b68840b2d54677613c61a, type: 2}
   correctMaterial: {fileID: 2100000, guid: a740586e01a049a498201cc6bb86c477, type: 2}
+  inCorrectSpot: 0
 --- !u!1 &1185692802
 GameObject:
   m_ObjectHideFlags: 0
@@ -6226,6 +6243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cb00bb5ddfb5964c962ce470536ea0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  correctMaterial: {fileID: 0}
 --- !u!1 &1214270471
 GameObject:
   m_ObjectHideFlags: 0
@@ -6238,6 +6256,7 @@ GameObject:
   - component: {fileID: 1214270474}
   - component: {fileID: 1214270473}
   - component: {fileID: 1214270472}
+  - component: {fileID: 1214270476}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -6321,6 +6340,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 784522574}
+  - {fileID: 1993226583}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -6328,6 +6348,37 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1214270476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1214270471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e718c79de653cd247a217547f1fb8740, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerPoints:
+  - {fileID: 1560659412}
+  - {fileID: 1804675658}
+  - {fileID: 813711652}
+  - {fileID: 1352845979}
+  - {fileID: 799223868}
+  - {fileID: 1487961929}
+  - {fileID: 685314936}
+  - {fileID: 2070970818}
+  - {fileID: 1109829715}
+  - {fileID: 698036298}
+  - {fileID: 1753706403}
+  - {fileID: 1096750619}
+  - {fileID: 566842353}
+  - {fileID: 1881554806}
+  - {fileID: 556865555}
+  - {fileID: 743016436}
+  scoreText: {fileID: 1993226584}
+  puzzleComplete: {fileID: 1044035418}
 --- !u!1 &1240414672
 GameObject:
   m_ObjectHideFlags: 0
@@ -6962,6 +7013,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cb00bb5ddfb5964c962ce470536ea0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  correctMaterial: {fileID: 0}
 --- !u!1 &1323203152
 GameObject:
   m_ObjectHideFlags: 0
@@ -7111,6 +7163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cb00bb5ddfb5964c962ce470536ea0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  correctMaterial: {fileID: 0}
 --- !u!1 &1352845979
 GameObject:
   m_ObjectHideFlags: 0
@@ -7234,6 +7287,7 @@ MonoBehaviour:
   book: {fileID: 943648354}
   defaultMaterial: {fileID: 2100000, guid: 57f6ac97b45b68840b2d54677613c61a, type: 2}
   correctMaterial: {fileID: 2100000, guid: a740586e01a049a498201cc6bb86c477, type: 2}
+  inCorrectSpot: 0
 --- !u!1 &1359489819
 GameObject:
   m_ObjectHideFlags: 0
@@ -7670,6 +7724,7 @@ MonoBehaviour:
   book: {fileID: 59353960}
   defaultMaterial: {fileID: 2100000, guid: 57f6ac97b45b68840b2d54677613c61a, type: 2}
   correctMaterial: {fileID: 2100000, guid: a740586e01a049a498201cc6bb86c477, type: 2}
+  inCorrectSpot: 0
 --- !u!1 &1515131269
 GameObject:
   m_ObjectHideFlags: 0
@@ -7819,6 +7874,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cb00bb5ddfb5964c962ce470536ea0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  correctMaterial: {fileID: 0}
 --- !u!1 &1552052500
 GameObject:
   m_ObjectHideFlags: 0
@@ -8044,6 +8100,7 @@ MonoBehaviour:
   book: {fileID: 1515131269}
   defaultMaterial: {fileID: 2100000, guid: 57f6ac97b45b68840b2d54677613c61a, type: 2}
   correctMaterial: {fileID: 2100000, guid: a740586e01a049a498201cc6bb86c477, type: 2}
+  inCorrectSpot: 0
 --- !u!65 &1560659415
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8793,6 +8850,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cb00bb5ddfb5964c962ce470536ea0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  correctMaterial: {fileID: 0}
 --- !u!1 &1753706403
 GameObject:
   m_ObjectHideFlags: 0
@@ -8916,6 +8974,7 @@ MonoBehaviour:
   book: {fileID: 1785953769}
   defaultMaterial: {fileID: 2100000, guid: 57f6ac97b45b68840b2d54677613c61a, type: 2}
   correctMaterial: {fileID: 2100000, guid: a740586e01a049a498201cc6bb86c477, type: 2}
+  inCorrectSpot: 0
 --- !u!1 &1785953769
 GameObject:
   m_ObjectHideFlags: 0
@@ -9065,6 +9124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cb00bb5ddfb5964c962ce470536ea0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  correctMaterial: {fileID: 0}
 --- !u!1 &1789084682
 GameObject:
   m_ObjectHideFlags: 0
@@ -9501,6 +9561,7 @@ MonoBehaviour:
   book: {fileID: 1323203152}
   defaultMaterial: {fileID: 2100000, guid: 57f6ac97b45b68840b2d54677613c61a, type: 2}
   correctMaterial: {fileID: 2100000, guid: a740586e01a049a498201cc6bb86c477, type: 2}
+  inCorrectSpot: 0
 --- !u!1 &1881554806
 GameObject:
   m_ObjectHideFlags: 0
@@ -9624,6 +9685,7 @@ MonoBehaviour:
   book: {fileID: 172810416}
   defaultMaterial: {fileID: 2100000, guid: 57f6ac97b45b68840b2d54677613c61a, type: 2}
   correctMaterial: {fileID: 2100000, guid: a740586e01a049a498201cc6bb86c477, type: 2}
+  inCorrectSpot: 0
 --- !u!1 &1939112083
 GameObject:
   m_ObjectHideFlags: 0
@@ -9880,6 +9942,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cb00bb5ddfb5964c962ce470536ea0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  correctMaterial: {fileID: 0}
 --- !u!1 &1956888710
 GameObject:
   m_ObjectHideFlags: 0
@@ -9948,6 +10011,85 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1993226582
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1993226583}
+  - component: {fileID: 1993226585}
+  - component: {fileID: 1993226584}
+  m_Layer: 5
+  m_Name: ScoreText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1993226583
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1993226582}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1214270475}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -698, y: 431}
+  m_SizeDelta: {x: 400, y: 200}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1993226584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1993226582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 50
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 3
+    m_MaxSize: 50
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Score:'
+--- !u!222 &1993226585
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1993226582}
+  m_CullTransparentMesh: 1
 --- !u!1 &2019974328
 GameObject:
   m_ObjectHideFlags: 0
@@ -9963,7 +10105,7 @@ GameObject:
   - component: {fileID: 2019974334}
   - component: {fileID: 2019974333}
   m_Layer: 0
-  m_Name: BookE2
+  m_Name: BookE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10097,6 +10239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cb00bb5ddfb5964c962ce470536ea0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  correctMaterial: {fileID: 0}
 --- !u!1 &2070970818
 GameObject:
   m_ObjectHideFlags: 0
@@ -10220,6 +10363,7 @@ MonoBehaviour:
   book: {fileID: 23774052}
   defaultMaterial: {fileID: 2100000, guid: 57f6ac97b45b68840b2d54677613c61a, type: 2}
   correctMaterial: {fileID: 2100000, guid: a740586e01a049a498201cc6bb86c477, type: 2}
+  inCorrectSpot: 0
 --- !u!1 &2097875436
 GameObject:
   m_ObjectHideFlags: 0
