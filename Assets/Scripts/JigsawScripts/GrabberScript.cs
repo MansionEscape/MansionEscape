@@ -1,11 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem.Android;
+using UnityEngine.UI;
 
 public class GrabberScript : MonoBehaviour
 {
     private GameObject selectedObject;
-    //public Texture secondaryTexture;
+    public Text scoreText;
+    public TMP_Text puzzleCompleted;
+    private int counter = 0;
+    public Texture secondaryTexture;
     public Transform[] snapPoints;
     public float snapDistance = 0.5f;
 
@@ -35,6 +41,8 @@ public class GrabberScript : MonoBehaviour
 
                     selectedObject = hit.collider.gameObject;
                     Cursor.visible = false;
+                    //selectedObject.GetComponent<Renderer>().material.SetTexture("_DetailAlbedoMap", secondaryTexture);
+                    //selectedObject.GetComponent<Renderer>().material.SetFloat("_DetailAlbedoMapScale", 0f);
                 }
             }
             else
@@ -46,6 +54,7 @@ public class GrabberScript : MonoBehaviour
                 SnapObjectToDesignatedPoint();
                 selectedObject = null;
                 Cursor.visible = true;
+
             }
         }
 
@@ -81,14 +90,29 @@ public class GrabberScript : MonoBehaviour
                 if (distance <= snapDistance)
                 {
                     selectedObject.transform.position = snapPoint.position;
+                    selectedObject.GetComponent<Collider>().enabled = false;
 
+                    counter += 1;
+                    scoreText.text = "Score: " + counter;
+
+
+                    //// Make a unique copy of the material if you want to modify it
+                    //Material newMaterial = new Material(selectedObject.GetComponent<Renderer>().material);
+                    //newMaterial.SetTexture("_DetailAlbedoMap", secondaryTexture);
+                    //selectedObject.GetComponent<Renderer>().material = newMaterial; // Assign the new material
+                    
+
+                    selectedObject.GetComponent<Renderer>().material.SetTexture("_DetailAlbedoMap", secondaryTexture);
+                    //selectedObject.GetComponent<Renderer>().material.SetFloat("_DetailAlbedoMapScale", 1f);
+                    //selectedObject.GetComponent<Renderer>().material.SetTexture("_DetailAlbedoMap", secondaryTexture);
+
+
+                    if (counter == 4)
+                    {
+                        puzzleCompleted.text = "Puzzle Completed!";
+                    }
                 }
             }
-
-            //if (secondaryTexture != null)
-            //{
-            //    selectedObject.GetComponent<Renderer>().material.SetTexture("_DetailAlbedoMap", secondaryTexture);
-            //}
         }
     }
 
