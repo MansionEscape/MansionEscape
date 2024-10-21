@@ -7714,8 +7714,6 @@ GameObject:
   - component: {fileID: 1869137736}
   - component: {fileID: 1869137735}
   - component: {fileID: 1869137734}
-  - component: {fileID: 1869137733}
-  - component: {fileID: 1869137732}
   - component: {fileID: 1869137738}
   m_Layer: 0
   m_Name: DoorTrigger
@@ -7739,44 +7737,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1400324159}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1869137732
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1869137730}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20d4e43f5303cec46a6201a1a86c74c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myDoor: {fileID: 1965759766}
-  player: {fileID: 104926649}
-  HighlightedTrue: {fileID: 2100000, guid: ae9eff548b8273b44bf80f1e8657dc58, type: 2}
-  HighlightedFalse: {fileID: 2100000, guid: 4e6ce5491e03ac147a298fef18049685, type: 2}
-  doorOpen: DoorOpen
-  doorClose: DoorClose
-  triggerInteraction: {fileID: 1869137738}
---- !u!114 &1869137733
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1869137730}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8a053527a6e98948a83cb45ada6ba2e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 104926649}
-  interactiveObject: {fileID: 475668516}
-  highlightMaterial: {fileID: 2100000, guid: 4e6ce5491e03ac147a298fef18049685, type: 2}
-  defaultMaterial: {fileID: 2100000, guid: a2d641af4179722418e3a9cb210fdcf4, type: 2}
-  objectText: {fileID: 1182400164}
-  interactionMessage: Door Locked
-  puzzlePanel: {fileID: 958272961}
 --- !u!65 &1869137734
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7881,19 +7841,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 1869137730}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b987b2c04efefb946b548d1e0c869e8a, type: 3}
+  m_Script: {fileID: 11500000, guid: 92e7539e81e2c2245a4dc2b8e81000fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myDoor: {fileID: 1965759766}
   player: {fileID: 104926649}
   door: {fileID: 475668516}
   inventoryWindow: {fileID: 958272961}
   inventoryGrid: {fileID: 667477776}
   lockedMaterial: {fileID: 2100000, guid: 4e6ce5491e03ac147a298fef18049685, type: 2}
   unlockedMaterial: {fileID: 2100000, guid: ae9eff548b8273b44bf80f1e8657dc58, type: 2}
-  defaultMaterial: {fileID: 2100000, guid: a2d641af4179722418e3a9cb210fdcf4, type: 2}
+  defaultMaterial: {fileID: 2100000, guid: 57f6ac97b45b68840b2d54677613c61a, type: 2}
   objectText: {fileID: 1182400164}
-  lockedMessage: Door Locked
-  unlockedMessage: Key Found. Door Unlocked!
+  lockedMessage: Door locked
+  unlockedMessage: Door unlocked
+  unlocked: 0
 --- !u!1 &1957430264
 GameObject:
   m_ObjectHideFlags: 0

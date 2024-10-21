@@ -9,8 +9,9 @@ public class DoorPivotController : MonoBehaviour
 {
     [SerializeField] private Animator myDoor = null;
 
-
+    public GameObject door;
     public GameObject player;
+    //public Material correctMaterial;
 
     [SerializeField] private Material HighlightedTrue;
     [SerializeField] private Material HighlightedFalse;
@@ -19,17 +20,20 @@ public class DoorPivotController : MonoBehaviour
     [SerializeField] private string doorClose = "DoorClose";
 
     //public InteractiveObjectController interactiveObjectController;
-    public TriggerInteraction triggerInteraction;
+    public DoorTriggerInteraction triggerInteraction;
+    
+
 
     private bool hasOpened = false;
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject == player)
+        if (other.gameObject == player)
         {
-            
-            if (triggerInteraction.highlightMaterial == HighlightedTrue && !hasOpened)
+            if (door.GetComponent<DoorTriggerInteraction>().unlocked && !hasOpened)
+            //if (triggerInteraction.unlockedMaterial && !hasOpened)
             {
+                Debug.Log("were here");
                 myDoor.Play(doorOpen, 0, 0.0f);
 
                 hasOpened = true;
@@ -49,7 +53,6 @@ public class DoorPivotController : MonoBehaviour
     {
         if (other.gameObject == player)
         {
-
             if (hasOpened)
             {
                 myDoor.Play(doorClose, 0, 0.0f);

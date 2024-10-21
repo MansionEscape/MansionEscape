@@ -16,9 +16,11 @@ public class DoorTriggerInteraction : MonoBehaviour
     public TMP_Text objectText; // Text for interaction prompts
     public string lockedMessage; // Custom prompt message to display when door is locked
     public string unlockedMessage; // Custom message to display when door is unlocked
+    public bool unlocked;
 
     private void Start()
     {
+        unlocked = false;
         objectText.text = string.Empty;
 
     }
@@ -27,8 +29,10 @@ public class DoorTriggerInteraction : MonoBehaviour
     {
         if (other.gameObject == player)
         {
+            Debug.Log("bfabeia: " + unlockedMaterial.name);
             if (CheckForKey())
             {
+          
                 Debug.Log("Key found in inventory.");
                 door.GetComponent<Renderer>().material = unlockedMaterial;
                 objectText.text = unlockedMessage; // Display the custom message prompt
@@ -61,6 +65,7 @@ public class DoorTriggerInteraction : MonoBehaviour
             if (slotText != null && slotText.text == "Key")
             { 
                 Debug.Log("key found");
+                unlocked = true;
                 return true; // terminate loop after finding key
             } 
         }
