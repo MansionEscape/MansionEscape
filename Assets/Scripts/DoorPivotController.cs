@@ -19,8 +19,7 @@ public class DoorPivotController : MonoBehaviour
     [SerializeField] private string doorClose = "DoorClose";
 
     //public InteractiveObjectController interactiveObjectController;
-    //public TriggerInteraction triggerInteraction;
-    public DoorTriggerInteraction triggerInteraction;
+    public TriggerInteraction triggerInteraction;
 
     private bool hasOpened = false;
 
@@ -29,7 +28,7 @@ public class DoorPivotController : MonoBehaviour
         if(other.gameObject == player)
         {
             
-            if (triggerInteraction.unlockedMaterial == HighlightedTrue && !hasOpened)
+            if (triggerInteraction.highlightMaterial == HighlightedTrue && !hasOpened)
             {
                 myDoor.Play(doorOpen, 0, 0.0f);
 
