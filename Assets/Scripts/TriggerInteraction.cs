@@ -17,6 +17,7 @@ public class TriggerInteraction : MonoBehaviour
     public GameObject puzzlePanel; // UI panel of the puzzle
     private bool bookshelfCollision; // to check if player is in range of bookshelf
     private bool chestCollision; // to check if player is in range of chest
+    private bool jigsawCollision; // to check if player is in range of jigsaw
     //private bool paintingCollision = false; // to check if player is in range of painting
 
 
@@ -25,6 +26,7 @@ public class TriggerInteraction : MonoBehaviour
     {
         chestCollision = false;
         bookshelfCollision = false;
+        jigsawCollision = false;
         objectText.text = string.Empty;
         puzzlePanel.SetActive(false);      // ensure panel is hidden at start
     }
@@ -43,6 +45,10 @@ public class TriggerInteraction : MonoBehaviour
             {
                 chestCollision = true;
             }
+            else if(interactiveObject.name == "Jigsaw")
+            {
+                jigsawCollision = true;
+            }
         }
     }
 
@@ -60,6 +66,10 @@ public class TriggerInteraction : MonoBehaviour
             {
                 chestCollision = false;
             }
+            else if (interactiveObject.name == "Jigsaw")
+            {
+                jigsawCollision = false;
+            }
         }
     }
 
@@ -76,6 +86,11 @@ public class TriggerInteraction : MonoBehaviour
         else if (bookshelfCollision && Input.GetKeyDown(KeyCode.E))
         {
             SceneManager.LoadScene("BookshelfPuzzle");
+        }
+        else if (jigsawCollision && Input.GetKeyDown(KeyCode.E)) 
+        {
+            Debug.Log(jigsawCollision);
+            SceneManager.LoadScene("JigsawPuzzle");
         }
     }
 }
