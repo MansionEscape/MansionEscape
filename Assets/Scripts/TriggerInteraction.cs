@@ -18,7 +18,7 @@ public class TriggerInteraction : MonoBehaviour
     private bool bookshelfCollision; // to check if player is in range of bookshelf
     private bool chestCollision; // to check if player is in range of chest
     private bool jigsawCollision; // to check if player is in range of jigsaw
-    //private bool paintingCollision = false; // to check if player is in range of painting
+    private bool paintingCollision; // to check if player is in range of painting
 
 
 
@@ -27,6 +27,7 @@ public class TriggerInteraction : MonoBehaviour
         chestCollision = false;
         bookshelfCollision = false;
         jigsawCollision = false;
+        paintingCollision = false;
         objectText.text = string.Empty;
         puzzlePanel.SetActive(false);      // ensure panel is hidden at start
     }
@@ -37,7 +38,8 @@ public class TriggerInteraction : MonoBehaviour
         {
             interactiveObject.GetComponent<Renderer>().material = highlightMaterial;
             objectText.text = interactionMessage;   // display the custom message prompt
-            if(interactiveObject.name == "Bookshelf")
+
+            if (interactiveObject.name == "Bookshelf")
             {
                 bookshelfCollision = true;
             }
@@ -48,6 +50,10 @@ public class TriggerInteraction : MonoBehaviour
             else if(interactiveObject.name == "Jigsaw")
             {
                 jigsawCollision = true;
+            }
+            else if(interactiveObject.name == "PaintingImage")
+            {
+                paintingCollision = true;
             }
         }
     }
@@ -70,6 +76,10 @@ public class TriggerInteraction : MonoBehaviour
             {
                 jigsawCollision = false;
             }
+            else if (interactiveObject.name == "PaintingImage")
+            {
+                paintingCollision = false;
+            }
         }
     }
 
@@ -91,6 +101,11 @@ public class TriggerInteraction : MonoBehaviour
         {
             Debug.Log(jigsawCollision);
             SceneManager.LoadScene("JigsawPuzzle");
+        }
+        else if (paintingCollision && Input.GetKeyDown(KeyCode.E))
+        {
+            Debug.Log(paintingCollision);
+            SceneManager.LoadScene("PaintingPuzzle");
         }
     }
 }

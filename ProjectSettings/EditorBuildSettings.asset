@@ -14,5 +14,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/JigsawPuzzle.unity
     guid: 61ef8854a6693924d8433e2998a728dd
+  - enabled: 1
+    path: Assets/Scenes/PaintingPuzzle.unity
+    guid: 516c8a10555842a45bd33d6c1c4249d4
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

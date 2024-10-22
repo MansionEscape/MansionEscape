@@ -871,7 +871,7 @@ GameObject:
   - component: {fileID: 295793408}
   - component: {fileID: 295793412}
   m_Layer: 0
-  m_Name: Painting
+  m_Name: PaintingImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -892,7 +892,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -972,7 +972,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 295793407}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ba681c7e3c9d3ba4c857ed28670b9748, type: 3}
   m_Name: 
@@ -1105,7 +1105,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &381375791
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4745,6 +4745,7 @@ GameObject:
   - component: {fileID: 1407658703}
   - component: {fileID: 1407658702}
   - component: {fileID: 1407658701}
+  - component: {fileID: 1407658705}
   m_Layer: 0
   m_Name: PaintingTrigger
   m_TagString: Untagged
@@ -4862,6 +4863,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1407658698}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1407658705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1407658698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8a053527a6e98948a83cb45ada6ba2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 104926649}
+  interactiveObject: {fileID: 295793407}
+  highlightMaterial: {fileID: 2100000, guid: ae9eff548b8273b44bf80f1e8657dc58, type: 2}
+  defaultMaterial: {fileID: 2100000, guid: a2d641af4179722418e3a9cb210fdcf4, type: 2}
+  objectText: {fileID: 1728394554}
+  interactionMessage: Painting. Press 'E' to interact.
+  puzzlePanel: {fileID: 0}
 --- !u!1 &1517113668
 GameObject:
   m_ObjectHideFlags: 0
