@@ -34,16 +34,15 @@ public class DoorController : MonoBehaviour
             Debug.Log("bfabeia: " + unlockedMaterial.name);
             if (CheckForKey())
             {
-
                 Debug.Log("Key found in inventory.");
-                door.GetComponent<Renderer>().material = unlockedMaterial;
+                door.GetComponent<Renderer>().material = unlockedMaterial; // set colour of door to unlocked 
                 objectText.text = unlockedMessage; // Display the custom message prompt
-                myDoor.Play("DoorOpen", 0, 0.0f);
+                myDoor.Play("DoorOpen", 0, 0.0f); // play door open animation
             }
             else
             {
                 Debug.Log("Key not found in inventory.");
-                door.GetComponent<Renderer>().material = lockedMaterial;
+                door.GetComponent<Renderer>().material = lockedMaterial; // set colour of door to locked
                 objectText.text = lockedMessage; // Display the custom message prompt
             }
         }
@@ -55,7 +54,13 @@ public class DoorController : MonoBehaviour
         {
             door.GetComponent<Renderer>().material = defaultMaterial;
             objectText.text = string.Empty;
-            //myDoor.Play("DoorClose", 0, 0.0f);
+
+            if (unlocked)
+            {
+                myDoor.Play("DoorClose", 0, 0.0f);
+                // display game complete panel
+            }
+            
         }
     }
 
