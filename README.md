@@ -5,9 +5,11 @@
 ## Table of Contents
 
 - [Game Concept](#game-concept)
-- [Features](#features)
-- [Requirements](#requirements)
-- [Setup Instructions](#setup-instructions)
+- [Features (For Developers)](#features)
+- [How to Play (For Players)](#how-to-play)
+- [Requirements (For Developers)](#requirements)
+- [Setup Instructions (For Developers)](#setup-instructions)
+
 
 ## Game Concept
 
@@ -34,7 +36,7 @@
 - Puzzles
 - Narrative
 
-## Features
+## Features 
 
 ### Player Mechanics
 
@@ -160,7 +162,39 @@ A countdown timer can be displayed as part of the UI, which add pressure and dif
 **8. Game Tutorial:**
 Short, simple tutorial explaining basic control functions and objectives.
 
-## Requirements
+## How to Play
+
+### Storyline
+
+You awaken inside a dark and isolated mansion with no memory of how you got there. Every room is locked, and the only way out is to solve the puzzles hidden within. The mansion is eerily quiet, but it feels as though someone or something is watching your every move...
+
+Each room reveals fragments of the mansion’s dark past, but nothing is ever clear. Your only goal is to escape. But with each puzzle you solve, the mansion pulls you further in, and you start to wonder if escape is even possible...
+
+### Goal
+
+The objective is to escape each room of the haunted mansion. Every room has an exit, but it may be hidden or locked. Solve the puzzles within the room to reveal or unlock the exit and move on to the next room until you escape the Mansion completely.
+
+### Controls
+
+- W or Up Arrow - Move upwards.
+- S or Down Arrow - Move downwards.
+- D or Right Arrow - Move to the right.
+- A or Left Arrow - Move to the left.
+- Mouse - Buttons and Puzzles
+- E - Interact with highlighted objects (solve puzzles).
+
+### Gameplay Instructions
+
+**1. Explore the Room:** Investigate the room by moving around and examining objects. Some items or objects are hidden, and interactive objects will highlight (turn green) when you're close enough to interact with them. You will also see a description of the object (what it is) and a prompt to interact with it (E.g. press E).
+
+**2. Solve Puzzles:** To unlock the exit, you will need to solve puzzles. These could involve finding hidden objects, re-arranging items, unlocking chests, or deciphering clues scattered around the room.
+
+**3. Collect and Use Items:** When you find items (like keys or tools), press the button to add them to your inventory so you dont lose them. Use items from your inventory to unlock doors or solve specific puzzles.
+
+**4. Exit the Room:** Once you've solved the room’s puzzles, the exit will either unlock when you are close to it or become visible. Approach the exit to move on to the next room.
+
+
+## Requirements 
 
 - A compatible computer (Windows, macOS, or Linux)
 - Any version of Unity 2023 (you should also install the WebGL platform module)
