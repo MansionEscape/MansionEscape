@@ -1664,7 +1664,7 @@ MonoBehaviour:
   defaultMaterial: {fileID: 2100000, guid: a2d641af4179722418e3a9cb210fdcf4, type: 2}
   objectText: {fileID: 670368403}
   interactionMessage: Jigsaw Puzzle. Press 'E' to interact.
-  puzzlePanel: {fileID: 0}
+  puzzlePanel: {fileID: 1682501510}
 --- !u!65 &354088517
 BoxCollider:
   m_ObjectHideFlags: 0
