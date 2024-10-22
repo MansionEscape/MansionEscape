@@ -20,6 +20,8 @@ public class DoorController : MonoBehaviour
     public string unlockedMessage; // Custom message to display when door is unlocked
     public bool unlocked;
 
+    public NewBehaviourScript timerScript;
+
     private void Start()
     {
         unlocked = false;
@@ -34,11 +36,15 @@ public class DoorController : MonoBehaviour
             Debug.Log("bfabeia: " + unlockedMaterial.name);
             if (CheckForKey())
             {
-
                 Debug.Log("Key found in inventory.");
                 door.GetComponent<Renderer>().material = unlockedMaterial;
                 objectText.text = unlockedMessage; // Display the custom message prompt
-                myDoor.Play("DoorOpen", 0, 0.0f);
+
+                if (timerScript != null)
+                {
+                    timerScript.StopTimer();
+                    myDoor.Play("DoorOpen", 0, 0.0f);
+                }
             }
             else
             {

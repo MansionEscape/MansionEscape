@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public float rotationSpeed;
     private int count;
     public TMP_Text livesText;
+    public GameOverScript gameOverScript;
     //[SerializeField] private float turnSpeed = 360;
 
 
@@ -26,6 +27,11 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         livesText.text = "Lives: " + count.ToString();
+
+        if (gameOverScript.IsGameOver())
+        {
+            return;
+        }
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
 
