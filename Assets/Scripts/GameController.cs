@@ -9,18 +9,22 @@ public class GameMenuController : MonoBehaviour
     private string sceneName = "Room";
 
     // Start is called before the first frame update
-    private void Start()
+     void Start()
     {
+        //Checks if the object assigned is the StartMenuUI
         if (gameObject.name == "StartMenuUI")
         {
+            //if true the start menu on start will be displayed
             gameObject.SetActive(true);
         } else
         {
+            //any other game objects will be hidden on start
             gameObject.SetActive(false);
         }
         
     }
 
+    //Pause Game sets Pause Menu panel to active
     public void PauseGame()
     {
         gameObject.SetActive(true);
@@ -32,21 +36,25 @@ public class GameMenuController : MonoBehaviour
         gameObject.SetActive(false);
     }
 
+    //Restart level function by loading the active scene.
     public void RestartLevel()
     {
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
-
+    //Exits level and loads the start menu scene
     public void ExitLevel()
     {
         SceneManager.LoadScene("StartMenu");
     }
   
+    //Exit application from start menu
     public void ExitGame()
     {
         Application.Quit();
     }
 
+    //Start Game from start menu
     public void LoadScene()
     {
         SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
