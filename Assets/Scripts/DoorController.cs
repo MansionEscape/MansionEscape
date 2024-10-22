@@ -10,6 +10,7 @@ public class DoorController : MonoBehaviour
     [SerializeField] private Animator myDoor = null;
     public GameObject player; // Player object
     public GameObject door; // Door object
+    public GameObject gameCompleteMenu; // game complete menu UI panel to display when door unlocked
     public GameObject inventoryWindow; // Reference to the InventoryWindow GameObject
     public Transform inventoryGrid; // inventory grid - background object under inventoryWindow
     public Material lockedMaterial; // Highlight material when the door is locked
@@ -22,6 +23,8 @@ public class DoorController : MonoBehaviour
 
     private void Start()
     {
+
+        gameCompleteMenu.SetActive(false); // hide game complete menu panel
         unlocked = false;
         objectText.text = string.Empty;
 
@@ -31,13 +34,13 @@ public class DoorController : MonoBehaviour
     {
         if (other.gameObject == player)
         {
-            Debug.Log("bfabeia: " + unlockedMaterial.name);
             if (CheckForKey())
             {
                 Debug.Log("Key found in inventory.");
                 door.GetComponent<Renderer>().material = unlockedMaterial; // set colour of door to unlocked 
                 objectText.text = unlockedMessage; // Display the custom message prompt
                 myDoor.Play("DoorOpen", 0, 0.0f); // play door open animation
+                gameCompleteMenu.SetActive(true); // display game complete menu
             }
             else
             {
