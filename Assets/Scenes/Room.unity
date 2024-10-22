@@ -1629,6 +1629,8 @@ GameObject:
   - component: {fileID: 354088518}
   - component: {fileID: 354088517}
   - component: {fileID: 354088516}
+  - component: {fileID: 354088522}
+  - component: {fileID: 354088521}
   m_Layer: 0
   m_Name: JigsawTrigger
   m_TagString: Untagged
@@ -1670,6 +1672,7 @@ MonoBehaviour:
   objectText: {fileID: 670368403}
   interactionMessage: Jigsaw Puzzle. Press 'E' to interact.
   puzzlePanel: {fileID: 1682501510}
+  interact: {fileID: 1921710720847533377, guid: 1d7926bf7d6c58c44bcd82e7b0e5531a, type: 3}
 --- !u!65 &354088517
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1765,6 +1768,56 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 354088514}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &354088521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 354088514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 1d7926bf7d6c58c44bcd82e7b0e5531a, type: 3}
+  m_NotificationBehavior: 3
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: Keyboard
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!114 &354088522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 354088514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8a053527a6e98948a83cb45ada6ba2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  interactiveObject: {fileID: 0}
+  highlightMaterial: {fileID: 2100000, guid: ae9eff548b8273b44bf80f1e8657dc58, type: 2}
+  defaultMaterial: {fileID: 2100000, guid: a2d641af4179722418e3a9cb210fdcf4, type: 2}
+  objectText: {fileID: 670368403}
+  interactionMessage: Jigsaw. Press 'E' to interact
+  puzzlePanel: {fileID: 1682501510}
+  interact: {fileID: 1921710720847533377, guid: 1d7926bf7d6c58c44bcd82e7b0e5531a, type: 3}
 --- !u!1 &371910480
 GameObject:
   m_ObjectHideFlags: 0
@@ -5379,6 +5432,8 @@ GameObject:
   - component: {fileID: 1057622124}
   - component: {fileID: 1057622123}
   - component: {fileID: 1057622122}
+  - component: {fileID: 1057622128}
+  - component: {fileID: 1057622127}
   m_Layer: 0
   m_Name: ChestTrigger
   m_TagString: Untagged
@@ -5420,6 +5475,7 @@ MonoBehaviour:
   objectText: {fileID: 444979688}
   interactionMessage: Chest. Press 'E' to interact.
   puzzlePanel: {fileID: 1682501510}
+  interact: {fileID: 1921710720847533377, guid: 1d7926bf7d6c58c44bcd82e7b0e5531a, type: 3}
 --- !u!65 &1057622123
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5515,6 +5571,56 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1057622120}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1057622127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1057622120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 1d7926bf7d6c58c44bcd82e7b0e5531a, type: 3}
+  m_NotificationBehavior: 3
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: Keyboard
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!114 &1057622128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1057622120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8a053527a6e98948a83cb45ada6ba2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  interactiveObject: {fileID: 0}
+  highlightMaterial: {fileID: 2100000, guid: ae9eff548b8273b44bf80f1e8657dc58, type: 2}
+  defaultMaterial: {fileID: 2100000, guid: a2d641af4179722418e3a9cb210fdcf4, type: 2}
+  objectText: {fileID: 444979688}
+  interactionMessage: Chest. Press 'E' to interact.
+  puzzlePanel: {fileID: 1682501510}
+  interact: {fileID: 1921710720847533377, guid: 1d7926bf7d6c58c44bcd82e7b0e5531a, type: 3}
 --- !u!1 &1060896632
 GameObject:
   m_ObjectHideFlags: 0
@@ -7530,6 +7636,8 @@ GameObject:
   - component: {fileID: 1407658703}
   - component: {fileID: 1407658702}
   - component: {fileID: 1407658701}
+  - component: {fileID: 1407658706}
+  - component: {fileID: 1407658705}
   m_Layer: 0
   m_Name: PaintingTrigger
   m_TagString: Untagged
@@ -7647,6 +7755,56 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1407658698}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1407658705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1407658698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 1d7926bf7d6c58c44bcd82e7b0e5531a, type: 3}
+  m_NotificationBehavior: 3
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: Keyboard
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!114 &1407658706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1407658698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8a053527a6e98948a83cb45ada6ba2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 104926649}
+  interactiveObject: {fileID: 295793407}
+  highlightMaterial: {fileID: 2100000, guid: ae9eff548b8273b44bf80f1e8657dc58, type: 2}
+  defaultMaterial: {fileID: 2100000, guid: a2d641af4179722418e3a9cb210fdcf4, type: 2}
+  objectText: {fileID: 1728394554}
+  interactionMessage: Painting. Press 'E' to interact.
+  puzzlePanel: {fileID: 1682501510}
+  interact: {fileID: 1921710720847533377, guid: 1d7926bf7d6c58c44bcd82e7b0e5531a, type: 3}
 --- !u!224 &1502368171 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6077473360225679086, guid: b9ac3fc9bbdeb5e4f853dc893afe30b6, type: 3}
@@ -10143,6 +10301,7 @@ GameObject:
   - component: {fileID: 1869137735}
   - component: {fileID: 1869137734}
   - component: {fileID: 1869137738}
+  - component: {fileID: 1869137739}
   m_Layer: 0
   m_Name: DoorTrigger
   m_TagString: Untagged
@@ -10285,6 +10444,26 @@ MonoBehaviour:
   lockedMessage: Door locked
   unlockedMessage: Door unlocked
   unlocked: 0
+--- !u!114 &1869137739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1869137730}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8a053527a6e98948a83cb45ada6ba2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  interactiveObject: {fileID: 0}
+  highlightMaterial: {fileID: 0}
+  defaultMaterial: {fileID: 0}
+  objectText: {fileID: 0}
+  interactionMessage: 
+  puzzlePanel: {fileID: 0}
+  interact: {fileID: 1921710720847533377, guid: 1d7926bf7d6c58c44bcd82e7b0e5531a, type: 3}
 --- !u!1 &1957430264
 GameObject:
   m_ObjectHideFlags: 0
@@ -10948,6 +11127,7 @@ GameObject:
   - component: {fileID: 2064597060}
   - component: {fileID: 2064597059}
   - component: {fileID: 2064597058}
+  - component: {fileID: 2064597063}
   m_Layer: 0
   m_Name: BookshelfTrigger
   m_TagString: Untagged
@@ -10989,6 +11169,7 @@ MonoBehaviour:
   objectText: {fileID: 544447400}
   interactionMessage: Bookshelf. Press 'E' to interact.
   puzzlePanel: {fileID: 1682501510}
+  interact: {fileID: 1921710720847533377, guid: 1d7926bf7d6c58c44bcd82e7b0e5531a, type: 3}
 --- !u!65 &2064597059
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11084,6 +11265,36 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2064597056}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2064597063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2064597056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 1d7926bf7d6c58c44bcd82e7b0e5531a, type: 3}
+  m_NotificationBehavior: 3
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: Keyboard
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &2088255930
 GameObject:
   m_ObjectHideFlags: 0
