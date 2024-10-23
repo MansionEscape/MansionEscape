@@ -504,6 +504,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   livesText: {fileID: 175241136}
+  chest: {fileID: 51216476}
+  chestTrigger: {fileID: 1057622120}
   rb: {fileID: 104926650}
   move: {fileID: 1548073796147023529, guid: 1d7926bf7d6c58c44bcd82e7b0e5531a, type: 3}
 --- !u!136 &104926652
@@ -1431,7 +1433,7 @@ GameObject:
   - component: {fileID: 295793408}
   - component: {fileID: 295793412}
   m_Layer: 0
-  m_Name: Painting
+  m_Name: PaintingImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1452,7 +1454,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3

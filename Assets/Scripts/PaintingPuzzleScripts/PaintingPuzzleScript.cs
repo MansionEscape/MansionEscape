@@ -5,10 +5,10 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-public class GrabbableScript : MonoBehaviour
+public class PaintingPuzzleScript : MonoBehaviour
 {
     // Serializes input action fields for editing in the inspector
-    [SerializeField] private InputAction press, press2, screenPosition;
+    [SerializeField] private InputAction press, screenPosition;
 
     // Current screen position vector
     private Vector3 currentScreenPosition;
@@ -26,15 +26,6 @@ public class GrabbableScript : MonoBehaviour
     public Texture secondaryTexture;
     public Transform[] snapPoints;
     public float snapDistance = 0.5f;
-
-    // Correct rotation values for each puzzle piece
-    private Dictionary<string, Quaternion> correctRotations = new Dictionary<string, Quaternion>
-    {
-        { "Puzzle Piece 1", Quaternion.Euler(0, 0, 0) },
-        { "Puzzle Piece 2", Quaternion.Euler(0, 0, 0) },
-        { "Puzzle Piece 3", Quaternion.Euler(0, 0, 0) },
-        { "Puzzle Piece 4", Quaternion.Euler(0, 0, 0) }
-    };
 
     // Get the world position based on the screen position
     private Vector3 worldPosition
@@ -69,32 +60,26 @@ public class GrabbableScript : MonoBehaviour
 
         // Enable input actions
         press.Enable(); // The left button
-        press2.Enable(); // The right button
-        screenPosition.Enable(); 
+        screenPosition.Enable();
 
         // Capture the screen position input
-        screenPosition.performed += context => 
+        screenPosition.performed += context =>
         {
-            currentScreenPosition = context.ReadValue<Vector2>(); 
+            currentScreenPosition = context.ReadValue<Vector2>();
         };
 
         // On left click performed
-        press.performed += _ => 
-        { 
-            OnLeftClick(); 
+        press.performed += _ =>
+        {
+            OnLeftClick();
         };
 
-        // On right click performed
-        press2.performed += _ => 
-        { 
-            if (selectedObject != null) RotateSelectedObject(); 
-        };
     }
 
     // Handling left click
     private void OnLeftClick()
     {
-        if (!isDragging) 
+        if (!isDragging)
         {
             if (isClickedOn) // Object clicked on
             {
@@ -103,7 +88,7 @@ public class GrabbableScript : MonoBehaviour
         }
         else // If currently dragging, stop dragging and attempt to snap
         {
-            isDragging = false; 
+            isDragging = false;
             SnapObjectToDesignatedPoint();
             selectedObject = null; // Deselect the object
         }
@@ -119,44 +104,30 @@ public class GrabbableScript : MonoBehaviour
         }
     }
 
-    // Function to rotate the selected object when right click is pressed
-    private void RotateSelectedObject()
-    {
-        selectedObject.transform.rotation = Quaternion.Euler(new Vector3(
-            selectedObject.transform.rotation.eulerAngles.x,
-            selectedObject.transform.rotation.eulerAngles.y + 90f,
-            selectedObject.transform.rotation.eulerAngles.z));
-    }
-
-    // Snaps the object to its given snap point if it's close enough
     private void SnapObjectToDesignatedPoint()
     {
         string selectedName = selectedObject.name;
 
-        if (correctRotations.ContainsKey(selectedName) && IsRotationCorrect(selectedObject.transform.rotation, correctRotations[selectedName]))
+        Transform snapPoint = GetSnapPoint(selectedName);
+
+        if (snapPoint != null)
         {
-            Transform snapPoint = GetSnapPoint(selectedName);
+            float distance = Vector3.Distance(selectedObject.transform.position, snapPoint.position);
 
-            if (snapPoint != null)
+            if (distance <= snapDistance)
             {
-                float distance = Vector3.Distance(selectedObject.transform.position, snapPoint.position);
+                selectedObject.transform.position = snapPoint.position;
+                selectedObject.GetComponent<Collider>().enabled = false;
 
-                if (distance <= snapDistance)
+                counter += 1;
+                scoreText.text = "Score: " + counter;
+
+                // Check if all pieces are placed
+                if (counter == 4)
                 {
-                    selectedObject.transform.position = snapPoint.position;
-                    selectedObject.GetComponent<Collider>().enabled = false;
-
-                    counter += 1;
-                    scoreText.text = "Score: " + counter;
-
-                    // Set the secondary texture when the piece is snapped
-                    selectedObject.GetComponent<Renderer>().material.SetTexture("_DetailAlbedoMap", secondaryTexture);
-
-                    // Check if all pieces are placed
-                    if (counter == 4)
-                    {
-                        puzzleCompleted.text = "Puzzle Completed!";
-                    }
+                    puzzleCompleted.text = "Puzzle Completed!";
+                    PlayerPrefs.SetInt("PuzzleCompleted", 1); // Save the completion status
+                    PlayerPrefs.Save(); // Save changes
                 }
             }
         }
@@ -169,17 +140,17 @@ public class GrabbableScript : MonoBehaviour
     }
 
     // Get the corresponding snap point based on the puzzle piece name
-    private Transform GetSnapPoint(string puzzlePieceName)
+    private Transform GetSnapPoint(string paintingName)
     {
-        switch (puzzlePieceName)
+        switch (paintingName)
         {
-            case "Puzzle Piece 1":
+            case "Painting 1":
                 return snapPoints[0];
-            case "Puzzle Piece 2":
+            case "Painting 2":
                 return snapPoints[1];
-            case "Puzzle Piece 3":
+            case "Painting 3":
                 return snapPoints[2];
-            case "Puzzle Piece 4":
+            case "Painting 4":
                 return snapPoints[3];
             default:
                 return null;
