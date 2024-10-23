@@ -1,148 +1,159 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PaintingPuzzleScript : MonoBehaviour
 {
+    // Serializes input action fields for editing in the inspector
+    [SerializeField] private InputAction press, screenPosition;
+
+    // Current screen position vector
+    private Vector3 currentScreenPosition;
+
+    // Camera object for raycasting
+    private Camera camera;
+
+    // To check if the object is being dragged or not
+    private bool isDragging = false;
+
     private GameObject selectedObject;
-    //public Texture secondaryTexture;
+    public Text scoreText;
+    public TMP_Text puzzleCompleted;
+    private int counter = 0;
+    public Texture secondaryTexture;
     public Transform[] snapPoints;
     public float snapDistance = 0.5f;
 
-    // To track which puzzle pieces are locked in place
-    private HashSet<GameObject> lockedPieces = new HashSet<GameObject>();
-
-    private Dictionary<string, Quaternion> correctRotations = new Dictionary<string, Quaternion>
+    // Get the world position based on the screen position
+    private Vector3 worldPosition
     {
-        { "Puzzle Piece 1", Quaternion.Euler(0, 0, 0) },
-        { "Puzzle Piece 2", Quaternion.Euler(0, 0, 0) },
-        { "Puzzle Piece 3", Quaternion.Euler(0, 0, 0) },
-        { "Puzzle Piece 4", Quaternion.Euler(0, 0, 0) }
-    };
-
-    private void Update()
-    {
-        if (Input.GetMouseButtonDown(0))
+        get
         {
-            if (selectedObject == null)
-            {
-                RaycastHit hit = CastRayForPaintingPuzzle();
-
-                if (hit.collider != null)
-                {
-                    if (!hit.collider.CompareTag("drag") || lockedPieces.Contains(hit.collider.gameObject))
-                    {
-                        return;
-                    }
-
-                    selectedObject = hit.collider.gameObject;
-                    Cursor.visible = false;
-                }
-            }
-            else
-            {
-                Vector3 position = new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.WorldToScreenPoint(selectedObject.transform.position).z);
-                Vector3 worldPosition = Camera.main.ScreenToWorldPoint(position);
-                selectedObject.transform.position = new Vector3(worldPosition.x, worldPosition.y, worldPosition.z);
-
-                SnapObjectToPuzzlePoint();
-                selectedObject = null;
-                Cursor.visible = true;
-            }
-        }
-
-        if (selectedObject != null && !lockedPieces.Contains(selectedObject))
-        {
-            Vector3 position = new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.WorldToScreenPoint(selectedObject.transform.position).z);
-            Vector3 worldPosition = Camera.main.ScreenToWorldPoint(position);
-            selectedObject.transform.position = new Vector3(worldPosition.x, worldPosition.y, worldPosition.z);
-
-            if (Input.GetMouseButtonDown(1))
-            {
-                selectedObject.transform.rotation = Quaternion.Euler(new Vector3(
-                    selectedObject.transform.rotation.eulerAngles.x,
-                    selectedObject.transform.rotation.eulerAngles.y + 90f,
-                    selectedObject.transform.rotation.eulerAngles.z));
-            }
+            float z = camera.WorldToScreenPoint(transform.position).z;
+            return camera.ScreenToWorldPoint(currentScreenPosition + new Vector3(0, 0, z));
         }
     }
 
-    private void SnapObjectToPuzzlePoint()
+    // Checks if the mouse is clicking on an object
+    private bool isClickedOn
+    {
+        get
+        {
+            Ray ray = camera.ScreenPointToRay(currentScreenPosition);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit))
+            {
+                selectedObject = hit.collider.CompareTag("drag") ? hit.collider.gameObject : null;
+                return selectedObject != null;
+            }
+            return false;
+        }
+    }
+
+    // Awake function to initialize camera and inputs
+    public void Awake()
+    {
+        camera = Camera.main;
+
+        // Enable input actions
+        press.Enable(); // The left button
+        screenPosition.Enable();
+
+        // Capture the screen position input
+        screenPosition.performed += context =>
+        {
+            currentScreenPosition = context.ReadValue<Vector2>();
+        };
+
+        // On left click performed
+        press.performed += _ =>
+        {
+            OnLeftClick();
+        };
+
+    }
+
+    // Handling left click
+    private void OnLeftClick()
+    {
+        if (!isDragging)
+        {
+            if (isClickedOn) // Object clicked on
+            {
+                isDragging = true; // Start dragging
+            }
+        }
+        else // If currently dragging, stop dragging and attempt to snap
+        {
+            isDragging = false;
+            SnapObjectToDesignatedPoint();
+            selectedObject = null; // Deselect the object
+        }
+    }
+
+    // Update method to move the object when it's being dragged
+    private void Update()
+    {
+        if (isDragging && selectedObject != null)
+        {
+            Vector3 offset = worldPosition;
+            selectedObject.transform.position = offset;
+        }
+    }
+
+    private void SnapObjectToDesignatedPoint()
     {
         string selectedName = selectedObject.name;
 
-        if (correctRotations.ContainsKey(selectedName) && IsRotationCorrectForPuzzle(selectedObject.transform.rotation, correctRotations[selectedName]))
+        Transform snapPoint = GetSnapPoint(selectedName);
+
+        if (snapPoint != null)
         {
-            Transform snapPoint = GetPaintingPuzzleSnapPoint(selectedName);
+            float distance = Vector3.Distance(selectedObject.transform.position, snapPoint.position);
 
-            if (snapPoint != null)
+            if (distance <= snapDistance)
             {
-                float distance = Vector3.Distance(selectedObject.transform.position, snapPoint.position);
+                selectedObject.transform.position = snapPoint.position;
+                selectedObject.GetComponent<Collider>().enabled = false;
 
-                if (distance <= snapDistance)
+                counter += 1;
+                scoreText.text = "Score: " + counter;
+
+                // Check if all pieces are placed
+                if (counter == 4)
                 {
-                    // Snap the puzzle piece into position
-                    selectedObject.transform.position = snapPoint.position;
-                    selectedObject.transform.rotation = correctRotations[selectedName];  // Align the rotation perfectly
-                    LockPuzzlePiece(selectedObject);  // Lock the piece in place
+                    puzzleCompleted.text = "Puzzle Completed!";
+                    PlayerPrefs.SetInt("PuzzleCompleted", 1); // Save the completion status
+                    PlayerPrefs.Save(); // Save changes
                 }
             }
         }
     }
 
-    private void LockPuzzlePiece(GameObject puzzlePiece)
-    {
-        // Lock the puzzle piece by disabling its collider and preventing further interaction
-        puzzlePiece.GetComponent<Collider>().enabled = false;
-
-        // Optionally disable the Rigidbody if it exists (assuming physics isn't needed anymore)
-        Rigidbody rb = puzzlePiece.GetComponent<Rigidbody>();
-        if (rb != null)
-        {
-            rb.isKinematic = true;  // Prevents further movement due to physics
-        }
-
-        // Add the puzzle piece to the list of locked pieces
-        lockedPieces.Add(puzzlePiece);
-    }
-
-    private bool IsRotationCorrectForPuzzle(Quaternion objectRotation, Quaternion targetRotation)
+    // Check if the rotation of the object matches the target rotation
+    private bool IsRotationCorrect(Quaternion objectRotation, Quaternion targetRotation)
     {
         return Quaternion.Angle(objectRotation, targetRotation) < 5f;
     }
 
-    private Transform GetPaintingPuzzleSnapPoint(string puzzlePieceName)
+    // Get the corresponding snap point based on the puzzle piece name
+    private Transform GetSnapPoint(string paintingName)
     {
-        switch (puzzlePieceName)
+        switch (paintingName)
         {
-            case "Puzzle Piece 1":
-                return snapPoints[0]; // Position 1
-            case "Puzzle Piece 2":
-                return snapPoints[1]; // Position 2
-            case "Puzzle Piece 3":
-                return snapPoints[2]; // Position 3
-            case "Puzzle Piece 4":
-                return snapPoints[3]; // Position 4
+            case "Painting 1":
+                return snapPoints[0];
+            case "Painting 2":
+                return snapPoints[1];
+            case "Painting 3":
+                return snapPoints[2];
+            case "Painting 4":
+                return snapPoints[3];
             default:
-                return null; // No matching snap point
+                return null;
         }
-    }
-
-    private RaycastHit CastRayForPaintingPuzzle()
-    {
-        Vector3 screenMousePosFar = new Vector3(
-            Input.mousePosition.x,
-            Input.mousePosition.y,
-            Camera.main.farClipPlane);
-        Vector3 screenMousePosNear = new Vector3(
-            Input.mousePosition.x,
-            Input.mousePosition.y,
-            Camera.main.nearClipPlane);
-        Vector3 worldMousePosFar = Camera.main.ScreenToWorldPoint(screenMousePosFar);
-        Vector3 worldMousePosNear = Camera.main.ScreenToWorldPoint(screenMousePosNear);
-        RaycastHit hit;
-        Physics.Raycast(worldMousePosNear, worldMousePosFar - worldMousePosNear, out hit);
-
-        return hit;
     }
 }

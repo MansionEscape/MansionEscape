@@ -106,10 +106,9 @@ public class TriggerInteraction : MonoBehaviour
         }
         else if (jigsawCollision && wasPressed) 
         {
-            Debug.Log(jigsawCollision);
             SceneManager.LoadScene("JigsawPuzzle");
         }
-        else if (paintingCollision && Input.GetKeyDown(KeyCode.E))
+        else if (paintingCollision && wasPressed)
         {
             Debug.Log(paintingCollision);
             SceneManager.LoadScene("PaintingPuzzle");

@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-public class GrabberUpdated : MonoBehaviour
+public class GrabbableScript : MonoBehaviour
 {
     // Serializes input action fields for editing in the inspector
     [SerializeField] private InputAction press, press2, screenPosition;
