@@ -744,7 +744,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 498917604}
-  - component: {fileID: 498917605}
+  - component: {fileID: 498917607}
   m_Layer: 0
   m_Name: Puzzle
   m_TagString: Untagged
@@ -769,7 +769,7 @@ Transform:
   - {fileID: 1543364737}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &498917605
+--- !u!114 &498917607
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -778,9 +778,60 @@ MonoBehaviour:
   m_GameObject: {fileID: 498917603}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bdef646cacfd014b810ea4899cb1bd0, type: 3}
+  m_Script: {fileID: 11500000, guid: 6006871c5d4ba9043aa603093e70c2a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  press:
+    m_Name: Press
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: b7c53330-7796-4af3-9640-01b992aeb8a1
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 92731900-664c-4397-a57a-19191c7592a1
+      m_Path: <Mouse>/leftButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Press
+      m_Flags: 0
+    m_Flags: 0
+  press2:
+    m_Name: Press 2
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: f75a44ed-f9af-4f0c-9b59-a0060b645ef2
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 837b198b-50a3-4bad-8d63-ea7a86676420
+      m_Path: <Mouse>/rightButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Press 2
+      m_Flags: 0
+    m_Flags: 0
+  screenPosition:
+    m_Name: Screen Position
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: dbcd9bca-87cb-465f-95b1-7d040769633c
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 06d33366-f525-45a0-bbd2-6d73fad070d6
+      m_Path: <Mouse>/position
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Screen Position
+      m_Flags: 0
+    m_Flags: 0
   scoreText: {fileID: 1095502064}
   puzzleCompleted: {fileID: 318423851}
   secondaryTexture: {fileID: 2800000, guid: acaa748f1c0e0e648b8b38fdd6d81049, type: 3}
