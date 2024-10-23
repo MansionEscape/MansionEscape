@@ -33,14 +33,7 @@ public class PlayerController : MonoBehaviour
             chest.SetActive(true);
             chestTrigger.SetActive(true);
         }
-
-
     }
-
-    //private void OnDestroy()
-    //{
-    //    PlayerPrefs.DeleteKey("PuzzleCompleted"); // Clean up after use
-    //}
 
     void Update()
     {
