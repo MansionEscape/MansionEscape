@@ -5905,7 +5905,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputField: {fileID: 1641539004}
   chestPanel: {fileID: 1682501510}
-  correctCode: 1234
+  correctCode: 4321
   feedbackText: {fileID: 473870968}
   chestContentsPanel: {fileID: 1354999711}
 --- !u!1001 &1152914231
