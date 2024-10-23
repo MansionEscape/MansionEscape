@@ -4,6 +4,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEditor.IMGUI.Controls;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class TriggerInteraction : MonoBehaviour
@@ -20,6 +21,8 @@ public class TriggerInteraction : MonoBehaviour
     private bool jigsawCollision; // to check if player is in range of jigsaw
     private bool paintingCollision; // to check if player is in range of painting
 
+    public InputActionReference interact;
+    private bool wasPressed;
 
 
     private void Start()
@@ -30,6 +33,8 @@ public class TriggerInteraction : MonoBehaviour
         paintingCollision = false;
         objectText.text = string.Empty;
         puzzlePanel.SetActive(false);      // ensure panel is hidden at start
+        wasPressed = false;
+        
     }
 
     void OnTriggerEnter(Collider other)
@@ -85,7 +90,9 @@ public class TriggerInteraction : MonoBehaviour
 
     void Update()
     {
-        if (chestCollision && Input.GetKeyDown(KeyCode.E))
+        wasPressed = interact.action.WasPressedThisFrame();
+        
+        if (chestCollision && wasPressed)
         {
             Debug.Log("Interaction with object: " + interactiveObject.name); // check if prompt is working
             puzzlePanel.SetActive(true); // display the UI puzzle panel
@@ -93,11 +100,11 @@ public class TriggerInteraction : MonoBehaviour
             // Add code here for changing scene if puzzle is on a scene instead of UI.
 
         }
-        else if (bookshelfCollision && Input.GetKeyDown(KeyCode.E))
+        else if (bookshelfCollision && wasPressed)
         {
             SceneManager.LoadScene("BookshelfPuzzle");
         }
-        else if (jigsawCollision && Input.GetKeyDown(KeyCode.E)) 
+        else if (jigsawCollision && wasPressed) 
         {
             Debug.Log(jigsawCollision);
             SceneManager.LoadScene("JigsawPuzzle");
