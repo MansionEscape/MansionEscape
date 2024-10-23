@@ -25,15 +25,13 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        chest.SetActive(false); 
+        chestTrigger.SetActive(false);
 
-        // Check if the puzzle was completed in the previous scene
-        if (PlayerPrefs.GetInt("PuzzleCompleted", 0) == 1)
+        if (GameState.isPuzzleCompleted)
         {
-            chest.SetActive(true); // Activate the object
+            chest.SetActive(true);
             chestTrigger.SetActive(true);
-
-            PlayerPrefs.SetInt("PuzzleCompleted", 1); // Save the completion status
-            PlayerPrefs.Save();
         }
 
 
