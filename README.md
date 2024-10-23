@@ -185,6 +185,8 @@ The objective is to escape each room of the haunted mansion. Every room has an e
 
 ### Gameplay Instructions
 
+**GAME LINK:** https://mansionescape.github.io/MansionEscape/build/index.html
+
 **1. Explore the Room:** Investigate the room by moving around and examining objects. Some items or objects are hidden, and interactive objects will highlight (turn green) when you're close enough to interact with them. You will also see a description of the object (what it is) and a prompt to interact with it (E.g. press E).
 
 **2. Solve Puzzles:** To unlock the exit, you will need to solve puzzles. These could involve finding hidden objects, re-arranging items, unlocking chests, or deciphering clues scattered around the room.
