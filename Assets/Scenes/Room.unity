@@ -3637,6 +3637,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 440f75c8b7ce32a4b9485e3587d994c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chest: {fileID: 51216476}
+  chestTrigger: {fileID: 1057622120}
 --- !u!1 &630636039
 GameObject:
   m_ObjectHideFlags: 0
@@ -4222,6 +4224,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 440f75c8b7ce32a4b9485e3587d994c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chest: {fileID: 0}
+  chestTrigger: {fileID: 0}
 --- !u!1 &695569418
 GameObject:
   m_ObjectHideFlags: 0

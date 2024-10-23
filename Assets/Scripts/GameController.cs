@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 public class GameMenuController : MonoBehaviour
 {
     private string sceneName = "Room";
+    public GameObject chest;
+    public GameObject chestTrigger;
 
     // Start is called before the first frame update
      void Start()
@@ -39,7 +41,7 @@ public class GameMenuController : MonoBehaviour
     //Restart level function by loading the active scene.
     public void RestartLevel()
     {
-
+        GameState.isPuzzleCompleted = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     //Exits level and loads the start menu scene
