@@ -5,6 +5,12 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
+public static class GameState
+{
+    public static bool isPuzzleCompleted = false;
+}
+
+
 public class PaintingPuzzleScript : MonoBehaviour
 {
     // Serializes input action fields for editing in the inspector
@@ -126,8 +132,7 @@ public class PaintingPuzzleScript : MonoBehaviour
                 if (counter == 4)
                 {
                     puzzleCompleted.text = "Puzzle Completed!";
-                    PlayerPrefs.SetInt("PuzzleCompleted", 1); // Save the completion status
-                    PlayerPrefs.Save(); // Save changes
+                    GameState.isPuzzleCompleted = true;
                 }
             }
         }
