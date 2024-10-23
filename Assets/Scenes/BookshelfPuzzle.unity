@@ -481,8 +481,8 @@ GameObject:
   - component: {fileID: 23774056}
   - component: {fileID: 23774055}
   - component: {fileID: 23774054}
-  - component: {fileID: 23774058}
   - component: {fileID: 23774057}
+  - component: {fileID: 23774059}
   m_Layer: 0
   m_Name: BookB
   m_TagString: Untagged
@@ -606,7 +606,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &23774058
+--- !u!114 &23774059
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -615,10 +615,43 @@ MonoBehaviour:
   m_GameObject: {fileID: 23774052}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cb00bb5ddfb5964c962ce470536ea0b, type: 3}
+  m_Script: {fileID: 11500000, guid: 45a08de122611db44bab90ff8db00e02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  correctMaterial: {fileID: 0}
+  press:
+    m_Name: Press
+    m_Type: 1
+    m_ExpectedControlType: Button
+    m_Id: 33f3227d-15c9-4530-a707-ec96e27de076
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 3608def1-4014-4a96-bffa-d620b1487985
+      m_Path: <Mouse>/leftButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Press
+      m_Flags: 0
+    m_Flags: 0
+  screenPosition:
+    m_Name: Screen Position
+    m_Type: 0
+    m_ExpectedControlType: Vector2
+    m_Id: 01511b59-fa75-4f56-8af8-1c2c297aa2e3
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: df1c27de-7323-4d49-810d-f9054e21540c
+      m_Path: <Mouse>/position
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Screen Position
+      m_Flags: 0
+    m_Flags: 0
 --- !u!1 &24548912
 GameObject:
   m_ObjectHideFlags: 0
@@ -981,8 +1014,8 @@ GameObject:
   - component: {fileID: 59353964}
   - component: {fileID: 59353963}
   - component: {fileID: 59353962}
-  - component: {fileID: 59353966}
   - component: {fileID: 59353965}
+  - component: {fileID: 59353967}
   m_Layer: 0
   m_Name: BookO
   m_TagString: Untagged
@@ -1106,7 +1139,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &59353966
+--- !u!114 &59353967
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1115,10 +1148,43 @@ MonoBehaviour:
   m_GameObject: {fileID: 59353960}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cb00bb5ddfb5964c962ce470536ea0b, type: 3}
+  m_Script: {fileID: 11500000, guid: 45a08de122611db44bab90ff8db00e02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  correctMaterial: {fileID: 0}
+  press:
+    m_Name: Press
+    m_Type: 1
+    m_ExpectedControlType: Button
+    m_Id: 18f5f8b5-dbb9-497b-b95d-2017e39b4def
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: fe180d75-fe89-4fac-bcd7-39e0d811f3c0
+      m_Path: <Mouse>/leftButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Press
+      m_Flags: 0
+    m_Flags: 0
+  screenPosition:
+    m_Name: Screen Position
+    m_Type: 0
+    m_ExpectedControlType: Vector2
+    m_Id: 4114eee8-e349-47a9-b6ba-588bcac2030d
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 73564b6d-d11f-4d67-80c3-75b54c095506
+      m_Path: <Mouse>/position
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Screen Position
+      m_Flags: 0
+    m_Flags: 0
 --- !u!1 &130195380
 GameObject:
   m_ObjectHideFlags: 0
@@ -1240,8 +1306,8 @@ GameObject:
   - component: {fileID: 172810420}
   - component: {fileID: 172810419}
   - component: {fileID: 172810418}
-  - component: {fileID: 172810422}
   - component: {fileID: 172810421}
+  - component: {fileID: 172810423}
   m_Layer: 0
   m_Name: BookR
   m_TagString: Untagged
@@ -1365,7 +1431,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &172810422
+--- !u!114 &172810423
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1374,10 +1440,43 @@ MonoBehaviour:
   m_GameObject: {fileID: 172810416}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cb00bb5ddfb5964c962ce470536ea0b, type: 3}
+  m_Script: {fileID: 11500000, guid: 45a08de122611db44bab90ff8db00e02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  correctMaterial: {fileID: 0}
+  press:
+    m_Name: Press
+    m_Type: 1
+    m_ExpectedControlType: Button
+    m_Id: d55b434f-26e8-433a-9fd8-89cc4273155d
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 3608def1-4014-4a96-bffa-d620b1487985
+      m_Path: <Mouse>/leftButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Press
+      m_Flags: 0
+    m_Flags: 0
+  screenPosition:
+    m_Name: Screen Position
+    m_Type: 0
+    m_ExpectedControlType: Vector2
+    m_Id: 2b300791-e8dd-46b9-8ab4-ca288f2920e5
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: df1c27de-7323-4d49-810d-f9054e21540c
+      m_Path: <Mouse>/position
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Screen Position
+      m_Flags: 0
+    m_Flags: 0
 --- !u!1 &180323632
 GameObject:
   m_ObjectHideFlags: 0
@@ -1390,8 +1489,8 @@ GameObject:
   - component: {fileID: 180323636}
   - component: {fileID: 180323635}
   - component: {fileID: 180323634}
-  - component: {fileID: 180323638}
   - component: {fileID: 180323637}
+  - component: {fileID: 180323639}
   m_Layer: 0
   m_Name: BookC
   m_TagString: Untagged
@@ -1515,7 +1614,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &180323638
+--- !u!114 &180323639
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1524,10 +1623,43 @@ MonoBehaviour:
   m_GameObject: {fileID: 180323632}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cb00bb5ddfb5964c962ce470536ea0b, type: 3}
+  m_Script: {fileID: 11500000, guid: 45a08de122611db44bab90ff8db00e02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  correctMaterial: {fileID: 0}
+  press:
+    m_Name: Press
+    m_Type: 1
+    m_ExpectedControlType: Button
+    m_Id: 076884c7-ae95-4418-934b-e1bf5be5ef0e
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 0bcaba58-0f55-43c9-849d-3b8e2c98327f
+      m_Path: <Mouse>/leftButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Press
+      m_Flags: 0
+    m_Flags: 0
+  screenPosition:
+    m_Name: Screen Position
+    m_Type: 0
+    m_ExpectedControlType: Vector2
+    m_Id: 52d768c1-1d16-4993-a6d9-95f8ab59e507
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: ac333e6a-d3c7-4a96-9ea0-487e674f2c0c
+      m_Path: <Mouse>/position
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Screen Position
+      m_Flags: 0
+    m_Flags: 0
 --- !u!1 &184491483
 GameObject:
   m_ObjectHideFlags: 0
@@ -2037,7 +2169,7 @@ GameObject:
   - component: {fileID: 451926616}
   - component: {fileID: 451926615}
   - component: {fileID: 451926618}
-  - component: {fileID: 451926619}
+  - component: {fileID: 451926620}
   m_Layer: 0
   m_Name: BookA
   m_TagString: Untagged
@@ -2161,7 +2293,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &451926619
+--- !u!114 &451926620
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2170,10 +2302,43 @@ MonoBehaviour:
   m_GameObject: {fileID: 451926613}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cb00bb5ddfb5964c962ce470536ea0b, type: 3}
+  m_Script: {fileID: 11500000, guid: 45a08de122611db44bab90ff8db00e02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  correctMaterial: {fileID: 0}
+  press:
+    m_Name: Press
+    m_Type: 1
+    m_ExpectedControlType: Button
+    m_Id: 8b23a393-5f88-4919-b838-83ae06b14a1d
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: ebbf1002-1d0a-44e6-91b8-9178e1be1e71
+      m_Path: <Mouse>/leftButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Press
+      m_Flags: 0
+    m_Flags: 0
+  screenPosition:
+    m_Name: Screen Position
+    m_Type: 0
+    m_ExpectedControlType: Vector2
+    m_Id: a617a504-8755-4463-bc2e-8fa8e76e840c
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: c0faacff-5af3-4212-9f36-b839118692f8
+      m_Path: <Mouse>/position
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Screen Position
+      m_Flags: 0
+    m_Flags: 0
 --- !u!1 &456469245
 GameObject:
   m_ObjectHideFlags: 0
@@ -3495,8 +3660,8 @@ GameObject:
   - component: {fileID: 760397412}
   - component: {fileID: 760397411}
   - component: {fileID: 760397410}
-  - component: {fileID: 760397414}
   - component: {fileID: 760397413}
+  - component: {fileID: 760397415}
   m_Layer: 0
   m_Name: BookS
   m_TagString: Untagged
@@ -3620,7 +3785,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &760397414
+--- !u!114 &760397415
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3629,10 +3794,43 @@ MonoBehaviour:
   m_GameObject: {fileID: 760397408}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cb00bb5ddfb5964c962ce470536ea0b, type: 3}
+  m_Script: {fileID: 11500000, guid: 45a08de122611db44bab90ff8db00e02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  correctMaterial: {fileID: 0}
+  press:
+    m_Name: Press
+    m_Type: 1
+    m_ExpectedControlType: Button
+    m_Id: 70a997cd-0540-4d4c-b8a1-4981ff16f7a6
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 0bcaba58-0f55-43c9-849d-3b8e2c98327f
+      m_Path: <Mouse>/leftButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Press
+      m_Flags: 0
+    m_Flags: 0
+  screenPosition:
+    m_Name: Screen Position
+    m_Type: 0
+    m_ExpectedControlType: Vector2
+    m_Id: 79898328-4c5f-4789-b8f7-2371e83d84df
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: ac333e6a-d3c7-4a96-9ea0-487e674f2c0c
+      m_Path: <Mouse>/position
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Screen Position
+      m_Flags: 0
+    m_Flags: 0
 --- !u!1 &763557267
 GameObject:
   m_ObjectHideFlags: 0
@@ -4671,8 +4869,8 @@ GameObject:
   - component: {fileID: 943648358}
   - component: {fileID: 943648357}
   - component: {fileID: 943648356}
-  - component: {fileID: 943648360}
   - component: {fileID: 943648359}
+  - component: {fileID: 943648361}
   m_Layer: 0
   m_Name: BookR
   m_TagString: Untagged
@@ -4796,7 +4994,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &943648360
+--- !u!114 &943648361
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4805,10 +5003,43 @@ MonoBehaviour:
   m_GameObject: {fileID: 943648354}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cb00bb5ddfb5964c962ce470536ea0b, type: 3}
+  m_Script: {fileID: 11500000, guid: 45a08de122611db44bab90ff8db00e02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  correctMaterial: {fileID: 0}
+  press:
+    m_Name: Press
+    m_Type: 1
+    m_ExpectedControlType: Button
+    m_Id: 1cb591d4-ed3c-49f1-99d2-1d4bd47da791
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 0bcaba58-0f55-43c9-849d-3b8e2c98327f
+      m_Path: <Mouse>/leftButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Press
+      m_Flags: 0
+    m_Flags: 0
+  screenPosition:
+    m_Name: Screen Position
+    m_Type: 0
+    m_ExpectedControlType: Vector2
+    m_Id: b13e071e-7b5b-4ba4-97d9-55b8c930f47e
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: ac333e6a-d3c7-4a96-9ea0-487e674f2c0c
+      m_Path: <Mouse>/position
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Screen Position
+      m_Flags: 0
+    m_Flags: 0
 --- !u!1 &958179315
 GameObject:
   m_ObjectHideFlags: 0
@@ -5172,7 +5403,7 @@ GameObject:
   - component: {fileID: 1031842126}
   - component: {fileID: 1031842125}
   - component: {fileID: 1031842128}
-  - component: {fileID: 1031842129}
+  - component: {fileID: 1031842130}
   m_Layer: 0
   m_Name: BookW
   m_TagString: Untagged
@@ -5296,7 +5527,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1031842129
+--- !u!114 &1031842130
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5305,10 +5536,43 @@ MonoBehaviour:
   m_GameObject: {fileID: 1031842123}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cb00bb5ddfb5964c962ce470536ea0b, type: 3}
+  m_Script: {fileID: 11500000, guid: 45a08de122611db44bab90ff8db00e02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  correctMaterial: {fileID: 0}
+  press:
+    m_Name: Press
+    m_Type: 1
+    m_ExpectedControlType: Button
+    m_Id: e741a51b-e06b-41df-8a18-d7ee2601c01b
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: b1b789cf-89fd-486c-af93-38a1d9c4022c
+      m_Path: <Mouse>/leftButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Press
+      m_Flags: 0
+    m_Flags: 0
+  screenPosition:
+    m_Name: Screen Position
+    m_Type: 0
+    m_ExpectedControlType: Vector2
+    m_Id: 06b2c922-c725-4f90-ab15-566d60f9569a
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 1a769bc3-458e-4148-8b87-2d6a09264cc9
+      m_Path: <Mouse>/position
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Screen Position
+      m_Flags: 0
+    m_Flags: 0
 --- !u!1 &1041370941
 GameObject:
   m_ObjectHideFlags: 0
@@ -6106,8 +6370,8 @@ GameObject:
   - component: {fileID: 1186314244}
   - component: {fileID: 1186314243}
   - component: {fileID: 1186314242}
-  - component: {fileID: 1186314246}
   - component: {fileID: 1186314245}
+  - component: {fileID: 1186314247}
   m_Layer: 0
   m_Name: BookD
   m_TagString: Untagged
@@ -6231,7 +6495,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1186314246
+--- !u!114 &1186314247
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6240,10 +6504,43 @@ MonoBehaviour:
   m_GameObject: {fileID: 1186314240}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cb00bb5ddfb5964c962ce470536ea0b, type: 3}
+  m_Script: {fileID: 11500000, guid: 45a08de122611db44bab90ff8db00e02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  correctMaterial: {fileID: 0}
+  press:
+    m_Name: Press
+    m_Type: 1
+    m_ExpectedControlType: Button
+    m_Id: 72543194-70d5-4803-934c-44b8ced046c4
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: b1b789cf-89fd-486c-af93-38a1d9c4022c
+      m_Path: <Mouse>/leftButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Press
+      m_Flags: 0
+    m_Flags: 0
+  screenPosition:
+    m_Name: Screen Position
+    m_Type: 0
+    m_ExpectedControlType: Vector2
+    m_Id: d624ab5b-1890-4932-ac7c-aa50b366f80b
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 1a769bc3-458e-4148-8b87-2d6a09264cc9
+      m_Path: <Mouse>/position
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Screen Position
+      m_Flags: 0
+    m_Flags: 0
 --- !u!1 &1214270471
 GameObject:
   m_ObjectHideFlags: 0
@@ -6876,8 +7173,8 @@ GameObject:
   - component: {fileID: 1322988292}
   - component: {fileID: 1322988291}
   - component: {fileID: 1322988290}
-  - component: {fileID: 1322988294}
   - component: {fileID: 1322988293}
+  - component: {fileID: 1322988295}
   m_Layer: 0
   m_Name: BookE
   m_TagString: Untagged
@@ -7001,7 +7298,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1322988294
+--- !u!114 &1322988295
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7010,10 +7307,43 @@ MonoBehaviour:
   m_GameObject: {fileID: 1322988288}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cb00bb5ddfb5964c962ce470536ea0b, type: 3}
+  m_Script: {fileID: 11500000, guid: 45a08de122611db44bab90ff8db00e02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  correctMaterial: {fileID: 0}
+  press:
+    m_Name: Press
+    m_Type: 1
+    m_ExpectedControlType: Button
+    m_Id: 4d5588a7-ce33-4962-9bfe-0588521178c7
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: b1b789cf-89fd-486c-af93-38a1d9c4022c
+      m_Path: <Mouse>/leftButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Press
+      m_Flags: 0
+    m_Flags: 0
+  screenPosition:
+    m_Name: Screen Position
+    m_Type: 0
+    m_ExpectedControlType: Vector2
+    m_Id: 640037fd-f2e4-46ee-a311-808f64514963
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 1a769bc3-458e-4148-8b87-2d6a09264cc9
+      m_Path: <Mouse>/position
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Screen Position
+      m_Flags: 0
+    m_Flags: 0
 --- !u!1 &1323203152
 GameObject:
   m_ObjectHideFlags: 0
@@ -7026,8 +7356,8 @@ GameObject:
   - component: {fileID: 1323203156}
   - component: {fileID: 1323203155}
   - component: {fileID: 1323203154}
-  - component: {fileID: 1323203158}
   - component: {fileID: 1323203157}
+  - component: {fileID: 1323203159}
   m_Layer: 0
   m_Name: BookT
   m_TagString: Untagged
@@ -7151,7 +7481,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1323203158
+--- !u!114 &1323203159
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7160,10 +7490,43 @@ MonoBehaviour:
   m_GameObject: {fileID: 1323203152}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cb00bb5ddfb5964c962ce470536ea0b, type: 3}
+  m_Script: {fileID: 11500000, guid: 45a08de122611db44bab90ff8db00e02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  correctMaterial: {fileID: 0}
+  press:
+    m_Name: Press
+    m_Type: 1
+    m_ExpectedControlType: Button
+    m_Id: 83dcba56-150d-47b4-b987-5d7fa01dd9f8
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 0bcaba58-0f55-43c9-849d-3b8e2c98327f
+      m_Path: <Mouse>/leftButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Press
+      m_Flags: 0
+    m_Flags: 0
+  screenPosition:
+    m_Name: Screen Position
+    m_Type: 0
+    m_ExpectedControlType: Vector2
+    m_Id: 2ff729a0-16fc-4ab2-b42d-f5ba32d1933f
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: ac333e6a-d3c7-4a96-9ea0-487e674f2c0c
+      m_Path: <Mouse>/position
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Screen Position
+      m_Flags: 0
+    m_Flags: 0
 --- !u!1 &1352845979
 GameObject:
   m_ObjectHideFlags: 0
@@ -7737,8 +8100,8 @@ GameObject:
   - component: {fileID: 1515131273}
   - component: {fileID: 1515131272}
   - component: {fileID: 1515131271}
-  - component: {fileID: 1515131275}
   - component: {fileID: 1515131274}
+  - component: {fileID: 1515131276}
   m_Layer: 0
   m_Name: BookN
   m_TagString: Untagged
@@ -7862,7 +8225,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1515131275
+--- !u!114 &1515131276
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7871,10 +8234,43 @@ MonoBehaviour:
   m_GameObject: {fileID: 1515131269}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cb00bb5ddfb5964c962ce470536ea0b, type: 3}
+  m_Script: {fileID: 11500000, guid: 45a08de122611db44bab90ff8db00e02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  correctMaterial: {fileID: 0}
+  press:
+    m_Name: Press
+    m_Type: 1
+    m_ExpectedControlType: Button
+    m_Id: 6be9f544-56e5-45ac-8ae8-15707eecc6f6
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: b1b789cf-89fd-486c-af93-38a1d9c4022c
+      m_Path: <Mouse>/leftButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Press
+      m_Flags: 0
+    m_Flags: 0
+  screenPosition:
+    m_Name: Screen Position
+    m_Type: 0
+    m_ExpectedControlType: Vector2
+    m_Id: 20eb6365-af88-4adc-9d9c-fe0bf330e2cb
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 1a769bc3-458e-4148-8b87-2d6a09264cc9
+      m_Path: <Mouse>/position
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Screen Position
+      m_Flags: 0
+    m_Flags: 0
 --- !u!1 &1552052500
 GameObject:
   m_ObjectHideFlags: 0
@@ -8713,8 +9109,8 @@ GameObject:
   - component: {fileID: 1738259899}
   - component: {fileID: 1738259898}
   - component: {fileID: 1738259897}
-  - component: {fileID: 1738259901}
   - component: {fileID: 1738259900}
+  - component: {fileID: 1738259902}
   m_Layer: 0
   m_Name: BookC
   m_TagString: Untagged
@@ -8838,7 +9234,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1738259901
+--- !u!114 &1738259902
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8847,10 +9243,43 @@ MonoBehaviour:
   m_GameObject: {fileID: 1738259895}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cb00bb5ddfb5964c962ce470536ea0b, type: 3}
+  m_Script: {fileID: 11500000, guid: 45a08de122611db44bab90ff8db00e02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  correctMaterial: {fileID: 0}
+  press:
+    m_Name: Press
+    m_Type: 1
+    m_ExpectedControlType: Button
+    m_Id: 6082986a-5b95-4645-9e9a-a1e90fca66f6
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 0bcaba58-0f55-43c9-849d-3b8e2c98327f
+      m_Path: <Mouse>/leftButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Press
+      m_Flags: 0
+    m_Flags: 0
+  screenPosition:
+    m_Name: Screen Position
+    m_Type: 0
+    m_ExpectedControlType: Vector2
+    m_Id: 83cacc54-ee06-4ef8-8fe9-58aba625e3f5
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: ac333e6a-d3c7-4a96-9ea0-487e674f2c0c
+      m_Path: <Mouse>/position
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Screen Position
+      m_Flags: 0
+    m_Flags: 0
 --- !u!1 &1753706403
 GameObject:
   m_ObjectHideFlags: 0
@@ -8987,8 +9416,8 @@ GameObject:
   - component: {fileID: 1785953773}
   - component: {fileID: 1785953772}
   - component: {fileID: 1785953771}
-  - component: {fileID: 1785953775}
   - component: {fileID: 1785953774}
+  - component: {fileID: 1785953776}
   m_Layer: 0
   m_Name: BookK
   m_TagString: Untagged
@@ -9112,7 +9541,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1785953775
+--- !u!114 &1785953776
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9121,10 +9550,43 @@ MonoBehaviour:
   m_GameObject: {fileID: 1785953769}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cb00bb5ddfb5964c962ce470536ea0b, type: 3}
+  m_Script: {fileID: 11500000, guid: 45a08de122611db44bab90ff8db00e02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  correctMaterial: {fileID: 0}
+  press:
+    m_Name: Press
+    m_Type: 1
+    m_ExpectedControlType: Button
+    m_Id: ebabf5a9-5134-4fa0-9d41-3b2496975bca
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: b1b789cf-89fd-486c-af93-38a1d9c4022c
+      m_Path: <Mouse>/leftButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Press
+      m_Flags: 0
+    m_Flags: 0
+  screenPosition:
+    m_Name: Screen Position
+    m_Type: 0
+    m_ExpectedControlType: Vector2
+    m_Id: 5ebe99f0-754e-4848-835c-7400c05d4da3
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 1a769bc3-458e-4148-8b87-2d6a09264cc9
+      m_Path: <Mouse>/position
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Screen Position
+      m_Flags: 0
+    m_Flags: 0
 --- !u!1 &1789084682
 GameObject:
   m_ObjectHideFlags: 0
@@ -9805,8 +10267,8 @@ GameObject:
   - component: {fileID: 1955725373}
   - component: {fileID: 1955725372}
   - component: {fileID: 1955725371}
-  - component: {fileID: 1955725375}
   - component: {fileID: 1955725374}
+  - component: {fileID: 1955725376}
   m_Layer: 0
   m_Name: Book-
   m_TagString: Untagged
@@ -9930,7 +10392,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1955725375
+--- !u!114 &1955725376
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9939,10 +10401,43 @@ MonoBehaviour:
   m_GameObject: {fileID: 1955725369}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cb00bb5ddfb5964c962ce470536ea0b, type: 3}
+  m_Script: {fileID: 11500000, guid: 45a08de122611db44bab90ff8db00e02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  correctMaterial: {fileID: 0}
+  press:
+    m_Name: Press
+    m_Type: 1
+    m_ExpectedControlType: Button
+    m_Id: 13ed1dd0-7093-4f46-ba82-7326b5bd2502
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 0bcaba58-0f55-43c9-849d-3b8e2c98327f
+      m_Path: <Mouse>/leftButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Press
+      m_Flags: 0
+    m_Flags: 0
+  screenPosition:
+    m_Name: Screen Position
+    m_Type: 0
+    m_ExpectedControlType: Vector2
+    m_Id: b6291a23-cccc-41a7-9fa4-3b9361ea8aa3
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: ac333e6a-d3c7-4a96-9ea0-487e674f2c0c
+      m_Path: <Mouse>/position
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Screen Position
+      m_Flags: 0
+    m_Flags: 0
 --- !u!1 &1956888710
 GameObject:
   m_ObjectHideFlags: 0
@@ -10102,8 +10597,8 @@ GameObject:
   - component: {fileID: 2019974332}
   - component: {fileID: 2019974331}
   - component: {fileID: 2019974330}
-  - component: {fileID: 2019974334}
   - component: {fileID: 2019974333}
+  - component: {fileID: 2019974335}
   m_Layer: 0
   m_Name: BookE
   m_TagString: Untagged
@@ -10227,7 +10722,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &2019974334
+--- !u!114 &2019974335
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10236,10 +10731,43 @@ MonoBehaviour:
   m_GameObject: {fileID: 2019974328}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cb00bb5ddfb5964c962ce470536ea0b, type: 3}
+  m_Script: {fileID: 11500000, guid: 45a08de122611db44bab90ff8db00e02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  correctMaterial: {fileID: 0}
+  press:
+    m_Name: Press
+    m_Type: 1
+    m_ExpectedControlType: Button
+    m_Id: 14e2cf97-5f33-4568-98e8-42a838e13cf0
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 3608def1-4014-4a96-bffa-d620b1487985
+      m_Path: <Mouse>/leftButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Press
+      m_Flags: 0
+    m_Flags: 0
+  screenPosition:
+    m_Name: Screen Position
+    m_Type: 0
+    m_ExpectedControlType: Vector2
+    m_Id: e7f281ec-0f9c-480b-b2a4-90f4b63e3b3c
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: df1c27de-7323-4d49-810d-f9054e21540c
+      m_Path: <Mouse>/position
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Screen Position
+      m_Flags: 0
+    m_Flags: 0
 --- !u!1 &2070970818
 GameObject:
   m_ObjectHideFlags: 0
