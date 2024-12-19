@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 public class PlayerController1 : MonoBehaviour
 {
 
-    public InputActionReference moveInput, jumpInput;
+    public InputActionReference moveInput;
 
     private Animator animator;
     public CharacterController controller;
@@ -20,8 +20,6 @@ public class PlayerController1 : MonoBehaviour
     public float gravity = -10.0f;
     public float movementSpeed = 10.0f;
     public float rotationSpeed = 1.0f;
-    public float jumpHeight = 1.0f;
-
 
     private void Start()
     {
