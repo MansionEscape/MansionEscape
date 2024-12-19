@@ -9,6 +9,7 @@ public class PlayerController1 : MonoBehaviour
 
     public InputActionReference moveInput, jumpInput;
 
+    private Animator animator;
     public CharacterController controller;
 
     private Vector3 playerVelocity;
@@ -21,7 +22,11 @@ public class PlayerController1 : MonoBehaviour
     public float rotationSpeed = 1.0f;
     public float jumpHeight = 1.0f;
 
- 
+
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     void Update()
     {
@@ -43,18 +48,23 @@ public class PlayerController1 : MonoBehaviour
         controller.Move(move * Time.deltaTime * movementSpeed);
 
         if (move != Vector3.zero)
+
         {
+            animator.SetBool("isMoving", true);
             Quaternion toRotation = Quaternion.LookRotation(move, Vector3.up);
 
             gameObject.transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed);
+            
         }
-
-        if (jumpInput.action.WasPressedThisFrame() && playerGrounded)
+        else
         {
-            Debug.Log("Space Pressed");
-            playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravity);
+
+            animator.SetBool("isMoving", false);
         }
 
+       
+
+        
         playerVelocity.y += gravity * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
         //apply velocity to rigidbody as Vector3 (3d space) and apple the horizontal input to x and the vertical input to z leaving y as 0.
@@ -62,7 +72,7 @@ public class PlayerController1 : MonoBehaviour
 
         playerGrounded = controller.isGrounded;
 
-
+        
     }
 
 }
