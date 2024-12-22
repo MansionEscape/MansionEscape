@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class KitchenToBackHallway : MonoBehaviour
 {
-    public GameObject player, RoomRight, RoomLeft, wallDivider1, wallDivider2, stairs;
+    public GameObject player, RoomRight, RoomLeft, wallDivider1, stairs;
 
     private bool playerInRoomRight;
     private bool playerInRoomLeft;
@@ -37,7 +37,7 @@ public class KitchenToBackHallway : MonoBehaviour
             RoomLeft.SetActive(true);
             stairs.SetActive(false);
             wallDivider1.SetActive(false);
-            wallDivider2.SetActive(false);
+            
 
         }
         else if (other.gameObject == player && playerInRoomLeft)
@@ -45,7 +45,7 @@ public class KitchenToBackHallway : MonoBehaviour
             RoomRight.SetActive(true);
             stairs.SetActive(false);
             wallDivider1.SetActive(false);
-            wallDivider2.SetActive(false);
+            
 
         }
 
@@ -60,7 +60,7 @@ public class KitchenToBackHallway : MonoBehaviour
         {
             stairs.SetActive(true);
             wallDivider1.SetActive(true);
-            wallDivider2.SetActive(true);
+         
             RoomRight.SetActive(false);
 
             playerInRoomRight = false;
@@ -73,7 +73,7 @@ public class KitchenToBackHallway : MonoBehaviour
 
             stairs.SetActive(false);
             wallDivider1.SetActive(false);
-            wallDivider2.SetActive(false);
+
             RoomLeft.SetActive(false);
 
             playerInRoomRight = false;
