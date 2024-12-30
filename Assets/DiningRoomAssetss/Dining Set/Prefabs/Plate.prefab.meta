@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 42be4ad70318dba44b0fd6fbfafe4752
+timeCreated: 1431443583
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 37029
+  packageName: Dining Set
+  packageVersion: 1.01
+  assetPath: Assets/Dining Set/Prefabs/Plate.prefab
+  uploadId: 65899
