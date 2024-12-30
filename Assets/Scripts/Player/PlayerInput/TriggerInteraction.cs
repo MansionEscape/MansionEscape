@@ -20,6 +20,7 @@ public class TriggerInteraction : MonoBehaviour
     private bool chestCollision; // to check if player is in range of chest
     private bool jigsawCollision; // to check if player is in range of jigsaw
     private bool paintingCollision; // to check if player is in range of painting
+    private bool livingRoomShelfCollision; 
 
     public InputActionReference interact;
     private bool wasPressed;
@@ -31,6 +32,7 @@ public class TriggerInteraction : MonoBehaviour
         bookshelfCollision = false;
         jigsawCollision = false;
         paintingCollision = false;
+        livingRoomShelfCollision = false;
         objectText.text = string.Empty;
         puzzlePanel.SetActive(false);      // ensure panel is hidden at start
         wasPressed = false;
@@ -42,7 +44,11 @@ public class TriggerInteraction : MonoBehaviour
         if (other.gameObject == player)
         {
             interactiveObject.GetComponent<Renderer>().material = highlightMaterial;
-            objectText.text = interactionMessage;   // display the custom message prompt
+
+            if (objectText != null && interactionMessage != null)
+            {
+                objectText.text = interactionMessage;   // display the custom message prompt
+            }
 
             if (interactiveObject.name == "Bookshelf")
             {
@@ -59,6 +65,10 @@ public class TriggerInteraction : MonoBehaviour
             else if(interactiveObject.name == "PaintingImage")
             {
                 paintingCollision = true;
+            }
+            else if (interactiveObject.name == "Shelf")
+            {
+                livingRoomShelfCollision = true;
             }
         }
     }
@@ -84,6 +94,10 @@ public class TriggerInteraction : MonoBehaviour
             else if (interactiveObject.name == "PaintingImage")
             {
                 paintingCollision = false;
+            }
+            else if (interactiveObject.name == "Shelf")
+            {
+                livingRoomShelfCollision = false;
             }
         }
     }
@@ -113,5 +127,16 @@ public class TriggerInteraction : MonoBehaviour
             Debug.Log(paintingCollision);
             SceneManager.LoadScene("PaintingPuzzle");
         }
+        else if (livingRoomShelfCollision && wasPressed)
+        {
+            Debug.Log("livingRoomShelfCollision");
+            SceneManager.LoadScene("LivingRoomBookshelfPuzzle");
+        }
+        else if (livingRoomShelfCollision )
+        {
+            Debug.Log("livingRoomShelfCollision detected");
+            
+        }
+
     }
 }
