@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class GameMenuController : MonoBehaviour
 {
-    private string sceneName = "Room";
     public GameObject chest;
     public GameObject chestTrigger;
 
@@ -56,9 +55,5 @@ public class GameMenuController : MonoBehaviour
         Application.Quit();
     }
 
-    //Start Game from start menu
-    public void LoadScene()
-    {
-        SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
-    }
+  
 }
