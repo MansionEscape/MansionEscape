@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class HallwaytoHallway : MonoBehaviour
 {
-    public GameObject player, stairs, wallDivider1, wallDivider2;
+    public GameObject player, stairs, wallDivider;
 
     private bool playerInHallwayMain;
     private bool playerInHallwayBack;
@@ -34,16 +34,15 @@ public class HallwaytoHallway : MonoBehaviour
         if (other.gameObject == player && playerInHallwayMain)
         {
             stairs.SetActive(false);
-            wallDivider1.SetActive(false);
-            wallDivider2.SetActive(false);
+            wallDivider.SetActive(false);
+            
 
 
         }
         else if (other.gameObject == player && playerInHallwayBack)
         {
             stairs.SetActive(true);
-            wallDivider1.SetActive(true);
-            wallDivider2.SetActive(true);
+            wallDivider.SetActive(false);
 
         }
 
@@ -56,8 +55,7 @@ public class HallwaytoHallway : MonoBehaviour
         {
 
             stairs.SetActive(true);
-            wallDivider1.SetActive(true);
-            wallDivider2.SetActive(true);
+            wallDivider.SetActive(true);
 
             playerInHallwayMain = false;
             playerInHallwayBack = false;
@@ -68,9 +66,8 @@ public class HallwaytoHallway : MonoBehaviour
         {
 
             stairs.SetActive(false);
-            wallDivider1.SetActive(false);
-            wallDivider2.SetActive(false);
-
+            wallDivider.SetActive(false);
+            
             playerInHallwayMain = false;
             playerInHallwayBack = false;
 
