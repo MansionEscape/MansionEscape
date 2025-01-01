@@ -5,11 +5,21 @@ using UnityEngine;
 public class KitchenToBackHallway : MonoBehaviour
 {
     public GameObject player, RoomRight, RoomLeft, wallDivider1, stairs;
+    private GameObject mainGameController;
+
+    public MainController mainController;
+
 
     private bool playerInRoomRight;
     private bool playerInRoomLeft;
 
     private float playerxAxis;
+
+    private void Awake()
+    {
+        mainGameController = GameObject.Find("MainGameController");
+        mainController = mainGameController.GetComponent<MainController>();
+    }
 
 
     void Update()
@@ -60,9 +70,9 @@ public class KitchenToBackHallway : MonoBehaviour
         {
             stairs.SetActive(true);
             wallDivider1.SetActive(true);
-         
+            
             RoomRight.SetActive(false);
-
+            mainController.UpdateCurrentPlayerRoom("Kitchen");
             playerInRoomRight = false;
             playerInRoomLeft = false;
 
@@ -75,7 +85,7 @@ public class KitchenToBackHallway : MonoBehaviour
             wallDivider1.SetActive(false);
 
             RoomLeft.SetActive(false);
-
+            mainController.UpdateCurrentPlayerRoom("Back Hallway");
             playerInRoomRight = false;
             playerInRoomLeft = false;
 

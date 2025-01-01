@@ -5,13 +5,22 @@ using UnityEngine;
 public class ZaxisDoorTrigger : MonoBehaviour
 {
     public GameObject player, RoomTop, RoomBottom;
+    public GameObject mainGameController;
+    public MainController mainController;
 
     private bool playerInRoomTop;
     private bool playerInRoomBottom;
 
+    public string roomNameTop;
+    public string roomNameBottom;
+
     private float playerzAxis;
 
-
+    private void Awake()
+    {
+        mainGameController = GameObject.Find("MainGameController");
+        mainController = mainGameController.GetComponent<MainController>();
+    }
     void Update()
     {
         playerzAxis = player.transform.position.z;
@@ -56,7 +65,13 @@ public class ZaxisDoorTrigger : MonoBehaviour
         //if player z axis is greater than threshold, player exits to the Right Room
         if (other.gameObject == player && playerzAxis < gameObject.transform.position.z)
         {
+            if (roomNameBottom == "Main Hallway")
+            {
+                mainController.currentPlayer.data.mansionLevel = "Ground";
+               
+            }
             
+            mainController.UpdateCurrentPlayerRoom(roomNameBottom);
             RoomTop.SetActive(false);
 
 
@@ -64,8 +79,12 @@ public class ZaxisDoorTrigger : MonoBehaviour
         //if player z axis is less than threshold, player exits to the Left Room
         else if (other.gameObject == player && playerzAxis > gameObject.transform.position.z)
         {
-            
-          
+            if(roomNameTop == "Upstairs Hallway")
+            { 
+                mainController.currentPlayer.data.mansionLevel = "LevelOne";
+                
+            }
+            mainController.UpdateCurrentPlayerRoom(roomNameTop);
             RoomBottom.SetActive(false);
 
         }

@@ -36,8 +36,9 @@ public class NewPlayerUI : MonoBehaviour
         {
             
                 playerManager.Save();
-                playerManager.LoadAll();
-            
+                playerManager.LoadPlayerGame();
+                SceneManager.LoadScene("Mansion");
+
 
         }
         else
