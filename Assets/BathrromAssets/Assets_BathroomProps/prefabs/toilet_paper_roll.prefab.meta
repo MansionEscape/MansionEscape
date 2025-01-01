@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: c764d1d0273921641a0ed3c8bb41e77c
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 25255
+  packageName: Bathroom Props
+  packageVersion: 1.0
+  assetPath: Assets/Assets_BathroomProps/prefabs/toilet_paper_roll.prefab
+  uploadId: 41982
