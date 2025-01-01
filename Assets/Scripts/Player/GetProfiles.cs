@@ -21,6 +21,8 @@ public class GetProfiles : MonoBehaviour
 
     public TMP_Text playerProfileName;
     public TMP_Text playerCurrentLevel;
+    public TMP_Text playerCurrentRoom;
+    public TMP_Text playerCurrentMansionLevel;
 
     public PlayerManager playerManager;
 
@@ -114,19 +116,12 @@ public class GetProfiles : MonoBehaviour
     public void ResumeGame()
     {
         playerManager.LoadPlayerGame();
-        SceneManager.LoadScene("DesktopScene");
+        SceneManager.LoadScene("Mansion");
     }
 
     public void DeleteProfile()
     {
         playerManager.DeletePlayer();
-        gameObject.SetActive(true);
-        profilePage.SetActive(false);
-        LoadProfiles();
-    }
-
-    public void TestSaveMethod()
-    {
         gameObject.SetActive(true);
         profilePage.SetActive(false);
         LoadProfiles();
@@ -138,6 +133,8 @@ public class GetProfiles : MonoBehaviour
         profilePage.SetActive(true);
         playerProfileName.text = playerManager.data.playerName;
         playerCurrentLevel.text = playerManager.data.currentLevel.ToString();
+        playerCurrentRoom.text = playerManager.data.currentRoom;
+        playerCurrentMansionLevel.text = playerManager.data.mansionLevel;
         
     }
 

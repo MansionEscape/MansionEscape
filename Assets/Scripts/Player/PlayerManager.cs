@@ -133,6 +133,12 @@ public class PlayerManager : MonoBehaviour
 
     }
 
+    public void UpdatePlayer()
+    {
+        Save();
+        LoadPlayer();
+    }
+
     public void DeletePlayer()
     {
         if (selectedPlayer == "playerOne")
