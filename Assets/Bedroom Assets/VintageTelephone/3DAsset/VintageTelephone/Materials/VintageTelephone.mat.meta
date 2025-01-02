@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: c288eaa36d2a87548af576cb2c150621
+timeCreated: 1522081407
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 115223
+  packageName: Vintage Telephone
+  packageVersion: 1.0
+  assetPath: Assets/VintageTelephone/3DAsset/VintageTelephone/Materials/VintageTelephone.mat
+  uploadId: 240166

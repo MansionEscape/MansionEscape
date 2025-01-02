@@ -4,15 +4,18 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.UI;
-using System.Numerics;
-using System.Security.Cryptography.X509Certificates;
-using UnityEngine.Windows.WebCam;
 
 
 public class MainController : MonoBehaviour
 {
+    public float typingSpeed;
+    public bool isPaused;
+    public bool menuOpen;
     public SpawnPlayer spawnPlayer;
     public GameObject Player;
+
+    public GameObject instructionBox;
+    public TMP_Text instructionText;
 
     public GameObject playerManagerObject;
     public PlayerManager currentPlayer;
@@ -21,6 +24,9 @@ public class MainController : MonoBehaviour
     public GameObject welcomeWindow;
 
     public GameObject pauseWindow;
+
+    public GameObject DialogueBox;
+    public TMP_Text DialogueText;
 
     public GameObject MapPage;
     public GameObject ObjectivesPage;
@@ -53,105 +59,149 @@ public class MainController : MonoBehaviour
     
     void Awake()
     {
+        //Assigns object from StartMenu
         playerManagerObject = GameObject.Find("PlayerManager");
         currentPlayer = playerManagerObject.GetComponent<PlayerManager>();
     }
     // Start is called before the first frame update
     void Start()
     {
+        //initiates booleans - if one is false, player movement disabled
+        menuOpen = false;
+        isPaused = false;
+
+        //Loads currently player data from the player manager
         currentPlayer.LoadPlayer();
 
-        if(!currentPlayer.data.firstTimePlaying)
+        //Checks if the player is new by checking if they have completed the first time playing
+        if(!currentPlayer.data.firstTimePlayingComplete)
         {
-            welcomePlayerName.text = currentPlayer.data.playerName;
-            welcomeWindow.SetActive(true);
-            currentPlayer.data.firstTimePlaying = true;
-            currentPlayer.data.currentRoom = "Entrance";
-            currentPlayer.data.mansionLevel = "Ground";
-            currentPlayer.Save();
+            //sets menuOpen as true (for tutorial page)
+            menuOpen = true;
+            welcomePlayerName.text = currentPlayer.data.playerName; // player name data for welcome message
+            welcomeWindow.SetActive(true); //Opens the welcome message
+            currentPlayer.data.firstTimePlayingComplete = true; //sets the players first time playing to
+            currentPlayer.data.currentRoom = "Entrance"; //intiate the players current room - entrance starting room
+            currentPlayer.data.mansionLevel = "Ground"; // ground floor as the first set of rooms
+            currentPlayer.Save(); // saves the players data
 
         }
 
+        //checks if the player is not in the entrance, and spawns the players according to the current room
         if(currentPlayer.data.currentRoom != "Entrance")
         {
             spawnPlayer.SpawnPoint(currentPlayer.data.mansionLevel, currentPlayer.data.currentRoom);
         }
 
-        CheckTutorial();
+        //Load Main Objectives after all the load up
+        LoadMainObjectives();
 
     }
-    public void CheckTutorial()
+
+    public void LoadInstructionPrompt(string instruction)
     {
-        if (!currentPlayer.data.tutorialComplete)
-        {
-            LoadTutorialObjectives();
-        }
-        else
-        {
-            LoadMainObjectives();
-        }
-    }
-    public void LoadTutorialObjectives()
-    {
-        LevelTitle.text = "Tutorial";
-        objectiveOneTitle.text = "Time to move!";
-        objectiveOneText.text = "Using the arrow keys or WASD to move your player and start to explore the mansion.";
-        LoadObjectiveStatus(currentPlayer.data.ObjectivePuzzleOneComplete, objectiveOneIcon);
-
-        objectiveTwoTitle.text = "Grab and Go";
-        objectiveTwoText.text = "Around the mansion will be objects you can pick up. When prompted pick up an item using 'E'!";
-        LoadObjectiveStatus(currentPlayer.data.ObjectivePuzzleTwoComplete, objectiveTwoIcon);
-
-        objectiveThreeTitle.text = "Level One";
-        objectiveThreeText.text = "Open the menu and select inventory, this is where you will find the objects you picked up! Select the object you just found and use it on the corresponding door.";
-        LoadObjectiveStatus(currentPlayer.data.ObjectivePuzzleThreeComplete, objectiveThreeIcon);
+        instructionBox.SetActive(true);
     }
 
+    //Objectives Text and information
     public void LoadMainObjectives()
     {
-        if (currentPlayer.data.currentLevel == 1)
+        //Checks what the players current level is and loads the main objectives accordingly
+        // All set the levels title, objective titles and objective descriptions
+        if (currentPlayer.data.currentLevel == 0)
         {
-            LevelTitle.text = "Level One: The Dining Room";
-            objectiveOneTitle.text = "";
-            objectiveOneText.text = "";
+            LevelTitle.text = "Tutorial";
+            objectiveOneTitle.text = "Objective 1: Time to move!";
+            objectiveOneText.text = "Using the arrow keys or WASD to move your player and start to explore the mansion.";
+
+            //LoadObjectiveStatus checks the status of the objective and assigns the corresponding icon. (See method for more detailed comments)
             LoadObjectiveStatus(currentPlayer.data.ObjectivePuzzleOneComplete, objectiveOneIcon);
 
-            objectiveTwoTitle.text = "";
-            objectiveTwoText.text = "";
+            objectiveTwoTitle.text = "Objective 2: Grab and Go";
+            objectiveTwoText.text = "Around the mansion will be objects you can pick up. When prompted pick up an item using 'E'!";
             LoadObjectiveStatus(currentPlayer.data.ObjectivePuzzleTwoComplete, objectiveTwoIcon);
 
-            objectiveThreeTitle.text = "";
-            objectiveThreeText.text = "";
+            objectiveThreeTitle.text = "Objective 3: Level One";
+            objectiveThreeText.text = "Open the menu and select inventory, this is where you will find the objects you picked up! Select the object you just found and use it on the corresponding door.";
+            LoadObjectiveStatus(currentPlayer.data.ObjectivePuzzleThreeComplete, objectiveThreeIcon);
+        }
+        else if (currentPlayer.data.currentLevel == 1)
+        {
+            LevelTitle.text = "Level One: The Dining Room";
+            objectiveOneTitle.text = "Objective 1: The Full Dining Experience";
+            objectiveOneText.text = "This Dining Room is fit for a king! Although you could never dine at an unset table. Correctly arrange and set the table, maybe it will reveal something... ";
+            LoadObjectiveStatus(currentPlayer.data.ObjectivePuzzleOneComplete, objectiveOneIcon);
+
+            objectiveTwoTitle.text = "Objective 2: A Match Made in Heaven";
+            objectiveTwoText.text = "We need something to fuel the fire! Find something to start a flame, there has to be something in this room!";
+            LoadObjectiveStatus(currentPlayer.data.ObjectivePuzzleTwoComplete, objectiveTwoIcon);
+
+            objectiveThreeTitle.text = "Objective 3: Level TwoBurn Baby Burn!";
+            objectiveThreeText.text = "There's shine from a lump of coal in the fire place, find away to start a fire and burn the coal!";
             LoadObjectiveStatus(currentPlayer.data.ObjectivePuzzleThreeComplete, objectiveThreeIcon);
         }
         else if (currentPlayer.data.currentLevel == 2)
         {
+            LevelTitle.text = "Level Two: The Kitchen";
+            objectiveOneTitle.text = "Objective 1: ";
+            objectiveOneText.text = " ";
+            LoadObjectiveStatus(currentPlayer.data.ObjectivePuzzleOneComplete, objectiveOneIcon);
 
+            objectiveTwoTitle.text = "Objective 2: ";
+            objectiveTwoText.text = "";
+            LoadObjectiveStatus(currentPlayer.data.ObjectivePuzzleTwoComplete, objectiveTwoIcon);
+
+            objectiveThreeTitle.text = "Objective 3: Burn Baby Burn";
+            objectiveThreeText.text = "";
+            LoadObjectiveStatus(currentPlayer.data.ObjectivePuzzleThreeComplete, objectiveThreeIcon);
+        }
+        else if (currentPlayer.data.currentLevel == 3)
+        {
+            LevelTitle.text = "Level Three: The Living Room";
+            objectiveOneTitle.text = "Objective 1: The Correct Notes";
+            objectiveOneText.text = "Theres a grand piano! Maybe theres some sheet music around here somewhere..";
+            LoadObjectiveStatus(currentPlayer.data.ObjectivePuzzleOneComplete, objectiveOneIcon);
+
+            objectiveTwoTitle.text = "Objective 2: Muscial To My Ears";
+            objectiveTwoText.text = "I wonder what will happen if we play the correct";
+            LoadObjectiveStatus(currentPlayer.data.ObjectivePuzzleTwoComplete, objectiveTwoIcon);
+
+            objectiveThreeTitle.text = "Objective 3: Level Two";
+            objectiveThreeText.text = "";
+            LoadObjectiveStatus(currentPlayer.data.ObjectivePuzzleThreeComplete, objectiveThreeIcon);
         }
     }
 
+    //Load Objective Status takes the objective boolean from the player and the corresponding objective Icon
     public void LoadObjectiveStatus(bool objectiveStatus, Image objectiveIcon)
     {
+        //If the player has completed the objective the complete sprite will be applied and be turned green.
         if (objectiveStatus)
         {
             objectiveIcon.sprite = objectiveComplete;
+            objectiveIcon.color = Color.green;
         }
         else
         {
+            //Else the defauls X will be used to represent incomplete objectives
             objectiveIcon.sprite = objectiveDefault;
         }
     }
 
+    //Update Objectives takes a string that will state if its the first, second or third objective
     public void UpdateObjective(string objective)
     {
         if (objective == "one")
         {
+            //Checks if this objective has not already been completed
             if (!currentPlayer.data.ObjectivePuzzleOneComplete)
             {
+                //Pop up will be displayed with the text of the objective
                 ObjectivePopUp(objectiveOneTitle.text);
+                //sets the objective to complete
                 currentPlayer.data.ObjectivePuzzleOneComplete = true;
-                currentPlayer.UpdatePlayer();
-                CheckProgression("tutorial");
+                currentPlayer.UpdatePlayer(); // Updates player which saves the changed values
+                CheckProgression(); //Check Progression checks if this is the last objective to be completed in the level
 
             }
         }
@@ -162,7 +212,7 @@ public class MainController : MonoBehaviour
                 ObjectivePopUp(objectiveTwoTitle.text);
                 currentPlayer.data.ObjectivePuzzleTwoComplete = true;
                 currentPlayer.UpdatePlayer();
-                CheckProgression("tutorial");
+                CheckProgression();
 
             }
         }
@@ -173,38 +223,48 @@ public class MainController : MonoBehaviour
                 ObjectivePopUp(objectiveThreeTitle.text);
                 currentPlayer.data.ObjectivePuzzleThreeComplete = true;
                 currentPlayer.UpdatePlayer();
-                CheckProgression("tutorial");
+                CheckProgression();
 
             }
         }
     }
 
-    public void CheckProgression(string level)
+
+    public void CheckProgression()
     {
-        if (level == "tutorial")
+        //Checks if all objectives are completed
+        if (currentPlayer.data.ObjectivePuzzleOneComplete && currentPlayer.data.ObjectivePuzzleTwoComplete && currentPlayer.data.ObjectivePuzzleThreeComplete)
         {
-            if (currentPlayer.data.ObjectivePuzzleOneComplete && currentPlayer.data.ObjectivePuzzleTwoComplete && currentPlayer.data.ObjectivePuzzleThreeComplete)
+            //If all objectives complete, players level is increased by 1
+            currentPlayer.data.currentLevel++;
+            int level = currentPlayer.data.currentLevel;
+
+            //checks what the players new level is
+            if(level == 1)
             {
+
                 ObjectivePopUp("Tutorial Complete!");
                 currentPlayer.data.tutorialComplete = true;
                 currentPlayer.UpdatePlayer();
                 currentPlayer.LoadPlayer();
                 ResetObjectives();
                 LoadMainObjectives();
-
             }
-        }
-        else
-        {
-            currentPlayer.data.currentLevel++;
-
-            if(level == "two")
+            else if (level == 2)
             {
-
+                ObjectivePopUp("Level One Complete!");
+                currentPlayer.data.levelOneComplete = true;
+                currentPlayer.UpdatePlayer();
+                currentPlayer.LoadPlayer();
+                ResetObjectives();
+                LoadMainObjectives();
             }
-        }
 
+        }
+        
+        
     }
+
 
     public void ObjectivePopUp(string objective)
     {
@@ -242,15 +302,27 @@ public class MainController : MonoBehaviour
 
     }
 
+    public void MenuOpen()
+    {
+        menuOpen = true;
+    }
+
+    public void MenuClosed()
+    {
+        menuOpen = false;
+    }
+
     public void PauseGame()
     {
         pauseWindow.SetActive(true);
+        isPaused = true;
 
     }
 
     public void ResumeGame()
     {
         pauseWindow.SetActive(false);
+        isPaused = false;
     }
 
     public void ExitGame()
@@ -259,6 +331,24 @@ public class MainController : MonoBehaviour
         Destroy(this.playerManagerObject);
         SceneManager.LoadScene("StartMenu");
     }
+
+    //CODE FOR TYPING EFFECT FOR FUTURE DIALOGUE BOX
+
+    //public IEnumerator RunDialogue(string Text)
+    //{
+    //    DialogueBox.SetActive(true);
+    //    yield return StartCoroutine(RunDialogueText(Text));
+    //    yield return new WaitForSeconds(6);
+    //    DialogueText.text = "";
+    //}
+    //IEnumerator RunDialogueText(string dialogueText)
+    //{
+    //    foreach(char letter in dialogueText)
+    //    {
+    //        DialogueText.text += letter;
+    //        yield return new WaitForSeconds(typingSpeed);
+    //    }
+    //}
 
     public void ResetObjectives()
     {

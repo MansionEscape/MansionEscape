@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 1f11d5d693628c14e86ceaced13c05a0
+timeCreated: 1523465456
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 115223
+  packageName: Vintage Telephone
+  packageVersion: 1.0
+  assetPath: Assets/VintageTelephone/3DAsset/Prefab/VintageTelephone.prefab
+  uploadId: 240166

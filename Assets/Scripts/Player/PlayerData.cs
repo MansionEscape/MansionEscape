@@ -7,14 +7,15 @@ public class PlayerData
 {
     public string playerName = "";
 
-    public bool firstTimePlaying = false;
+    public bool firstTimePlayingComplete = false;
+    public bool firstMovement = false;
     public bool tutorialComplete = false;
 
     public int progressionPercentage = 0;
 
     public string mansionLevel = "";
     public string currentRoom = "";
-    public int currentLevel = 1;
+    public int currentLevel = 0;
 
     public bool levelOneComplete = false;
     public bool levelTwoComplete = false;

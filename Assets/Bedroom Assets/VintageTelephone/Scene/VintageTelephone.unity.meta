@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 48f750184e210bb49952c147975c63d7
+timeCreated: 1522082133
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 115223
+  packageName: Vintage Telephone
+  packageVersion: 1.0
+  assetPath: Assets/VintageTelephone/Scene/VintageTelephone.unity
+  uploadId: 240166
