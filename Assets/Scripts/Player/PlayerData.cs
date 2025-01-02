@@ -14,7 +14,7 @@ public class PlayerData
 
     public string mansionLevel = "";
     public string currentRoom = "";
-    public int currentLevel = 1;
+    public int currentLevel = 0;
 
     public bool levelOneComplete = false;
     public bool levelTwoComplete = false;
