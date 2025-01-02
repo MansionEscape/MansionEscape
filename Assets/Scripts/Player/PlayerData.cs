@@ -7,7 +7,8 @@ public class PlayerData
 {
     public string playerName = "";
 
-    public bool firstTimePlaying = false;
+    public bool firstTimePlayingComplete = false;
+    public bool firstMovement = false;
     public bool tutorialComplete = false;
 
     public int progressionPercentage = 0;

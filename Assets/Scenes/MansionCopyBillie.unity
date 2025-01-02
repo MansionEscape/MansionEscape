@@ -6986,6 +6986,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 769da118c5ea53b46a797f5950933492, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1505399387}
   moveInput: {fileID: 5326356197866686019, guid: 3f4a940c29dec7a45a4fc1d4f99d62dc, type: 3}
   controller: {fileID: 188080441}
   playerGrounded: 0
@@ -29041,7 +29042,7 @@ Transform:
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
   m_LocalRotation: {x: 0.23911765, y: 0.3696438, z: -0.09904577, w: 0.89239913}
-  m_LocalPosition: {x: -16.983015, y: 9.154074, z: -17.403877}
+  m_LocalPosition: {x: -17.183878, y: 11.814074, z: -17.933878}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -43731,9 +43732,30 @@ MonoBehaviour:
   Player: {fileID: 188080440}
   playerManagerObject: {fileID: 0}
   currentPlayer: {fileID: 0}
+  welcomePlayerName: {fileID: 1851518265}
   welcomeWindow: {fileID: 1419802672}
   pauseWindow: {fileID: 753014571}
-  welcomePlayerName: {fileID: 1851518265}
+  MapPage: {fileID: 0}
+  ObjectivesPage: {fileID: 0}
+  InventoryPage: {fileID: 0}
+  PlayerStatsPage: {fileID: 0}
+  playerNameText: {fileID: 0}
+  playerCurrentLevel: {fileID: 0}
+  playerCurrentRoom: {fileID: 0}
+  objectiveComplete: {fileID: 0}
+  objectiveDefault: {fileID: 0}
+  objectiveCompleteWindow: {fileID: 0}
+  objectiveCompleteText: {fileID: 0}
+  LevelTitle: {fileID: 0}
+  objectiveOneTitle: {fileID: 0}
+  objectiveOneText: {fileID: 0}
+  objectiveTwoTitle: {fileID: 0}
+  objectiveTwoText: {fileID: 0}
+  objectiveThreeTitle: {fileID: 0}
+  objectiveThreeText: {fileID: 0}
+  objectiveOneIcon: {fileID: 0}
+  objectiveTwoIcon: {fileID: 0}
+  objectiveThreeIcon: {fileID: 0}
 --- !u!1001 &1505584507
 PrefabInstance:
   m_ObjectHideFlags: 0
