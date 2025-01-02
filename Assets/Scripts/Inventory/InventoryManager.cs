@@ -29,6 +29,7 @@ public class InventoryManager : MonoBehaviour
 
     public void ListItems()
     {
+        Debug.Log("ListItems function called");
         foreach (var item in Items)
         {
             GameObject obj = Instantiate(inventoryItem, itemContent);
