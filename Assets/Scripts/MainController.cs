@@ -77,39 +77,28 @@ public class MainController : MonoBehaviour
             spawnPlayer.SpawnPoint(currentPlayer.data.mansionLevel, currentPlayer.data.currentRoom);
         }
 
-        CheckTutorial();
+        LoadMainObjectives();
 
-    }
-    public void CheckTutorial()
-    {
-        if (!currentPlayer.data.tutorialComplete)
-        {
-            LoadTutorialObjectives();
-        }
-        else
-        {
-            LoadMainObjectives();
-        }
-    }
-    public void LoadTutorialObjectives()
-    {
-        LevelTitle.text = "Tutorial";
-        objectiveOneTitle.text = "Time to move!";
-        objectiveOneText.text = "Using the arrow keys or WASD to move your player and start to explore the mansion.";
-        LoadObjectiveStatus(currentPlayer.data.ObjectivePuzzleOneComplete, objectiveOneIcon);
-
-        objectiveTwoTitle.text = "Grab and Go";
-        objectiveTwoText.text = "Around the mansion will be objects you can pick up. When prompted pick up an item using 'E'!";
-        LoadObjectiveStatus(currentPlayer.data.ObjectivePuzzleTwoComplete, objectiveTwoIcon);
-
-        objectiveThreeTitle.text = "Level One";
-        objectiveThreeText.text = "Open the menu and select inventory, this is where you will find the objects you picked up! Select the object you just found and use it on the corresponding door.";
-        LoadObjectiveStatus(currentPlayer.data.ObjectivePuzzleThreeComplete, objectiveThreeIcon);
     }
 
     public void LoadMainObjectives()
     {
-        if (currentPlayer.data.currentLevel == 1)
+        if (currentPlayer.data.currentLevel == 0)
+        {
+            LevelTitle.text = "Tutorial";
+            objectiveOneTitle.text = "Time to move!";
+            objectiveOneText.text = "Using the arrow keys or WASD to move your player and start to explore the mansion.";
+            LoadObjectiveStatus(currentPlayer.data.ObjectivePuzzleOneComplete, objectiveOneIcon);
+
+            objectiveTwoTitle.text = "Grab and Go";
+            objectiveTwoText.text = "Around the mansion will be objects you can pick up. When prompted pick up an item using 'E'!";
+            LoadObjectiveStatus(currentPlayer.data.ObjectivePuzzleTwoComplete, objectiveTwoIcon);
+
+            objectiveThreeTitle.text = "Level One";
+            objectiveThreeText.text = "Open the menu and select inventory, this is where you will find the objects you picked up! Select the object you just found and use it on the corresponding door.";
+            LoadObjectiveStatus(currentPlayer.data.ObjectivePuzzleThreeComplete, objectiveThreeIcon);
+        }
+        else if (currentPlayer.data.currentLevel == 1)
         {
             LevelTitle.text = "Level One: The Dining Room";
             objectiveOneTitle.text = "";
@@ -151,7 +140,7 @@ public class MainController : MonoBehaviour
                 ObjectivePopUp(objectiveOneTitle.text);
                 currentPlayer.data.ObjectivePuzzleOneComplete = true;
                 currentPlayer.UpdatePlayer();
-                CheckProgression("tutorial");
+                CheckProgression();
 
             }
         }
@@ -162,7 +151,7 @@ public class MainController : MonoBehaviour
                 ObjectivePopUp(objectiveTwoTitle.text);
                 currentPlayer.data.ObjectivePuzzleTwoComplete = true;
                 currentPlayer.UpdatePlayer();
-                CheckProgression("tutorial");
+                CheckProgression();
 
             }
         }
@@ -173,17 +162,19 @@ public class MainController : MonoBehaviour
                 ObjectivePopUp(objectiveThreeTitle.text);
                 currentPlayer.data.ObjectivePuzzleThreeComplete = true;
                 currentPlayer.UpdatePlayer();
-                CheckProgression("tutorial");
+                CheckProgression();
 
             }
         }
     }
 
-    public void CheckProgression(string level)
+    public void CheckProgression()
     {
-        if (level == "tutorial")
+        if (currentPlayer.data.ObjectivePuzzleOneComplete && currentPlayer.data.ObjectivePuzzleTwoComplete && currentPlayer.data.ObjectivePuzzleThreeComplete)
         {
-            if (currentPlayer.data.ObjectivePuzzleOneComplete && currentPlayer.data.ObjectivePuzzleTwoComplete && currentPlayer.data.ObjectivePuzzleThreeComplete)
+            currentPlayer.data.currentLevel++;
+            int level = currentPlayer.data.currentLevel;
+            if(level == 1)
             {
                 ObjectivePopUp("Tutorial Complete!");
                 currentPlayer.data.tutorialComplete = true;
@@ -191,19 +182,20 @@ public class MainController : MonoBehaviour
                 currentPlayer.LoadPlayer();
                 ResetObjectives();
                 LoadMainObjectives();
-
             }
-        }
-        else
-        {
-            currentPlayer.data.currentLevel++;
-
-            if(level == "two")
+            else if (level == 2)
             {
-
+                ObjectivePopUp("Level One Complete!");
+                currentPlayer.data.levelOneComplete = true;
+                currentPlayer.UpdatePlayer();
+                currentPlayer.LoadPlayer();
+                ResetObjectives();
+                LoadMainObjectives();
             }
-        }
 
+        }
+        
+        
     }
 
     public void ObjectivePopUp(string objective)
