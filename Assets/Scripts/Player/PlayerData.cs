@@ -16,5 +16,14 @@ public class PlayerData
     public string currentRoom = "";
     public int currentLevel = 1;
 
+    public bool levelOneComplete = false;
+    public bool levelTwoComplete = false;
+    public bool levelThreeComplete = false;
+
+    public bool ObjectivePuzzleOneComplete = false;
+    public bool ObjectivePuzzleTwoComplete = false;
+    public bool ObjectivePuzzleThreeComplete = false;
+
+
 
 }
