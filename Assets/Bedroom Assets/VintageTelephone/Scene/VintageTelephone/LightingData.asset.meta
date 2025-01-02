@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 8d595b82010e3df4c82661ffb0f22a15
+timeCreated: 1522083163
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 25800000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 115223
+  packageName: Vintage Telephone
+  packageVersion: 1.0
+  assetPath: Assets/VintageTelephone/Scene/VintageTelephone/LightingData.asset
+  uploadId: 240166
