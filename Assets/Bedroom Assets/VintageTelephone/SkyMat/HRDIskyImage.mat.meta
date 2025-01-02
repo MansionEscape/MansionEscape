@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 50d71a783e56ff94bb0d044c340c2e36
+timeCreated: 1522082292
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 115223
+  packageName: Vintage Telephone
+  packageVersion: 1.0
+  assetPath: Assets/VintageTelephone/SkyMat/HRDIskyImage.mat
+  uploadId: 240166
