@@ -44,6 +44,7 @@ public class BallPuzzleComplete : MonoBehaviour
             if (puzzleCompleteText != null)
             {
                 puzzleCompleteText.gameObject.SetActive(true);
+                puzzleCompleteText.text = "Puzzle Complete";
             }
         }
     }
