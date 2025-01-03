@@ -116,7 +116,7 @@ public class GetProfiles : MonoBehaviour
     public void ResumeGame()
     {
         playerManager.LoadPlayerGame();
-        SceneManager.LoadScene("Mansion 1");
+        SceneManager.LoadScene("Mansion");
     }
 
     public void DeleteProfile()

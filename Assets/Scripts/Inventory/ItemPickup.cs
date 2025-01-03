@@ -76,7 +76,7 @@ public class ItemPickup : MonoBehaviour
         {
             isPlayerNearby = true;
             controller.instructionBox.SetActive(true);
-            controller.instructionText.text = "Press 'E' to pickup item";
+            controller.instructionText.text = "Pickup The " + item.itemName;
             Debug.Log("Press 'E' to pickup item."); // replace this with the UI player text
 
             // change objects material to highlight material
