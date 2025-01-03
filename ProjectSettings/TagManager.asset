@@ -21,6 +21,8 @@ TagManager:
   - cutlery1
   - cutlery2
   - cutlery3
+  - finishZone
+  - ball
   layers:
   - Default
   - TransparentFX
