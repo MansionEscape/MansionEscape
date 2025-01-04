@@ -26,6 +26,11 @@ public class ItemPickup : MonoBehaviour
             originalMaterial = objectRenderer.material;
         }
 
+        if (item.level < player.data.currentLevel)
+        {
+            Destroy(gameObject);
+        }
+
         if (player.data.items != null)
         {
             foreach (var playerItem in player.data.items)
@@ -34,6 +39,7 @@ public class ItemPickup : MonoBehaviour
                 {
                     Destroy(gameObject);
                 }
+                
             }
 
             
