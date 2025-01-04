@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   itemName: Dining Room Key
-  value: 0
+  level: 0
+  objective: two
   icon: {fileID: -118858792, guid: 6303b3f4bf3570c459621a05340801fc, type: 3}

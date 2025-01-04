@@ -6,6 +6,7 @@ using TMPro;
 
 public class InventoryManager : MonoBehaviour
 {
+    public PlayerManager player;
     public static InventoryManager Instance;
     public List<Item> Items = new();
 
@@ -15,6 +16,23 @@ public class InventoryManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+
+        player = GameObject.Find("PlayerManager").GetComponent<PlayerManager>();
+
+        if (player.data.items != null)
+        {
+            foreach (var item in player.data.items)
+            {
+                Items.Add(item);
+            }
+        }
+
+    }
+
+    public void ObjectPickedUp(Item item)
+    {
+        Items.Add(item);
+        player.data.items.Add(item);
     }
 
     public void Add(Item item)
@@ -25,10 +43,16 @@ public class InventoryManager : MonoBehaviour
     public void Remove(Item item)
     {
         Items.Remove(item);
+        player.data.items.Remove(item);
     }
 
     public void ListItems()
     {
+        foreach (Transform child in itemContent)
+        {
+            Destroy(child.gameObject);
+        }
+
         Debug.Log("ListItems function called");
         foreach (var item in Items)
         {

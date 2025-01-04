@@ -17,6 +17,8 @@ public class PlayerData
     public string currentRoom = "";
     public int currentLevel = 0;
 
+    public List<Item> items = new List<Item>();
+
     public bool levelOneComplete = false;
     public bool levelTwoComplete = false;
     public bool levelThreeComplete = false;
