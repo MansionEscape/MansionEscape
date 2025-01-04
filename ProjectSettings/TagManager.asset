@@ -23,6 +23,7 @@ TagManager:
   - cutlery3
   - finishZone
   - ball
+  - AutoOpenDoor
   layers:
   - Default
   - TransparentFX
