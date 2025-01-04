@@ -70,6 +70,7 @@ public class MainController : MonoBehaviour
         menuOpen = false;
         isPaused = false;
 
+ 
         //Loads currently player data from the player manager
         currentPlayer.LoadPlayer();
 
@@ -185,6 +186,7 @@ public class MainController : MonoBehaviour
         {
             //Else the defauls X will be used to represent incomplete objectives
             objectiveIcon.sprite = objectiveDefault;
+            objectiveIcon.color = Color.red;
         }
     }
 
@@ -304,6 +306,7 @@ public class MainController : MonoBehaviour
 
     public void MenuOpen()
     {
+        LoadMainObjectives();
         menuOpen = true;
     }
 
