@@ -47,6 +47,11 @@ public class InventoryManager : MonoBehaviour
 
     public void ListItems()
     {
+        foreach (Transform child in itemContent)
+        {
+            Destroy(child.gameObject);
+        }
+
         Debug.Log("ListItems function called");
         foreach (var item in Items)
         {
