@@ -7,7 +7,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: DoorClose
+  m_Name: DoorCloseInwards
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -40,7 +40,7 @@ AnimatorStateMachine:
     m_Position: {x: 300, y: 100, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -5432129358613587265}
-    m_Position: {x: 320, y: 190, z: 0}
+    m_Position: {x: 300, y: 190, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 24371234159121113}
     m_Position: {x: 290, y: 10, z: 0}
@@ -109,7 +109,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Door Open
+  m_Name: DoorOpenInwards
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
