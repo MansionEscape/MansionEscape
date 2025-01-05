@@ -2849,14 +2849,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bde60433d80455f4a84104e270bd55fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puzzle: {fileID: 58473725}
-  targetHand: {fileID: 6801056696242910086}
-  Renderer: {fileID: 0}
-  hand: large
   inTriggerZone: 0
-  originalMaterial: {fileID: 2309878474809665030, guid: e20800b58bacbbd4bacf26d63874a209, type: 3}
-  highlightMaterial: {fileID: 2100000, guid: ae9eff548b8273b44bf80f1e8657dc58, type: 2}
-  targetMaterial: {fileID: 2100000, guid: 042bd9f0f3c7c11439481979b4aebf29, type: 2}
+  press:
+    m_Name: Press
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: c3c1a08f-0b1b-409a-aafc-92a7b855f4a0
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  screenPosition:
+    m_Name: Screen Position
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 7b32b724-804f-4bc5-bad8-f4f830302b3c
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
 --- !u!54 &6471785795476428486
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2924,14 +2935,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bde60433d80455f4a84104e270bd55fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puzzle: {fileID: 58473725}
-  targetHand: {fileID: 8144394003811847263}
-  Renderer: {fileID: 0}
-  hand: small
-  inTriggerZone: 0
-  originalMaterial: {fileID: 2309878474809665030, guid: e20800b58bacbbd4bacf26d63874a209, type: 3}
-  highlightMaterial: {fileID: 2100000, guid: ae9eff548b8273b44bf80f1e8657dc58, type: 2}
-  targetMaterial: {fileID: 2100000, guid: 042bd9f0f3c7c11439481979b4aebf29, type: 2}
+  inTriggerZone: 1
+  press:
+    m_Name: Press
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 1c9791e2-32c1-4b43-9b7f-d3f7ff81a537
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 12af031a-e4d3-48f1-8bde-42dc4a294cc0
+      m_Path: <Mouse>/delta/left
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Press
+      m_Flags: 0
+    m_Flags: 0
+  screenPosition:
+    m_Name: Screen Position
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 8da2b5cd-7918-432b-9a80-44559506ca92
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 663e9c83-e2c8-4653-9a30-951a6cd692f1
+      m_Path: <Mouse>/position
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Screen Position
+      m_Flags: 0
+    m_Flags: 0
 --- !u!54 &7183619139239538725
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2957,7 +2995,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!65 &7183619139239538726
 BoxCollider:
