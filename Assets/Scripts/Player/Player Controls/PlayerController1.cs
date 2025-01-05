@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerController1 : MonoBehaviour
 {
+    public MainController player;
 
     public InputActionReference moveInput;
 
@@ -42,22 +43,30 @@ public class PlayerController1 : MonoBehaviour
         //moveDirection.y is set as the vertical Input
         float verticalInput = inputRead.y * movementSpeed;
 
-        Vector3 move = new Vector3(horizontalInput, 0, verticalInput);
-        controller.Move(move * Time.deltaTime * movementSpeed);
-
-        if (move != Vector3.zero)
-
+        if(!player.isPaused && !player.menuOpen)
         {
-            animator.SetBool("isMoving", true);
-            Quaternion toRotation = Quaternion.LookRotation(move, Vector3.up);
+            Vector3 move = new Vector3(horizontalInput, 0, verticalInput);
+            controller.Move(move * Time.deltaTime * movementSpeed);
 
-            gameObject.transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed);
-            
-        }
-        else
-        {
+            if (move != Vector3.zero)
+            {
+                if (!player.currentPlayer.data.firstMovement)
+                {
+                    player.currentPlayer.data.firstMovement = true;
+                    player.UpdateObjective("one");
+                }
 
-            animator.SetBool("isMoving", false);
+                animator.SetBool("isMoving", true);
+                Quaternion toRotation = Quaternion.LookRotation(move, Vector3.up);
+
+                gameObject.transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed);
+
+            }
+            else
+            {
+
+                animator.SetBool("isMoving", false);
+            }
         }
 
        

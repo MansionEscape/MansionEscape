@@ -1089,7 +1089,7 @@ SpriteRenderer:
   m_Size: {x: 4.86, y: 4.86}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &261238801
@@ -1779,6 +1779,9 @@ MonoBehaviour:
   panSpeed: 0.5
   panBoundaryY: 0.7
   panBoundaryZ: 0.85
+  isZoomedIn: 0
+  zoomedOutX: 12
+  zoomedInX: 13.2
 --- !u!4 &672140257
 Transform:
   m_ObjectHideFlags: 0
@@ -2692,7 +2695,7 @@ SpriteRenderer:
   m_Size: {x: 5.12, y: 4.38}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1001 &1095362419

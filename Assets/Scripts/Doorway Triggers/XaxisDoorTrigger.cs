@@ -6,13 +6,25 @@ public class XaxisDoorTrigger : MonoBehaviour
 {
 
     public GameObject player, RoomLeft, RoomRight;
+    private GameObject mainGameController;
+
+    public MainController mainController;
 
     public bool playerInRoomLeft;
     public bool playerInRoomRight;
+
+    public string roomNameLeft;
+    public string roomNameRight;
    
 
     private float playerxAxis;
 
+
+    private void Awake()
+    {
+        mainGameController = GameObject.Find("MainGameController");
+        mainController = mainGameController.GetComponent<MainController>();
+    }
 
     void Update()
     {
@@ -32,17 +44,19 @@ public class XaxisDoorTrigger : MonoBehaviour
         {
 
             playerInRoomRight = true;
+            
 
         }
 
         if (other.gameObject == player && playerInRoomRight)
         {
             RoomLeft.SetActive(true);
- 
+
 
         } else if (other.gameObject == player && playerInRoomLeft)
         {
             RoomRight.SetActive(true);
+            
 
         }
         
@@ -57,6 +71,7 @@ public class XaxisDoorTrigger : MonoBehaviour
             RoomLeft.SetActive(false);
             playerInRoomRight = false;
             playerInRoomLeft = false;
+            mainController.UpdateCurrentPlayerRoom(roomNameRight);
 
 
         }
@@ -67,6 +82,7 @@ public class XaxisDoorTrigger : MonoBehaviour
             RoomRight.SetActive(false);
             playerInRoomRight = false;
             playerInRoomLeft = false;
+            mainController.UpdateCurrentPlayerRoom(roomNameLeft);
 
         } 
     }
