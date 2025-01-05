@@ -9,6 +9,8 @@ public class InteractiveObjectControl : MonoBehaviour
     public GameObject objectToDisplay;      // Object to display when clicked
     private Renderer objectRenderer;        // Renderer for the object to access its materials
 
+    private bool IsOpen;
+
     private void Start()
     {
         // Get the renderer component and store the default material
@@ -19,6 +21,7 @@ public class InteractiveObjectControl : MonoBehaviour
         if (objectToDisplay != null) 
         {
             objectToDisplay.SetActive(false);
+            IsOpen = false;
         }
     }
 
@@ -38,13 +41,19 @@ public class InteractiveObjectControl : MonoBehaviour
     // Method to handle clicks on the interactive object
     public void OnClick()
     {
-        if (objectToDisplay != null)
+        if (objectToDisplay != null && !IsOpen)
         {
             objectToDisplay.SetActive(true);
+            IsOpen = true;
         }
         else 
         {
             Debug.LogWarning("No object assigned to show on click!");
         }
+    }
+
+    public void CloseObject()
+    {
+        IsOpen = false;
     }
 }
