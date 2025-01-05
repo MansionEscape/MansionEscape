@@ -130,16 +130,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class DoorTrigger : MonoBehaviour
 {
     public GameObject targetDoor; // Reference to the actual door GameObject
     private DoorInteraction door; // Reference to the DoorInteraction script
 
+    public InputActionReference interact;
+    private bool wasPressed;
+
     private bool IsPlayerNearby;
 
     void Start()
     {
+        
+        wasPressed = false;
         // Ensure we fetch the DoorInteraction script from the target door
         if (targetDoor != null)
         {
@@ -153,6 +159,8 @@ public class DoorTrigger : MonoBehaviour
 
     void Update()
     {
+        wasPressed = interact.action.WasPressedThisFrame();
+
         if (door == null || !IsPlayerNearby) return;
 
         // If the door has the AutoOpenDoor tag, unlock it automatically
@@ -161,7 +169,7 @@ public class DoorTrigger : MonoBehaviour
             door.Unlock();
         }
         // Otherwise, check for manual unlock input
-        else if (!door.doorUnlocked && Input.GetKeyDown(KeyCode.E))
+        else if (!door.doorUnlocked && wasPressed)
         {
             door.Unlock();
         }

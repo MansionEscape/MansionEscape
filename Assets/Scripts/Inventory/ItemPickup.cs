@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System.Security.Cryptography.X509Certificates;
+using UnityEngine.InputSystem;
 
 public class ItemPickup : MonoBehaviour
 {
@@ -15,8 +16,11 @@ public class ItemPickup : MonoBehaviour
     private Material originalMaterial; // original material of the object
     private Renderer objectRenderer;   // renderer component of the object
 
+    public InputActionReference interact;
+    private bool wasPressed;
     private void Start()
     {
+        wasPressed = false;
         player = GameObject.Find("PlayerManager").GetComponent<PlayerManager>();
         controller = GameObject.Find("MainGameController").GetComponent<MainController>();
 
@@ -48,8 +52,9 @@ public class ItemPickup : MonoBehaviour
 
     private void Update()
     {
+        wasPressed = interact.action.WasPressedThisFrame();
         // check if player is nearby and presses 'E' key
-        if (isPlayerNearby && Input.GetKeyDown(KeyCode.E))
+        if (isPlayerNearby && wasPressed)
         {
 
             Pickup();
