@@ -133,6 +133,18 @@ public class PlayerManager : MonoBehaviour
 
     }
 
+    public void RemoveItemPuzzleItem(Item item)
+    {
+        data.items.Remove(item);
+        Save();
+    }
+
+    public void UpdatePlayer()
+    {
+        Save();
+        LoadPlayer();
+    }
+
     public void DeletePlayer()
     {
         if (selectedPlayer == "playerOne")

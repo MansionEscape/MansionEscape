@@ -20,7 +20,7 @@ public class PaintingPuzzleScript : MonoBehaviour
     private Vector3 currentScreenPosition;
 
     // Camera object for raycasting
-    private Camera camera;
+    private new Camera camera;
 
     // To check if the object is being dragged or not
     private bool isDragging = false;
