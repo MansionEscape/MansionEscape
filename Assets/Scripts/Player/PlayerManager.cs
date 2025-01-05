@@ -133,6 +133,12 @@ public class PlayerManager : MonoBehaviour
 
     }
 
+    public void RemoveItemPuzzleItem(Item item)
+    {
+        data.items.Remove(item);
+        Save();
+    }
+
     public void UpdatePlayer()
     {
         Save();
