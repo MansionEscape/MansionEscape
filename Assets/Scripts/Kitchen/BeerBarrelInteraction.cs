@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class BeerBarrelInteraction : MonoBehaviour
 {
@@ -15,6 +16,9 @@ public class BeerBarrelInteraction : MonoBehaviour
     public Material highlightMaterial; 
     private Material originalMaterial;
     private Renderer barrelRenderer;
+
+    public InputActionReference interact;
+    private bool wasPressed;
 
     private void Start()
     {
@@ -31,8 +35,8 @@ public class BeerBarrelInteraction : MonoBehaviour
 
     private void Update()
     {
-  
-        if (isPlayerNearby && Input.GetKeyDown(KeyCode.E))
+        wasPressed = interact.action.WasPressedThisFrame();
+        if (isPlayerNearby && wasPressed)
         {
             if (PlayerHasItem(mugItem))
             {
