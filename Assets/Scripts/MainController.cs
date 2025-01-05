@@ -366,6 +366,12 @@ public class MainController : MonoBehaviour
         }
     }
 
+    public void TriggerDialogue(string text)
+    {
+        StopAllCoroutines();
+        StartCoroutine(RunDialogue(text));
+    }
+
     public void ObjectivePopUp(string objective)
     {
         objectiveCompleteText.text = objective;
