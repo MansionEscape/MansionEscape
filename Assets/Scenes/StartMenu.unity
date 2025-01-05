@@ -3370,7 +3370,7 @@ GameObject:
   - component: {fileID: 995469350}
   - component: {fileID: 995469349}
   m_Layer: 0
-  m_Name: BackgroundSoundtrack
+  m_Name: BackgroundSound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3388,9 +3388,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c71e1013163f602459d576983bea63bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundtracks:
-  - {fileID: 8300000, guid: 18eb9eaa7f84e7243838882424de1105, type: 3}
-  - {fileID: 8300000, guid: a59913d583f56ca4fa8922f12eb9d2b3, type: 3}
 --- !u!82 &995469350
 AudioSource:
   m_ObjectHideFlags: 0
