@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class DragAndDropDining : MonoBehaviour
 {
     [SerializeField] private InputAction press, screenPosition;
+
+    public GameObject playerControl;
+    public PlayerManager player;
 
     private Vector3 currentScreenPosition;
     private Camera camera;
@@ -62,6 +66,10 @@ public class DragAndDropDining : MonoBehaviour
         {
             AddKeyToInventory();
             Destroy(spawnedKey); // Remove the key from the scene after pickup
+            player.data.ObjectivePuzzleTwoComplete = true;
+            player.UpdatePlayer();
+            puzzleCompleted.text = "Loading Mansion...";
+            StartCoroutine(LoadMansion());
             return;
         }
 
@@ -94,6 +102,13 @@ public class DragAndDropDining : MonoBehaviour
             SnapObjectToDesignatedPoint();
             selectedObject = null; // Deselect the object
         }
+    }
+
+    public IEnumerator LoadMansion()
+    {
+        yield return new WaitForSeconds(2);
+        player.LoadPlayerGame();
+        SceneManager.LoadScene("Mansion");
     }
 
     private void Update()
@@ -142,6 +157,7 @@ public class DragAndDropDining : MonoBehaviour
         if (spawnedKey != null)
         {
             spawnedKey.SetActive(true);
+            
         }
     }
 
@@ -212,9 +228,9 @@ public class DragAndDropDining : MonoBehaviour
 
     private void AddKeyToInventory()
     {
-        if (inventoryManager != null && keyItem != null)
+        if (playerControl != null && keyItem != null)
         {
-            inventoryManager.ObjectPickedUp(keyItem);
+            player.AddItemFromPuzzle(keyItem);
             Debug.Log("Key added to inventory!");
         }
     }
@@ -230,6 +246,9 @@ public class DragAndDropDining : MonoBehaviour
 
     private void Start()
     {
+        playerControl = GameObject.FindWithTag("PlayerManager");
+        player = playerControl.GetComponent<PlayerManager>();
+
         // Spawn the key initially but make it invisible
         if (keyPrefab != null && keySpawnPoint != null)
         {

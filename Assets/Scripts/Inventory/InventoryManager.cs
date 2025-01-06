@@ -17,7 +17,7 @@ public class InventoryManager : MonoBehaviour
     {
         Instance = this;
 
-        player = GameObject.Find("PlayerManager").GetComponent<PlayerManager>();
+        player = GameObject.FindWithTag("PlayerManager").GetComponent<PlayerManager>();
 
         if (player.data.items != null)
         {

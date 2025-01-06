@@ -60,7 +60,7 @@ public class MainController : MonoBehaviour
     void Awake()
     {
         //Assigns object from StartMenu
-        playerManagerObject = GameObject.Find("PlayerManager");
+        playerManagerObject = GameObject.FindWithTag("PlayerManager");
         currentPlayer = playerManagerObject.GetComponent<PlayerManager>();
     }
     // Start is called before the first frame update
@@ -130,15 +130,15 @@ public class MainController : MonoBehaviour
         {
             LevelTitle.text = "Level One: The Dining Room";
             objectiveOneTitle.text = "Objective 1: The Full Dining Experience";
-            objectiveOneText.text = "This Dining Room is fit for a king! Although you could never dine at an unset table. Correctly arrange and set the table, maybe it will reveal something... ";
+            objectiveOneText.text = "Maybe theres an object in the room that goes on the table? Have a look around!";
             LoadObjectiveStatus(currentPlayer.data.ObjectivePuzzleOneComplete, objectiveOneIcon);
 
-            objectiveTwoTitle.text = "Objective 2: A Match Made in Heaven";
-            objectiveTwoText.text = "We need something to fuel the fire! Find something to start a flame, there has to be something in this room!";
+            objectiveTwoTitle.text = "Objective 2: The Full Dining Experience";
+            objectiveTwoText.text = "This Dining Room is fit for a king! Although you could never dine at an unset table. Correctly arrange and set the table, maybe it will reveal something...";
             LoadObjectiveStatus(currentPlayer.data.ObjectivePuzzleTwoComplete, objectiveTwoIcon);
 
-            objectiveThreeTitle.text = "Objective 3: Level TwoBurn Baby Burn!";
-            objectiveThreeText.text = "There's shine from a lump of coal in the fire place, find away to start a fire and burn the coal!";
+            objectiveThreeTitle.text = "Objective 3: LLevel Two Im Hungry!";
+            objectiveThreeText.text = "Find the key to open the door to the kitchen! It has to be around here somewhere!";
             LoadObjectiveStatus(currentPlayer.data.ObjectivePuzzleThreeComplete, objectiveThreeIcon);
         }
         else if (currentPlayer.data.currentLevel == 2)

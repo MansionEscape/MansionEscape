@@ -25,6 +25,9 @@ TagManager:
   - ball
   - AutoOpenDoor
   - Shape
+  - MainGameController
+  - PlayerManager
+  - InventoryManager
   layers:
   - Default
   - TransparentFX
