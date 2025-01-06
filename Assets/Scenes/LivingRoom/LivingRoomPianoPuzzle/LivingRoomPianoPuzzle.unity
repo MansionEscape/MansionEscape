@@ -4978,6 +4978,7 @@ MonoBehaviour:
   Bb_Note: {fileID: 899826516}
   CS1_Note: {fileID: 1046782064}
   DS1_Note: {fileID: 1902027310}
+  keyItem: {fileID: 11400000, guid: 035b435eb115d4b4fa981200e0a1c815, type: 2}
   puzzleCompleteImage: {fileID: 778441361}
   puzzleCompleted: {fileID: 716216852}
 --- !u!4 &1025841754
