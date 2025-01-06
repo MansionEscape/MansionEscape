@@ -11,7 +11,7 @@ public class CardSorting : MonoBehaviour
     public List<GameObject> deckOfCards; // A list to store all the cards in the deck
     public GameObject currentCard; // The card currently being placed
     public TMP_Text feedbackText; // UI Text to provide feedback
-    public TMP_Text puzzleCompleteText;
+    public Image puzzleCompleteImage;
     public TMP_Text codeDisplayText; // Displays the numbers of the special cards
     public List<GameObject> specialCards; // Assign the 4 special cards in the Inspector
 
@@ -46,9 +46,9 @@ public class CardSorting : MonoBehaviour
             currentCard = deckOfCards[0]; // Set the first card to place
         }
 
-        if (puzzleCompleteText != null)
+        if (puzzleCompleteImage != null)
         {
-            puzzleCompleteText.gameObject.SetActive(false);
+            puzzleCompleteImage.gameObject.SetActive(false);
         }
 
         UpdateCodeDisplay();
@@ -168,7 +168,7 @@ public class CardSorting : MonoBehaviour
         {
             currentCard = null;
             feedbackText.text = "All cards placed!";
-            puzzleCompleteText.gameObject.SetActive(true);
+            puzzleCompleteImage.gameObject.SetActive(true);
         }
     }
 
@@ -187,8 +187,7 @@ public class CardSorting : MonoBehaviour
     {
         if (foundSpecialNumbers.Count == specialNumbers.Count)
         {
-            puzzleCompleteText.gameObject.SetActive(true); // Show the puzzle complete text
-            puzzleCompleteText.text = "Puzzle Complete";
+            puzzleCompleteImage.gameObject.SetActive(true); // Show the puzzle complete text
         }
     }
 
