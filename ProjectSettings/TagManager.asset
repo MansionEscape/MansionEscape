@@ -24,6 +24,7 @@ TagManager:
   - finishZone
   - ball
   - AutoOpenDoor
+  - Shape
   layers:
   - Default
   - TransparentFX
