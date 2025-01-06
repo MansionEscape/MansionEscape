@@ -21,6 +21,7 @@ public class PuzzleTrigger : MonoBehaviour
     public bool playerObjective;
     public bool itemsRequired;
 
+    public bool justUpdateObjective;
     public bool itemsInInventory;
 
     public List<string> requiredItems = new List<string>();
@@ -50,6 +51,11 @@ public class PuzzleTrigger : MonoBehaviour
         }
         else if (player.data.currentLevel == puzzleLevel & playerObjective)
         {
+            if (justUpdateObjective)
+            {
+                controller.UpdateObjective(puzzleObjective);
+            }
+            
             gameObject.SetActive(false);
         }
 
@@ -85,6 +91,7 @@ public class PuzzleTrigger : MonoBehaviour
         }
 
     }
+
 
     public void OnTriggerEnter(Collider other)
     {
