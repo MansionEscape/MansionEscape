@@ -1,6 +1,6 @@
 # MansionEscape
 
-**MansionEscape** is a first-person, exploratory puzzle game set in a haunted mansion where the player must navigate through each room in the mansion, solve puzzles, collect items, and find the hidden exit to escape each room.
+**MansionEscape** is a first-person, exploratory puzzle game set in a haunted mansion where the player must navigate through each room in the mansion, solve puzzles, collect items, and find the hidden key to escape each room.
 
 ## Table of Contents
 
@@ -9,6 +9,7 @@
 - [How to Play (For Players)](#how-to-play)
 - [Requirements (For Developers)](#requirements)
 - [Setup Instructions (For Developers)](#setup-instructions)
+- [Asset References](#asset-references)
 
 
 ## Game Concept
@@ -20,7 +21,7 @@
 - Adventure
 - Narrative
 - Puzzle
-- Survival Horror
+- Survival 
 
 **Characteristics:**
 
@@ -60,10 +61,10 @@
 
 **4. Puzzle Solving:**
 
-- Player can collect key items from within the room (keys, puzzle pieces, notes etc.)
-- Objects interact with other objects ( a player can pick up a key from the draw of a desk).
+- Player can collect items from within each room (keys, puzzle pieces, notes etc.)
+- Objects interact with other objects ( a player can pick up a key from the drawer of a desk).
 - Clear feedback on if a puzzle is successful or not.
-- Puzzles could be riddles.
+- Puzzles may be riddles that the player has to solve.
 
 ### Environment
 
@@ -73,19 +74,20 @@ The player navigates through a series of distinct rooms that collectively form a
 
 The mansion consists of various room types, each with its own theme and purpose:
 
-- Bathroom
-- Bedroom
-- Kitchen
-- Living Room
-- Dining Room
-- Library
-- Basement
+- Ground Floor Hallway (Tutorial)
+- Dining Room (Level 1)
+- Kitchen & Pantry (Level 2)
+- Living Room (Level 3)
+- First Floor Hallway (Level 4)
+- Study (Level 5)
+- Twins Bedroom (Level 6)
+- Master Bedroom (Level 7)
 
 **2. Room Design:** Each room is enclosed within four walls, providing a sense of confinement while allowing players to view their surroundings freely.
 
-**3. Hidden Exits:**
+**3. Blocked Exits:**
 
-Each room contains an exit that may be concealed or challenging to access, adding to the game’s exploratory and puzzle-solving elements.
+Each room contains an exit that may be locked or even hidden, adding to the game’s exploratory and puzzle-solving elements.
 
 **4. Interactable Objects:**
 
@@ -94,6 +96,7 @@ Players can interact with a variety of objects scattered throughout the rooms, i
 - Furniture (tables, chairs, etc.)
 - Storage units (drawers, cupboards, chests)
 - Decorative items (pictures, lamps, etc.)
+- Keys
 - Locked Door/Exit
 
 ### Gameplay
@@ -112,7 +115,7 @@ Puzzles or objects which contain unusable/incorrect clues to mislead the player.
 
 **1. Inventory:**
 
-- Clickable Icon: A visible icon on the screen that, when clicked, opens the inventory.
+- Clickable Icon: A visible icon on the UI menu that, when clicked, opens the inventory.
 
 - Grid View: Once opened, the inventory will display a grid view showcasing the collectable items the player has gathered.
 
@@ -121,7 +124,7 @@ Puzzles or objects which contain unusable/incorrect clues to mislead the player.
 Near objects that the player can interact with, simple prompts will appear on screen:
 
 - Interact Prompt: “Press E to interact.”
-- Pickup Prompt: “Press P to pick up.”
+- Pickup Prompt: “Press E to pick up.”
 
 **3. Puzzle Feedback:**
 
@@ -131,7 +134,7 @@ Display messages to player for updating puzzle success:
 
 - “Wrong Combination”, “Incorrect!”, “Note Quite”
 
-**4. Hints System:**
+**4. Hints System: (Future Idea)**
 
 Players will be able to use hints in each room to aid in solving puzzles:
 
@@ -139,7 +142,7 @@ Players will be able to use hints in each room to aid in solving puzzles:
 
 - Limited Usage: Each room allows for 3 hints, which do not reset or reload after use.
 
-**5. Timer:**
+**5. Timer: (Future Idea)**
 
 A countdown timer can be displayed as part of the UI, which add pressure and difficulty to the player’s progress:
 
@@ -153,11 +156,9 @@ A countdown timer can be displayed as part of the UI, which add pressure and dif
 
 **7. Visual Indicators:**
 
-- Objects that can be interacted with (doors, drawers, key items etc.) glow, flash, or highlight when the player is nearby or looks at them.
+- Objects that can be interacted with (doors, drawers, key items etc.) highlight when the player is near them.
 
-- Flickering lights or moving shadows to draw attention to a hidden door or secret passageway.
-
-- Progress Bars to show the players progress through the mansion - unlocking the final exit signifies a completed progress bar.
+- Progress Bars to show the players progress through the mansion and their current location in the mansion.
 
 **8. Game Tutorial:**
 Short, simple tutorial explaining basic control functions and objectives.
@@ -183,7 +184,7 @@ The objective is to escape each room of the haunted mansion. Every room has an e
 - D or Right Arrow - Move to the right.
 - A or Left Arrow - Move to the left.
 - Mouse - Buttons and Puzzles
-- E - Interact with highlighted objects (solve puzzles).
+- E - Interact with highlighted objects and unlock doors.
 
 ### Gameplay Instructions
 
@@ -240,3 +241,41 @@ After opening the project in unity, you should be able to see the following view
 - **The Inspector Panel:** Allows to add, modify and remove components from all objects in the scene.
 - **The Console:** Where error and debug textual output will be displayed.
 - **File → Build Settings...**, allows to build the game for any platform. You can also find the Unity3D Hotkeys useful: http://docs.unity3d.com/Manual/UnityHotkeys.html
+
+
+## Asset References
+
+1. Bathroom Props. Link: https://assetstore.unity.com/packages/3d/props/furniture/bathroom-props-25255
+2. Breakable Jars, Vases, Pots. Link: https://assetstore.unity.com/packages/3d/props/furniture/breakable-jars-vases-pots-280906
+3. Chair and Armchair. Link: https://assetstore.unity.com/packages/3d/props/furniture/chair-and-armchair-26360
+4. Character Pack: Free Sample. Link: https://assetstore.unity.com/packages/3d/characters/humanoids/character-pack-free-sample-79870
+5. Chest of Drawers. Link: https://assetstore.unity.com/packages/3d/props/furniture/chest-of-drawers-58835
+6. Cheval Mirror. Link: https://assetstore.unity.com/packages/3d/props/cheval-mirror-259424
+7. Classic Picture Frame. Link: https://assetstore.unity.com/packages/3d/props/furniture/classic-picture-frame-59038
+8. Customizable Kitchen Pack. Link: https://assetstore.unity.com/packages/3d/props/interior/customizable-kitchen-pack-22269
+9. Cutlery Silverware PBR. Link: https://assetstore.unity.com/packages/3d/props/food/cutlery-silverware-pbr-106932
+10. Dark Fantasy Kit [Lite]. Link: https://assetstore.unity.com/packages/3d/environments/fantasy/dark-fantasy-kit-lite-127925
+11. Dining Set. Linl: https://assetstore.unity.com/packages/3d/props/interior/dining-set-37029
+12. Fantasy interior props free. link: https://assetstore.unity.com/packages/3d/props/interior/fantasy-interior-props-free-205233
+13. Fantasy Map Assets Pack Lite Link: https://assetstore.unity.com/packages/2d/gui/fantasy-map-assets-pack-lite-259318
+14. Free 8 Spooky Tracks Music Pack. Link: https://assetstore.unity.com/packages/audio/music/free-8-spooky-tracks-music-pack-275541
+15. Free Fire VFX. link: https://assetstore.unity.com/packages/vfx/particles/fire-explosions/free-fire-vfx-266227
+16. Free Pixel Food. Link: https://assetstore.unity.com/packages/2d/environments/free-pixel-food-113523
+17. Free Playing Cards Pack. Link: https://assetstore.unity.com/packages/3d/props/tools/free-playing-cards-pack-154780
+18. Free Rug Pack. Link: https://assetstore.unity.com/packages/3d/props/interior/free-rug-pack-118178
+19. Furniture FREE Pack. Link: https://assetstore.unity.com/packages/3d/props/furniture/furniture-free-pack-192628
+20. Ghost character Free. Link: https://assetstore.unity.com/packages/3d/characters/creatures/ghost-character-free-267003
+21. Low-Poly Wooden Kid's Toys. Link: https://assetstore.unity.com/packages/3d/props/interior/low-poly-wooden-kid-s-toys-162585
+22. Medieval props. Link: https://assetstore.unity.com/packages/3d/props/medieval-props-41540
+23. Medieval Tavern Pack. Link: https://assetstore.unity.com/packages/3d/props/furniture/medieval-tavern-pack-112546
+24. Old Bathroom Objects. Link: https://assetstore.unity.com/packages/3d/props/interior/old-bathroom-objects-120069
+25. Pictures. Link: https://assetstore.unity.com/packages/3d/props/interior/pictures-88112
+26. QA Books. Link: https://assetstore.unity.com/packages/3d/props/interior/qa-books-115415
+27. Retro Style Wooden Boxes. link: https://assetstore.unity.com/packages/3d/props/interior/retro-style-wooden-boxes-206753
+28. RPG Food Props DEMO. link: https://assetstore.unity.com/packages/3d/props/food/rpg-food-props-demo-248712
+29. Rust Key. Link: https://assetstore.unity.com/packages/3d/props/rust-key-167590
+30. Rusty Pack Models. Link: https://assetstore.unity.com/packages/3d/props/rusty-pack-models-14412
+31. SteampunkUI. Link: https://assetstore.unity.com/packages/2d/gui/icons/steampunkui-238976
+32. Ultimate Low Poly Dungeon. Link: https://assetstore.unity.com/packages/3d/environments/dungeons/ultimate-low-poly-dungeon-143535
+
+
