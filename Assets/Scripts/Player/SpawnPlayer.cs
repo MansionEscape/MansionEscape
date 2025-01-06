@@ -6,6 +6,9 @@ public class SpawnPlayer : MonoBehaviour
 {
     public GameObject Player;
 
+    public GameObject playerControl;
+    public PlayerManager playerManager;
+
     public GameObject GroundLevel;
     public GameObject Entrance, Hallway, Stairs, WallDivider, LivingRoom, Bathroom, DiningRoom, Kitchen, Pantry;
 
@@ -28,6 +31,17 @@ public class SpawnPlayer : MonoBehaviour
     public Vector3 UpstairsBathroomSpawnPoint = new(-18, 9, -5);
     public Vector3 SecretRoomSpawnPoint = new(-32, 9, 5);
 
+    void Start()
+    {
+        playerControl = GameObject.FindWithTag("PlayerManager");
+        playerManager = playerControl.GetComponent<PlayerManager>();
+    }
+    public void RespawnPlayer()
+    {
+        SpawnPoint("Ground", "Entrance");
+        playerManager.UpdatePlayer();
+        
+    }
     public void SpawnPoint(string mansionLevel, string currentRoom)
     {
         Entrance.SetActive(false);

@@ -32,6 +32,21 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Kitchen/KitchenPuzzle.unity
     guid: 0f28c92c570253740b344fd8c9895c99
+  - enabled: 1
+    path: Assets/Scenes/LivingRoom/LivingRoomPaintingPuzzle1.unity
+    guid: 938c1f3f3e26300489d0d9346864ed5e
+  - enabled: 1
+    path: Assets/Scenes/LivingRoom/LivingRoomPaintingPuzzle2.unity
+    guid: e1cf46317a4587e4a96bae15ea0a751d
+  - enabled: 1
+    path: Assets/Scenes/LivingRoom/LivingRoomPaintingPuzzleMain.unity
+    guid: 7d5bec9d55e6c3f449d7e567ca2c5e8f
+  - enabled: 1
+    path: Assets/Scenes/LivingRoom/LivingRoomBookshelfPuzzle.unity
+    guid: 6d7120423c853cc4c883cae88a241e50
+  - enabled: 1
+    path: Assets/Scenes/LivingRoom/LivingRoomPianoPuzzle/LivingRoomPianoPuzzle.unity
+    guid: 3c30d7193abdff140815489d1ff106c1
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 2b3d54cb407549f4c93d72924d218511, type: 2}
   m_UseUCBPForAssetBundles: 0
