@@ -208,6 +208,8 @@ public class DoorTrigger : MonoBehaviour
         }
     }
 
+
+
     void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))

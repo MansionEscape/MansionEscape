@@ -28,6 +28,8 @@ public class MusicNoteCodes : MonoBehaviour
     public AudioSource CS1_Note;
     public AudioSource DS1_Note;
 
+    public Item keyItem;
+
     // Puzzle completion variables
     public GameObject puzzleCompleteImage;
     public TMP_Text puzzleCompleted;
@@ -155,7 +157,8 @@ public class MusicNoteCodes : MonoBehaviour
         {
             // Display Puzzle Complete image if the sequence is correct
             puzzleCompleteImage.SetActive(true);
-            player.data.ObjectivePuzzleTwoComplete = true;
+            player.data.ObjectivePuzzleThreeComplete = true;
+            player.AddItemFromPuzzle(keyItem);
             player.UpdatePlayer();
             puzzleCompleted.text = "Loading Mansion...";
             StartCoroutine(LoadMansion());
