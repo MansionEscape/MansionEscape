@@ -137,23 +137,23 @@ public class MainController : MonoBehaviour
             objectiveTwoText.text = "This Dining Room is fit for a king! Although you could never dine at an unset table. Correctly arrange and set the table, maybe it will reveal something...";
             LoadObjectiveStatus(currentPlayer.data.ObjectivePuzzleTwoComplete, objectiveTwoIcon);
 
-            objectiveThreeTitle.text = "Objective 3: LLevel Two Im Hungry!";
+            objectiveThreeTitle.text = "Objective 3: Level Two Im Hungry!";
             objectiveThreeText.text = "Find the key to open the door to the kitchen! It has to be around here somewhere!";
             LoadObjectiveStatus(currentPlayer.data.ObjectivePuzzleThreeComplete, objectiveThreeIcon);
         }
         else if (currentPlayer.data.currentLevel == 2)
         {
-            LevelTitle.text = "Level Two: The Kitchen";
-            objectiveOneTitle.text = "Objective 1: ";
-            objectiveOneText.text = " ";
+            LevelTitle.text = "Level Two: Recipe For Disaster!";
+            objectiveOneTitle.text = "Objective 1: Re";
+            objectiveOneText.text = "Look at the big fireplace! Lets check it out, it might be usable";
             LoadObjectiveStatus(currentPlayer.data.ObjectivePuzzleOneComplete, objectiveOneIcon);
 
-            objectiveTwoTitle.text = "Objective 2: ";
-            objectiveTwoText.text = "";
+            objectiveTwoTitle.text = "Objective 2: Pantry!";
+            objectiveTwoText.text = "Maybe some ingredients are inside the pantry, find the key to unlock it!";
             LoadObjectiveStatus(currentPlayer.data.ObjectivePuzzleTwoComplete, objectiveTwoIcon);
 
-            objectiveThreeTitle.text = "Objective 3: Burn Baby Burn";
-            objectiveThreeText.text = "";
+            objectiveThreeTitle.text = "Objective 3: Living Room";
+            objectiveThreeText.text = "Find the key to the living room... maybe we can make one?";
             LoadObjectiveStatus(currentPlayer.data.ObjectivePuzzleThreeComplete, objectiveThreeIcon);
         }
         else if (currentPlayer.data.currentLevel == 3)
