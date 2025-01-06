@@ -933,6 +933,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca159d19df3ad3044a35853ea4405e76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   press:
     m_Name: Press
     m_Type: 0
@@ -3384,51 +3385,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 480342, guid: 1006778ae92d84567b45e4198d19ae7d, type: 3}
   m_PrefabInstance: {fileID: 1765215212}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1805765810
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1805765812}
-  - component: {fileID: 1805765811}
-  m_Layer: 0
-  m_Name: PuzzleController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &1805765811
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1805765810}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b56dce49a5e49840b879ab2184dec32, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
---- !u!4 &1805765812
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1805765810}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -25.123575, y: 2.6036682, z: -8.071758}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1823952511
 GameObject:
   m_ObjectHideFlags: 0
@@ -4313,6 +4269,5 @@ SceneRoots:
   - {fileID: 352169120}
   - {fileID: 633370366}
   - {fileID: 467716381}
-  - {fileID: 1805765812}
   - {fileID: 1983725387}
   - {fileID: 2119554397}

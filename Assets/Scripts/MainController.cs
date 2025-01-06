@@ -129,26 +129,26 @@ public class MainController : MonoBehaviour
         else if (currentPlayer.data.currentLevel == 1)
         {
             LevelTitle.text = "Level One: The Dining Room";
-            objectiveOneTitle.text = "Objective 1: The Full Dining Experience";
-            objectiveOneText.text = "This Dining Room is fit for a king! Although you could never dine at an unset table. Correctly arrange and set the table, maybe it will reveal something... ";
+            objectiveOneTitle.text = "Objective 1: Smashing!";
+            objectiveOneText.text = "Maybe theres an object around the room that can go on the table?";
             LoadObjectiveStatus(currentPlayer.data.ObjectivePuzzleOneComplete, objectiveOneIcon);
 
-            objectiveTwoTitle.text = "Objective 2: A Match Made in Heaven";
-            objectiveTwoText.text = "We need something to fuel the fire! Find something to start a flame, there has to be something in this room!";
+            objectiveTwoTitle.text = "Objective 2: The Full Dining Experience";
+            objectiveTwoText.text = "This Dining Room is fit for a king! Although you could never dine at an unset table. Correctly arrange and set the table, maybe it will reveal something... ";
             LoadObjectiveStatus(currentPlayer.data.ObjectivePuzzleTwoComplete, objectiveTwoIcon);
 
-            objectiveThreeTitle.text = "Objective 3: Level TwoBurn Baby Burn!";
-            objectiveThreeText.text = "There's shine from a lump of coal in the fire place, find away to start a fire and burn the coal!";
+            objectiveThreeTitle.text = "Objective 3: I'm Hungry!";
+            objectiveThreeText.text = "We need to open the door to the kitchen! It must be around here somewhere...";
             LoadObjectiveStatus(currentPlayer.data.ObjectivePuzzleThreeComplete, objectiveThreeIcon);
         }
         else if (currentPlayer.data.currentLevel == 2)
         {
             LevelTitle.text = "Level Two: The Kitchen";
-            objectiveOneTitle.text = "Objective 1: ";
-            objectiveOneText.text = " ";
+            objectiveOneTitle.text = "Objective 1: Recipe For disaster";
+            objectiveOneText.text = "In the kitchen theres a recipe book, have a look at it";
             LoadObjectiveStatus(currentPlayer.data.ObjectivePuzzleOneComplete, objectiveOneIcon);
 
-            objectiveTwoTitle.text = "Objective 2: ";
+            objectiveTwoTitle.text = "Objective 2: Unlock The Pantry";
             objectiveTwoText.text = "";
             LoadObjectiveStatus(currentPlayer.data.ObjectivePuzzleTwoComplete, objectiveTwoIcon);
 
@@ -231,7 +231,7 @@ public class MainController : MonoBehaviour
         }
     }
 
-
+    //Checks the Progression of the Player
     public void CheckProgression()
     {
         //Checks if all objectives are completed
@@ -241,7 +241,7 @@ public class MainController : MonoBehaviour
             currentPlayer.data.currentLevel++;
             int level = currentPlayer.data.currentLevel;
 
-            //checks what the players new level is
+            //checks what the players new level is and Loads the code based on that
             if(level == 1)
             {
 
@@ -267,8 +267,11 @@ public class MainController : MonoBehaviour
         
     }
 
+    //Provide hints in dialogue box for the player - works the same as main objectives where the hints are loaded determined on the players level
+    //Hints one, Two and Three all work the same way
     public void HintOne()
     {
+        //makes sure if a hint is called at the same time all Coroutines are stopped and the dialogue box and text are not active/blank
         StopAllCoroutines();
         DialogueBox.SetActive(false);
         DialogueText.text = "";
@@ -366,39 +369,48 @@ public class MainController : MonoBehaviour
         }
     }
 
+    //Trigger dialogue to allow for dialogues to be triggered in other methods
     public void TriggerDialogue(string text)
     {
+        DialogueBox.SetActive(false);
+        DialogueText.text = "";
         StopAllCoroutines();
         StartCoroutine(RunDialogue(text));
     }
 
+    //Allows for a pop up to occur following the update of any objective
     public void ObjectivePopUp(string objective)
     {
         objectiveCompleteText.text = objective;
         objectiveCompleteWindow.SetActive(true);
     }
 
+    //Method used in door trigger scripts that toggle rooms on and off, sets the players room name 
     public void UpdateCurrentPlayerRoom(string roomName)
     {
         currentPlayer.data.currentRoom = roomName;
         currentPlayer.UpdatePlayer();
     }
 
+    //Opens the mapmenu page
     public void MapMenu()
     {
         MapPage.SetActive(true);
     }
+    //Opens the objective menu page
     public void ObjectiveMenu()
     {
         LoadMainObjectives();
         ObjectivesPage.SetActive(true);
     }
 
+    //Opens the inventory menu page
     public void InventoryMenu()
     {
         InventoryPage.SetActive(true);
     }
-    
+
+    //Opens the player stats menu page
     public void PlayerStatsMenu()
     {
         playerNameText.text = currentPlayer.data.playerName;
@@ -408,10 +420,11 @@ public class MainController : MonoBehaviour
 
     }
 
+    //Opens the menu page Loads Main Objectives on opening and sets menu Open to true
     public void MenuOpen()
     {
         LoadMainObjectives();
-        menuOpen = true;
+        menuOpen = true; // 
     }
 
     public void MenuClosed()
@@ -432,6 +445,7 @@ public class MainController : MonoBehaviour
         isPaused = false;
     }
 
+    //On Exit Player data is saved, the current player manager object is destroyed and start menu going
     public void ExitGame()
     {
         currentPlayer.Save();
@@ -439,7 +453,7 @@ public class MainController : MonoBehaviour
         SceneManager.LoadScene("StartMenu");
     }
 
-    //CODE FOR TYPING EFFECT FOR FUTURE DIALOGUE BOX
+    //Dialgoue box Runs text as if its being typed
 
     public IEnumerator RunDialogue(string Text)
     {
@@ -458,6 +472,7 @@ public class MainController : MonoBehaviour
         }
     }
 
+   //resets objectives once all objectives are completed.
     public void ResetObjectives()
     {
         currentPlayer.data.ObjectivePuzzleOneComplete = false;

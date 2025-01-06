@@ -3,9 +3,14 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class DragAndDropDining : MonoBehaviour
 {
+    public GameObject playerControl;
+
+    public PlayerManager player;
+
     [SerializeField] private InputAction press, screenPosition;
 
     private Vector3 currentScreenPosition;
@@ -27,8 +32,7 @@ public class DragAndDropDining : MonoBehaviour
     private GameObject spawnedKey; // Reference to the spawned key
     private bool puzzleComplete = false; // Tracks if the puzzle is complete
 
-    // Inventory
-    public InventoryManager inventoryManager;
+    
     public Item keyItem; // Reference to the key item to add to inventory
 
     // Colors for selection and deselection
@@ -56,12 +60,32 @@ public class DragAndDropDining : MonoBehaviour
         };
     }
 
+    public  IEnumerator LoadMansionScene()
+    {
+       
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene("Mansion");
+    }
+
+    public void ExitPuzzle()
+    {
+        puzzleCompleted.text = "Loading Mansion...";
+
+        StartCoroutine(LoadMansionScene());
+    }
+
     private void OnLeftClick()
     {
         if (puzzleComplete && IsClickedOnKey()) // Key clicked
         {
             AddKeyToInventory();
             Destroy(spawnedKey); // Remove the key from the scene after pickup
+            player.data.ObjectivePuzzleTwoComplete = true;
+            player.UpdatePlayer();
+            puzzleCompleted.text = "Loading Mansion...";
+
+            StartCoroutine(LoadMansionScene());
+
             return;
         }
 
@@ -212,9 +236,9 @@ public class DragAndDropDining : MonoBehaviour
 
     private void AddKeyToInventory()
     {
-        if (inventoryManager != null && keyItem != null)
+        if (player != null && keyItem != null)
         {
-            inventoryManager.ObjectPickedUp(keyItem);
+            player.AddPuzzleItem(keyItem);
             Debug.Log("Key added to inventory!");
         }
     }
@@ -230,6 +254,12 @@ public class DragAndDropDining : MonoBehaviour
 
     private void Start()
     {
+
+        playerControl = GameObject.Find("PlayerManager");
+        player = playerControl.GetComponent<PlayerManager>();
+
+       
+
         // Spawn the key initially but make it invisible
         if (keyPrefab != null && keySpawnPoint != null)
         {

@@ -7,8 +7,14 @@ using UnityEngine.SceneManagement;
 
 public class PuzzleTrigger : MonoBehaviour
 {
+    public GameObject mainController;
     public MainController controller;
+
+    public GameObject playerControl;
     public PlayerManager player;
+
+    public GameObject inventoryControl;
+    public InventoryManager inventory;
 
     public string sceneName;
     public string puzzleName;
@@ -32,20 +38,18 @@ public class PuzzleTrigger : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        CheckPlayerObjective(puzzleObjective);
+        
 
-        if (player.data.currentLevel > puzzleLevel)
-        {
-            Destroy(gameObject);
+        mainController = GameObject.FindWithTag("MainGameController");
+        controller = mainController.GetComponent<MainController>();
 
-        }
-        else if (playerObjective)
-        {
-            Destroy(gameObject);
-        }
+        playerControl = GameObject.FindWithTag("PlayerManager");
+        player = playerControl.GetComponent<PlayerManager>();
 
+        inventoryControl = GameObject.FindWithTag("InventoryManager");
+        inventory = inventoryControl.GetComponent<InventoryManager>();
 
-        controller = GameObject.Find("MainGameController").GetComponent<MainController>();
+        CheckIfObjectiveUpdated();
 
         wasPressed = false;
         IsPlayerNearby = false;
@@ -55,6 +59,12 @@ public class PuzzleTrigger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        CheckIfObjectiveUpdated();
+        if (mainController == null || playerControl == null || inventoryControl == null)
+        {
+            SearchForObjects();
+        }
+        
         wasPressed = interact.action.WasPressedThisFrame();
 
         if (wasPressed && IsPlayerNearby)
@@ -64,7 +74,7 @@ public class PuzzleTrigger : MonoBehaviour
                 CheckPlayerInventory();
                 if (itemsInInventory)
                 {
-                    controller.TriggerDialogue("We Have All The Items!! Load Scene Here!");
+                    LoadScene();
                 }
                 else
                 {
@@ -73,7 +83,7 @@ public class PuzzleTrigger : MonoBehaviour
             }
             else
             {
-                controller.TriggerDialogue("No Items Required! Load the scene.");
+                LoadScene();
                 
             }
         }
@@ -82,6 +92,7 @@ public class PuzzleTrigger : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
+        
         if (other.CompareTag("Player"))
         {
             IsPlayerNearby = true;
@@ -119,6 +130,28 @@ public class PuzzleTrigger : MonoBehaviour
 
     }
 
+    public void CheckIfObjectiveUpdated()
+    {
+        CheckPlayerObjective(puzzleObjective);
+        if (player.data.currentLevel == puzzleLevel && playerObjective)
+        {
+            controller.instructionText.text = "";
+            controller.instructionBox.SetActive(false);
+            for (int i = 0; i < requiredItems.Count; i++)
+            {
+                foreach (var item in player.data.items)
+                {
+                    if (requiredItems[i] == item.itemName)
+                    {
+                        player.RemoveItemPuzzleItem(item);
+                    }
+                }
+            }
+            gameObject.SetActive(false);
+
+        }
+    }
+
     public void CheckPlayerInventory()
     {
         itemCollected = new List<bool>();
@@ -138,6 +171,18 @@ public class PuzzleTrigger : MonoBehaviour
 
         itemsInInventory = !itemCollected.Contains(false);
 
+    }
+
+    public void SearchForObjects()
+    {
+        mainController = GameObject.FindWithTag("MainGameController");
+        controller = mainController.GetComponent<MainController>();
+
+        playerControl = GameObject.FindWithTag("PlayerManager");
+        player = playerControl.GetComponent<PlayerManager>();
+
+        inventoryControl = GameObject.FindWithTag("InventoryManager");
+        inventory = inventoryControl.GetComponent<InventoryManager>();
     }
 
     public void LoadScene()

@@ -24,6 +24,9 @@ TagManager:
   - finishZone
   - ball
   - AutoOpenDoor
+  - MainGameController
+  - PlayerManager
+  - InventoryManager
   layers:
   - Default
   - TransparentFX

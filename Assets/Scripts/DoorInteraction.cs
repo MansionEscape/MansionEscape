@@ -166,7 +166,10 @@ using UnityEngine;
 
 public class DoorInteraction : MonoBehaviour
 {
+    public GameObject mainControl;
     public MainController controller;
+
+    public GameObject inventoryControl;
     public InventoryManager inventory;
     public string doorName;
     public string keyRequired;
@@ -180,14 +183,19 @@ public class DoorInteraction : MonoBehaviour
     public Material lockedMaterial;
     private List<Renderer> objectRenderers = new List<Renderer>();
 
+    public GameObject playerControl;
     public PlayerManager player;
 
     void Start()
     {
         animator = GetComponent<Animator>();
-        player = GameObject.Find("PlayerManager").GetComponent<PlayerManager>();
-        controller = GameObject.Find("MainGameController").GetComponent<MainController>();
-        inventory = GameObject.Find("InventoryManager").GetComponent<InventoryManager>();
+        playerControl = GameObject.FindWithTag("PlayerManager");
+        player = playerControl.GetComponent<PlayerManager>();
+        mainControl = GameObject.FindWithTag("MainGameController");
+        controller = mainControl.GetComponent<MainController>();
+
+        inventoryControl = GameObject.FindWithTag("InventoryManager");
+        inventory = inventoryControl.GetComponent<InventoryManager>();
 
         if (player.data.currentLevel >= unlockedLevel)
         {
