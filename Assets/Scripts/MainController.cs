@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class MainController : MonoBehaviour
 {
-    public float typingSpeed;
+    public float typingSpeed = 0.01f;
     public bool isPaused;
     public bool menuOpen;
     public SpawnPlayer spawnPlayer;
@@ -70,6 +70,7 @@ public class MainController : MonoBehaviour
         menuOpen = false;
         isPaused = false;
 
+ 
         //Loads currently player data from the player manager
         currentPlayer.LoadPlayer();
 
@@ -185,6 +186,7 @@ public class MainController : MonoBehaviour
         {
             //Else the defauls X will be used to represent incomplete objectives
             objectiveIcon.sprite = objectiveDefault;
+            objectiveIcon.color = Color.red;
         }
     }
 
@@ -265,6 +267,110 @@ public class MainController : MonoBehaviour
         
     }
 
+    public void HintOne()
+    {
+        StopAllCoroutines();
+        DialogueBox.SetActive(false);
+        DialogueText.text = "";
+        if (currentPlayer.data.currentLevel == 0)
+        {
+            if (!currentPlayer.data.ObjectivePuzzleOneComplete)
+            {
+                menuOpen = false;
+                StartCoroutine(RunDialogue("Lets explore! Move me with WASD or the arrow keys!"));
+            }
+            else
+            {
+                menuOpen = false;
+                StartCoroutine(RunDialogue("This objective is complete! What's next?"));
+            }
+        }
+        if (currentPlayer.data.currentLevel == 1)
+        {
+            if (!currentPlayer.data.ObjectivePuzzleOneComplete)
+            {
+                menuOpen = false;
+                StartCoroutine(RunDialogue("There's plates and cutlery on the table, I wonder what will happen if we set the table!"));
+            }
+            else
+            {
+                menuOpen = false;
+            }
+        }
+    }
+
+    public void HintTwo()
+    {
+        StopAllCoroutines();
+        DialogueBox.SetActive(false);
+        DialogueText.text = "";
+        if (currentPlayer.data.currentLevel == 0)
+        {
+            if (!currentPlayer.data.ObjectivePuzzleTwoComplete)
+            {
+                menuOpen = false;
+                StartCoroutine(RunDialogue("There's a key on the ground.. lets pick it up!"));
+            }
+            else
+            {
+                menuOpen = false;
+                StartCoroutine(RunDialogue("The key has been collected! What should we do with it?"));
+            }
+        }
+        if (currentPlayer.data.currentLevel == 1)
+        {
+            if (!currentPlayer.data.ObjectivePuzzleTwoComplete)
+            {
+                menuOpen = false;
+                RunDialogue("");
+            }
+            else
+            {
+                menuOpen = false;
+                RunDialogue("");
+            }
+        }
+    }
+       
+
+    public void HintThree()
+    {
+        StopAllCoroutines();
+        DialogueBox.SetActive(false);
+        DialogueText.text = "";
+        if (currentPlayer.data.currentLevel == 0)
+        {
+            if (!currentPlayer.data.ObjectivePuzzleThreeComplete)
+            {
+                menuOpen = false;
+                StartCoroutine(RunDialogue("The name of the key must match a room in this hallway!"));
+            }
+            else
+            {
+                menuOpen = false;
+                RunDialogue("");
+            }
+        }
+        if (currentPlayer.data.currentLevel == 1)
+        {
+            if (!currentPlayer.data.ObjectivePuzzleThreeComplete)
+            {
+                menuOpen = false;
+                RunDialogue("");
+            }
+            else
+            {
+                menuOpen = false;
+                RunDialogue("");
+            }
+        }
+    }
+
+    public void TriggerDialogue(string text)
+    {
+        StopAllCoroutines();
+        StartCoroutine(RunDialogue(text));
+    }
 
     public void ObjectivePopUp(string objective)
     {
@@ -304,6 +410,7 @@ public class MainController : MonoBehaviour
 
     public void MenuOpen()
     {
+        LoadMainObjectives();
         menuOpen = true;
     }
 
@@ -334,21 +441,22 @@ public class MainController : MonoBehaviour
 
     //CODE FOR TYPING EFFECT FOR FUTURE DIALOGUE BOX
 
-    //public IEnumerator RunDialogue(string Text)
-    //{
-    //    DialogueBox.SetActive(true);
-    //    yield return StartCoroutine(RunDialogueText(Text));
-    //    yield return new WaitForSeconds(6);
-    //    DialogueText.text = "";
-    //}
-    //IEnumerator RunDialogueText(string dialogueText)
-    //{
-    //    foreach(char letter in dialogueText)
-    //    {
-    //        DialogueText.text += letter;
-    //        yield return new WaitForSeconds(typingSpeed);
-    //    }
-    //}
+    public IEnumerator RunDialogue(string Text)
+    {
+        DialogueBox.SetActive(true);
+        yield return StartCoroutine(RunDialogueText(Text));
+        yield return new WaitForSeconds(6);
+        DialogueBox.SetActive(false);
+        DialogueText.text = "";
+    }
+    IEnumerator RunDialogueText(string dialogueText)
+    {
+        foreach (char letter in dialogueText)
+        {
+            DialogueText.text += letter;
+            yield return new WaitForSeconds(typingSpeed);
+        }
+    }
 
     public void ResetObjectives()
     {

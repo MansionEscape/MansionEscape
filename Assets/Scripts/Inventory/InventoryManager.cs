@@ -43,10 +43,16 @@ public class InventoryManager : MonoBehaviour
     public void Remove(Item item)
     {
         Items.Remove(item);
+        player.data.items.Remove(item);
     }
 
     public void ListItems()
     {
+        foreach (Transform child in itemContent)
+        {
+            Destroy(child.gameObject);
+        }
+
         Debug.Log("ListItems function called");
         foreach (var item in Items)
         {
