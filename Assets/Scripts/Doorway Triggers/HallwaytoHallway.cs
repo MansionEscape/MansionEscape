@@ -6,12 +6,20 @@ using UnityEngine;
 public class HallwaytoHallway : MonoBehaviour
 {
     public GameObject player, stairs, wallDivider;
+    private GameObject mainGameController;
+
+    public MainController mainController;
 
     private bool playerInHallwayMain;
     private bool playerInHallwayBack;
 
     private float playerxAxis;
 
+    private void Awake()
+    {
+        mainGameController = GameObject.Find("MainGameController");
+        mainController = mainGameController.GetComponent<MainController>();
+    }
 
     void Update()
     {
@@ -56,7 +64,7 @@ public class HallwaytoHallway : MonoBehaviour
 
             stairs.SetActive(true);
             wallDivider.SetActive(true);
-
+            mainController.UpdateCurrentPlayerRoom("Main Hallway");
             playerInHallwayMain = false;
             playerInHallwayBack = false;
 
@@ -67,7 +75,7 @@ public class HallwaytoHallway : MonoBehaviour
 
             stairs.SetActive(false);
             wallDivider.SetActive(false);
-            
+            mainController.UpdateCurrentPlayerRoom("Back Hallway");
             playerInHallwayMain = false;
             playerInHallwayBack = false;
 

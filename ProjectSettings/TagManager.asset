@@ -5,15 +5,34 @@ TagManager:
   serializedVersion: 2
   tags:
   - drag
+  - dropArea1
+  - dropArea2
+  - dropArea3
+  - dropArea4
+  - plate
+  - glass
+  - cutlery
+  - plate1
+  - plate2
+  - plate3
+  - glass1
+  - glass2
+  - glass3
+  - cutlery1
+  - cutlery2
+  - cutlery3
+  - finishZone
+  - ball
+  - AutoOpenDoor
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - ghost
   - Water
   - UI
-  - 
-  - 
+  - plate1layer
+  - musicsheet
   - 
   - 
   - 
