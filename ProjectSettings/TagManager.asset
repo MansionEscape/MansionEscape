@@ -23,6 +23,8 @@ TagManager:
   - cutlery3
   - finishZone
   - ball
+  - AutoOpenDoor
+  - Shape
   layers:
   - Default
   - TransparentFX
@@ -31,7 +33,7 @@ TagManager:
   - Water
   - UI
   - plate1layer
-  - 
+  - musicsheet
   - 
   - 
   - 

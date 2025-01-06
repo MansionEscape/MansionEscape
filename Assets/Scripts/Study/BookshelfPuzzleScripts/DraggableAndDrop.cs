@@ -3,70 +3,170 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class DraggableAndDrop : MonoBehaviour
+public class DragAndDropBooks : MonoBehaviour
 {
-    //Serialises input action fields that we can edit in the inspector
     [SerializeField] private InputAction press, screenPosition;
 
-    //new vector 3 for the current screen position
     private Vector3 currentScreenPosition;
-
-    // Camera object for point to view, raycast etc
     private Camera camera;
 
-    //To check if the object is being dragged or not
-    private bool beingDragged;
+    private bool isDragging = false;
+    private GameObject selectedObject;
 
-    //Read only function that gets the world position.
-    private Vector3 worldPosition
-    {
-        get
-        {
-            //returns the z position of the object position
-            float z = camera.WorldToScreenPoint(transform.position).z;
-            //returns it as part of the camera to world point with a new vector linking the z position
-            return camera.ScreenToWorldPoint(currentScreenPosition + new Vector3(0,0,z));
-        }
-    }
+    public Transform[] bookSnapPoints; // Array of snap points corresponding to each book
+    public float snapDistance = 0.5f; // Distance within which snapping occurs
 
-    //read only bool that checks if the object has been clicked on.
-    private bool isClickedOn
-    {
-        get
-        {
-            Ray ray = camera.ScreenPointToRay(currentScreenPosition);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit))
-            {
-                return hit.transform == transform;
-            }
-            return false;
-        }
-     }
+    private int correctPlacementCounter = 0; // Counter for correctly placed books
+    public int totalBooks = 16; // Total number of books
 
-    //Before start is called set the objects and enable the actions
+    // Colors for selection and deselection
+    public Color selectedColor = Color.yellow;
+    private Color originalColor;
+
     public void Awake()
     {
         camera = Camera.main;
+
+        // Enable input actions
         press.Enable();
         screenPosition.Enable();
-        screenPosition.performed += context => { currentScreenPosition = context.ReadValue<Vector2>(); };
-        press.performed += _ => { if (isClickedOn) StartCoroutine(Drag()); };
-        press.canceled += _ => { beingDragged = false; };
+
+        // Capture the screen position input
+        screenPosition.performed += context =>
+        {
+            currentScreenPosition = context.ReadValue<Vector2>();
+        };
+
+        // On left click performed
+        press.performed += _ =>
+        {
+            OnLeftClick();
+        };
     }
 
-    //When object is being dragged
-    private IEnumerator Drag()
+    private void OnLeftClick()
     {
-
-        beingDragged = true;
-
-        Vector3 offset = transform.position - worldPosition;
-
-        while(beingDragged)
+        if (!isDragging)
         {
-            transform.position = worldPosition + offset;
-            yield return null;
+            if (IsClickedOn()) // Object clicked on
+            {
+                isDragging = true; // Start dragging
+
+                // Change the object's color to the selected color
+                Renderer objectRenderer = selectedObject.GetComponent<Renderer>();
+                if (objectRenderer != null)
+                {
+                    originalColor = objectRenderer.material.color;
+                    objectRenderer.material.color = selectedColor;
+                }
+            }
         }
+        else // If currently dragging, stop dragging and attempt to snap
+        {
+            isDragging = false;
+
+            // Revert the object's color to its original color
+            Renderer objectRenderer = selectedObject.GetComponent<Renderer>();
+            if (objectRenderer != null)
+            {
+                objectRenderer.material.color = originalColor;
+            }
+
+            SnapObjectToDesignatedPoint();
+            selectedObject = null; // Deselect the object
+        }
+    }
+
+    private void Update()
+    {
+        if (isDragging && selectedObject != null)
+        {
+            // Move the object to the mouse position, keeping the initial Z level
+            Vector3 worldPosition = camera.ScreenToWorldPoint(new Vector3(currentScreenPosition.x, currentScreenPosition.y, camera.WorldToScreenPoint(selectedObject.transform.position).z));
+            worldPosition.z = selectedObject.transform.position.z; // Maintain the original Z level
+            selectedObject.transform.position = worldPosition;
+        }
+    }
+
+    private void SnapObjectToDesignatedPoint()
+    {
+        string selectedName = selectedObject.name;
+
+        Transform snapPoint = GetSnapPoint(selectedName);
+
+        if (snapPoint != null)
+        {
+            float distance = Vector3.Distance(selectedObject.transform.position, snapPoint.position);
+
+            if (distance <= snapDistance)
+            {
+                selectedObject.transform.position = snapPoint.position;
+                selectedObject.GetComponent<Collider>().enabled = false;
+
+                correctPlacementCounter += 1;
+
+                // Check if all books are placed correctly
+                if (correctPlacementCounter == totalBooks)
+                {
+                    Debug.Log("All books are in the right place!");
+                }
+            }
+        }
+    }
+
+    private Transform GetSnapPoint(string itemName)
+    {
+        switch (itemName)
+        {
+            case "BookN":
+                return bookSnapPoints[0];
+            case "BookT":
+                return bookSnapPoints[1];
+            case "BookE":
+                return bookSnapPoints[2];
+            case "BookR":
+                return bookSnapPoints[3];
+            case "BookC":
+                return bookSnapPoints[4];
+            case "BookO":
+                return bookSnapPoints[5];
+            case "BookE2":
+                return bookSnapPoints[6];
+            case "BookB":
+                return bookSnapPoints[7];
+            case "BookA":
+                return bookSnapPoints[8];
+            case "BookC2":
+                return bookSnapPoints[9];
+            case "BookK":
+                return bookSnapPoints[10];
+            case "Book-":
+                return bookSnapPoints[11];
+            case "BookW":
+                return bookSnapPoints[12];
+            case "BookR2":
+                return bookSnapPoints[13];
+            case "BookD":
+                return bookSnapPoints[14];
+            case "BookS":
+                return bookSnapPoints[15];
+            default:
+                return null;
+        }
+    }
+
+    private bool IsClickedOn()
+    {
+        Ray ray = camera.ScreenPointToRay(currentScreenPosition);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit))
+        {
+            if (hit.collider.CompareTag("drag"))
+            {
+                selectedObject = hit.collider.gameObject;
+                return true;
+            }
+        }
+        return false;
     }
 }

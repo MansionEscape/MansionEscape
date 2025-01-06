@@ -1,2 +1,16 @@
 fileFormatVersion: 2
 guid: 1592e7e68fbaf2747b53f8704188c356
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - player: {instanceID: 0}
+  - controller: {instanceID: 0}
+  - item: {instanceID: 0}
+  - highlightMaterial: {instanceID: 0}
+  - interact: {fileID: -5349496436686934940, guid: 3f4a940c29dec7a45a4fc1d4f99d62dc, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
