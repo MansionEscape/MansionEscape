@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.InputSystem;
 
 public class BallPuzzleComplete : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class BallPuzzleComplete : MonoBehaviour
     public float speed = 12f;
     public string finishZoneTag = "finishZone";
     public TMP_Text puzzleCompleteText;
+    public InputAction ballMovement;
+    
+    Vector2 moveInput = Vector2.zero;
 
     void Start()
     {
@@ -21,16 +25,32 @@ public class BallPuzzleComplete : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        ballMovement.Enable();
+    }
+
+    private void OnDisable()
+    {
+        ballMovement.Disable();
+    }
+
     void Update()
     {
         // Get input for movement
-        float moveX = Input.GetAxis("Horizontal"); 
-        float moveY = Input.GetAxis("Vertical");    
+        //float moveX = Input.GetAxis("Horizontal"); 
+        //float moveY = Input.GetAxis("Vertical");
+        moveInput = ballMovement.ReadValue<Vector2>();
 
-        // Apply movement force based on input
-        Vector3 movementForce = new Vector3(moveX, 0, moveY) * speed;
+    }
 
-        rb.AddForce(movementForce);  // Apply force to the Rigidbody for movement
+    void FixedUpdate()
+    {
+        if (moveInput != Vector2.zero)
+        {
+            Vector3 movementForce = new Vector3(moveInput.x, 0, moveInput.y) * speed;
+            rb.AddForce(movementForce);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
