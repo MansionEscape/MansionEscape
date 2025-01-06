@@ -23,8 +23,8 @@ public class FireplaceInteraction : MonoBehaviour
 
     private void Start()
     {
-        player = GameObject.Find("PlayerManager").GetComponent<PlayerManager>();
-        controller = GameObject.Find("MainGameController").GetComponent<MainController>();
+        player = GameObject.FindWithTag("PlayerManager").GetComponent<PlayerManager>();
+        controller = GameObject.FindWithTag("MainGameController").GetComponent<MainController>();
 
         if (fireAnimation != null)
         {
@@ -84,6 +84,7 @@ public class FireplaceInteraction : MonoBehaviour
         // Update UI and notify player
         controller.instructionBox.SetActive(false);
         controller.instructionText.text = "The key has been added to your inventory!";
+        controller.UpdateObjective("three");
         Debug.Log("Key added to inventory and ingredients removed!");
     }
 
