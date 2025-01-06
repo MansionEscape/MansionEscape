@@ -7,7 +7,9 @@ using UnityEngine.SceneManagement;
 
 public class PuzzleTrigger : MonoBehaviour
 {
+    public GameObject mainControl;
     public MainController controller;
+    public GameObject playerControl;
     public PlayerManager player;
 
     public string sceneName;
@@ -32,20 +34,24 @@ public class PuzzleTrigger : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        CheckPlayerObjective(puzzleObjective);
+        mainControl = GameObject.FindWithTag("MainGameController");
+        controller = mainControl.GetComponent<MainController>();
+
+        playerControl = GameObject.FindWithTag("PlayerManager");
+        player = playerControl.GetComponent<PlayerManager>();
+
+
+        CheckIfObjectiveUpdated();
 
         if (player.data.currentLevel > puzzleLevel)
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
 
         }
-        else if (playerObjective)
+        else if (player.data.currentLevel == puzzleLevel & playerObjective)
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
-
-
-        controller = GameObject.Find("MainGameController").GetComponent<MainController>();
 
         wasPressed = false;
         IsPlayerNearby = false;
@@ -64,7 +70,7 @@ public class PuzzleTrigger : MonoBehaviour
                 CheckPlayerInventory();
                 if (itemsInInventory)
                 {
-                    controller.TriggerDialogue("We Have All The Items!! Load Scene Here!");
+                    LoadScene();
                 }
                 else
                 {
@@ -73,7 +79,7 @@ public class PuzzleTrigger : MonoBehaviour
             }
             else
             {
-                controller.TriggerDialogue("No Items Required! Load the scene.");
+                LoadScene();
                 
             }
         }
@@ -115,6 +121,27 @@ public class PuzzleTrigger : MonoBehaviour
         else if (objective == "three")
         {
             playerObjective = player.data.ObjectivePuzzleThreeComplete;
+        }
+
+    }
+
+    public void CheckIfObjectiveUpdated()
+    {
+        CheckPlayerObjective(puzzleObjective);
+
+        if (playerObjective)
+        {
+            for (int i = 0; i < requiredItems.Count; i++)
+            {  
+
+                foreach (var item in controller.currentPlayer.data.items)
+                {
+                    if (item.itemName == requiredItems[i])
+                    {
+                        player.RemoveItemPuzzleItem(item);
+                    }
+                }
+            }
         }
 
     }

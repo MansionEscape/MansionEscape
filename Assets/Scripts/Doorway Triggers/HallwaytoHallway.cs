@@ -17,7 +17,7 @@ public class HallwaytoHallway : MonoBehaviour
 
     private void Awake()
     {
-        mainGameController = GameObject.Find("MainGameController");
+        mainGameController = GameObject.FindWithTag("MainGameController");
         mainController = mainGameController.GetComponent<MainController>();
     }
 
