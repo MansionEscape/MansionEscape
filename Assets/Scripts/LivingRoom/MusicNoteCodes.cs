@@ -1,9 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MusicNoteCodes : MonoBehaviour
 {
+    public GameObject playerControl;
+    public PlayerManager player;
+
     public AudioSource C_Note;
     public AudioSource D_Note;
     public AudioSource E_Note;
@@ -24,12 +29,15 @@ public class MusicNoteCodes : MonoBehaviour
     public AudioSource DS1_Note;
 
     // Puzzle completion variables
-    public GameObject puzzleCompleteImage; 
+    public GameObject puzzleCompleteImage;
+    public TMP_Text puzzleCompleted;
     private List<string> inputSequence = new List<string>();
     private string[] correctSequence = { "D1", "F", "E", "FS", "Bb", "G" }; // Correct sequence of notes
 
     private void Start()
     {
+        playerControl = GameObject.FindWithTag("PlayerManager");
+        player = playerControl.GetComponent<PlayerManager>();
         puzzleCompleteImage.SetActive(false); // Ensure puzzle complete image is initially hidden
     }
 
@@ -122,6 +130,12 @@ public class MusicNoteCodes : MonoBehaviour
     {
         PlayNoteAndCheck("DS1", DS1_Note);
     }
+    public IEnumerator LoadMansion()
+    {
+        yield return new WaitForSeconds(2);
+        player.LoadPlayerGame();
+        SceneManager.LoadScene("Mansion");
+    }
 
     private void PlayNoteAndCheck(string note, AudioSource audioSource)
     {
@@ -141,6 +155,10 @@ public class MusicNoteCodes : MonoBehaviour
         {
             // Display Puzzle Complete image if the sequence is correct
             puzzleCompleteImage.SetActive(true);
+            player.data.ObjectivePuzzleTwoComplete = true;
+            player.UpdatePlayer();
+            puzzleCompleted.text = "Loading Mansion...";
+            StartCoroutine(LoadMansion());
             Debug.Log("Puzzle Solved!");
         }
     }

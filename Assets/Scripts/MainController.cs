@@ -143,13 +143,13 @@ public class MainController : MonoBehaviour
         }
         else if (currentPlayer.data.currentLevel == 2)
         {
-            LevelTitle.text = "Level Two: Recipe For Disaster!";
-            objectiveOneTitle.text = "Objective 1: Re";
+            LevelTitle.text = "Level Two: The Kitchen!";
+            objectiveOneTitle.text = "Objective 1: Hungry";
             objectiveOneText.text = "Look at the big fireplace! Lets check it out, it might be usable";
             LoadObjectiveStatus(currentPlayer.data.ObjectivePuzzleOneComplete, objectiveOneIcon);
 
-            objectiveTwoTitle.text = "Objective 2: Pantry!";
-            objectiveTwoText.text = "Maybe some ingredients are inside the pantry, find the key to unlock it!";
+            objectiveTwoTitle.text = "Objective 2: Recipe For Disaster";
+            objectiveTwoText.text = "Maybe theres a list of ingredients around here!";
             LoadObjectiveStatus(currentPlayer.data.ObjectivePuzzleTwoComplete, objectiveTwoIcon);
 
             objectiveThreeTitle.text = "Objective 3: Living Room";

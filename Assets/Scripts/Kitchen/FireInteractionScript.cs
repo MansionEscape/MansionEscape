@@ -116,6 +116,10 @@ public class FireplaceInteraction : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            if (!player.data.levelOneComplete && player.data.currentLevel == 2)
+            {
+                controller.UpdateObjective("one");
+            }
             isPlayerNearby = true;
             controller.instructionBox.SetActive(true);
             controller.instructionText.text = "Press 'E' to interact with the fireplace.";
